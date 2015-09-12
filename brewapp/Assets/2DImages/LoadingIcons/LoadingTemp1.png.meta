@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: eb1205cb75599ef4aa02790869c8e78c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: LoadingTemp1_0
+    21300002: LoadingTemp1_1
+    21300004: LoadingTemp1_2
+    21300006: LoadingTemp1_3
+    21300008: LoadingTemp1_4
+    21300010: LoadingTemp1_5
+    21300012: LoadingTemp1_6
+    21300014: LoadingTemp1_7
+    21300016: LoadingTemp1_8
+    21300018: LoadingTemp1_9
+    21300020: LoadingTemp1_10
+    21300022: LoadingTemp1_11
+    21300024: LoadingTemp1_12
+    21300026: LoadingTemp1_13
+    21300028: LoadingTemp1_14
+    21300030: LoadingTemp1_15
+    21300032: LoadingTemp1_16
+    21300034: LoadingTemp1_17
+    21300036: LoadingTemp1_18
+    21300038: LoadingTemp1_19
+    21300040: LoadingTemp1_20
+    21300042: LoadingTemp1_21
+    21300044: LoadingTemp1_22
+    21300046: LoadingTemp1_23
+    21300048: LoadingTemp1_24
+    21300050: LoadingTemp1_25
+    21300052: LoadingTemp1_26
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: LoadingTemp1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_5
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_6
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 874
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_8
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_10
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_11
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_12
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_13
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 724
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_15
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_16
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_17
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_18
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_19
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_20
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 574
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 424
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_22
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 424
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_23
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 424
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_24
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 424
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_25
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 424
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LoadingTemp1_26
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 424
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

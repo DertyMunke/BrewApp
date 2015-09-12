@@ -1,0 +1,87 @@
+fileFormatVersion: 2
+guid: 2a4e9394d49743545b8b7334dcd3528d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: LPAppleBox
+    100004: LPBase
+    100006: LPBee
+    100008: LPHive
+    100010: LPMetalchainTop
+    400000: //RootNode
+    400002: LPAppleBox
+    400004: LPBase
+    400006: LPBee
+    400008: LPHive
+    400010: LPMetalchainTop
+    2300000: LPAppleBox
+    2300002: LPBase
+    2300004: LPBee
+    2300006: LPHive
+    2300008: LPMetalchainTop
+    3300000: LPAppleBox
+    3300002: LPBase
+    3300004: LPBee
+    3300006: LPHive
+    3300008: LPMetalchainTop
+    4300000: LPBee
+    4300002: LPAppleBox
+    4300004: LPMetalchainTop
+    4300006: LPHive
+    4300008: LPBase
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
