@@ -483,7 +483,6 @@ public class PPManager : Touch3D
 					}
 				}
 			}
-
 		}
 	}
 
@@ -514,12 +513,14 @@ public class PPManager : Touch3D
 	// Sets the final values for the top banner -> Used with start game button and in Init()
 	public void StartGameBtn()
 	{
-		difficulty = GameManager.manager.GetDifficulty ();
-		Dude.dudeScript.SetDudeDiff(difficulty);
+		if (Wager.wagerScript.GetBetAmt () != 0) {
+			difficulty = GameManager.manager.GetDifficulty ();
+			Dude.dudeScript.SetDudeDiff (difficulty);
 
-		oddsTxt.text = string.Format ("{0}:1", difficulty);
-		wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());
-		totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
-		tootCnvs.SetActive(true);
+			oddsTxt.text = string.Format ("{0}:1", difficulty);
+			wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());
+			totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
+			tootCnvs.SetActive (true);
+		}
 	}
 }

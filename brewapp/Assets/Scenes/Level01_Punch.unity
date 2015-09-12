@@ -2347,8 +2347,8 @@ RectTransform:
   - {fileID: 1091458273}
   - {fileID: 766460511}
   - {fileID: 1010920084}
-  - {fileID: 302563690}
   - {fileID: 1774449272}
+  - {fileID: 302563690}
   - {fileID: 1743752272}
   m_Father: {fileID: 2118073113}
   m_RootOrder: 21
@@ -9964,7 +9964,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 57968619}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: .0296444688, y: .0184371173}
   m_AnchorMax: {x: .162644461, y: .191086397}
   m_AnchoredPosition: {x: 1.56781006, y: -3.24771118}
@@ -10022,24 +10022,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 57968620}
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 57968621}
         m_MethodName: ToggleObj
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1091458272}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 57968620}
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -53958,7 +53958,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22419806, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22419792, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_RootOrder
@@ -53974,7 +53974,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22419808, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11419836, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -53991,6 +53991,47 @@ Prefab:
     - target: {fileID: 11419830, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: set_interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 57968621}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ToggleObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1091458272}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 57968620}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
@@ -56165,7 +56206,7 @@ RectTransform:
   - {fileID: 42654306}
   - {fileID: 843301570}
   m_Father: {fileID: 57968619}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2.31411743, y: -.812988281}
@@ -60736,7 +60777,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1918740487}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 49b279770a6c8b146a592a00418e707f, type: 2}
   m_CullingMode: 0
@@ -67296,6 +67337,7 @@ MonoBehaviour:
   punchCatPnl: {fileID: 1762052016}
   loadingImg: {fileID: 574841354}
   wagerPnl: {fileID: 2052183602}
+  bag: {fileID: 1918740487}
   tootCns: {fileID: 103045956}
   bearCam: {fileID: 461466109}
   mainCam: {fileID: 2141342141}

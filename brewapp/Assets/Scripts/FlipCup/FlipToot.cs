@@ -31,7 +31,7 @@ public class FlipToot : MonoBehaviour
 
 	public void StartFlipToot()
 	{
-		if(GameManager.manager.GetFlipToot())
+		if(GameManager.manager.GetFlipToot() && Wager.wagerScript.GetBetAmt() != 0)
 		{
 			tootCnvs.enabled = true;
 			flipBtnPnl.SetActive(false);

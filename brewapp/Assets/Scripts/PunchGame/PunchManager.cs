@@ -20,6 +20,7 @@ public class PunchManager : MonoBehaviour
 	public GameObject punchCatPnl;
 	public GameObject loadingImg;
 	public GameObject wagerPnl;
+	public GameObject bag;
 	public Canvas tootCns;
 //	public GameObject practicePnl;
 	public Camera bearCam;
@@ -222,19 +223,23 @@ public class PunchManager : MonoBehaviour
 	// Sets the final values for the top banner -> Used with start game button and in Init()
 	public void StartGameBtn()
 	{
-		Time.timeScale = 1;
-		difficulty = GameManager.manager.GetDifficulty();
-		if(GameManager.manager.GetDblNothing())
-			BearAI.bearScript.SetBearDiff(difficulty < 5 ? difficulty + 1 : difficulty);
-		else 
-			BearAI.bearScript.SetBearDiff(difficulty);
-		PowerMeter.pmeterScript.PowerDifficulty(difficulty);
+		if (Wager.wagerScript.GetBetAmt () != 0) 
+		{
+			Time.timeScale = 1;
+			bag.GetComponent<Animator>().enabled = true;
+			difficulty = GameManager.manager.GetDifficulty ();
+			if (GameManager.manager.GetDblNothing ())
+				BearAI.bearScript.SetBearDiff (difficulty < 5 ? difficulty + 1 : difficulty);
+			else 
+				BearAI.bearScript.SetBearDiff (difficulty);
+			PowerMeter.pmeterScript.PowerDifficulty (difficulty);
 
-		oddsTxt.text = string.Format ("{0}:1", difficulty);
-		wagerTxt.text = string.Format("{0:F2}", GameManager.manager.GetMyBetAmt ());
-		totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
+			oddsTxt.text = string.Format ("{0}:1", difficulty);
+			wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());
+			totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
 
-		if(Application.loadedLevelName != "PunchPractice")
-			BearAI.bearScript.BearIt ();
+			if (Application.loadedLevelName != "PunchPractice")
+				BearAI.bearScript.BearIt ();
+		}
 	}
 }
