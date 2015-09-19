@@ -60,8 +60,8 @@ public class FlipCupManager : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if(startHisGame)
-			HisGame ();  //Runs the AI game
+//		if(startHisGame)
+//			HisGame ();  //Runs the AI game
 	
 		// Checks for the end of the put cup down animation once it starts
 		if(putDownCup || putDownDone)
@@ -113,28 +113,28 @@ public class FlipCupManager : MonoBehaviour
 		myCups [myCupIndex].SetActive (false);
 	}
 
-	// The AI: This is all the AI until the character for this level is complete
-	private void HisGame()
-	{
-		if(hisCupIndex < numCups)
-		{
-			if(hisCups[hisCupIndex].GetComponent<Animator>().enabled == false)
-			{
-				hisCups [hisCupIndex].GetComponent<Animator> ().enabled = true;
-			}
-		
-			if(hisCups [hisCupIndex].GetComponent<Animator> ().GetCurrentAnimatorStateInfo(0).IsName("Done"))
-			{
-				hisDoneCheck[hisCupIndex].enabled = true;
-				hisCups[hisCupIndex].SetActive(false);
-				hisCupIndex ++;
-				if(hisCupIndex >= numCups)
-				{
-					GameOver(false);
-				}
-			}
-		}
-	}
+//	// The AI: This is all the AI until the character for this level is complete
+//	private void HisGame()
+//	{
+//		if(hisCupIndex < numCups)
+//		{
+//			if(hisCups[hisCupIndex].GetComponent<Animator>().enabled == false)
+//			{
+//				hisCups [hisCupIndex].GetComponent<Animator> ().enabled = true;
+//			}
+//		
+//			if(hisCups [hisCupIndex].GetComponent<Animator> ().GetCurrentAnimatorStateInfo(0).IsName("Done"))
+//			{
+//				hisDoneCheck[hisCupIndex].enabled = true;
+//				hisCups[hisCupIndex].SetActive(false);
+//				hisCupIndex ++;
+//				if(hisCupIndex >= numCups)
+//				{
+//					GameOver(false);
+//				}
+//			}
+//		}
+//	}
 
 	// Pushing the chug button allows you to tilt the cup back to chug the beer
 	public void ChugButton()

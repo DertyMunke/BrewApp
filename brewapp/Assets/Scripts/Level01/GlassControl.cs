@@ -57,16 +57,16 @@ public class GlassControl : MonoBehaviour
 		rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 	}
 
-	private void OnCollisionEnter(Collision other)
-	{
-		if(other.gameObject.tag == "Bar")
-		{
-			audio.Play ();
-//			if(!firstSlideSound)
-//				audio.clip = "SoftHitSlide";
-			
-		}
-	}
+//	private void OnCollisionEnter(Collision other)
+//	{
+//		if(other.gameObject.tag == "Bar")
+//		{
+//			audio.Play ();
+////			if(!firstSlideSound)
+////				audio.clip = "SoftHitSlide";
+//			
+//		}
+//	}
 
 	private void OnCollisionExit()
 	{

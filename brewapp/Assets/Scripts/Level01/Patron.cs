@@ -78,9 +78,9 @@ public class Patron : Touch3D
 			animStage = 0;
 			SetBeerChoice();
 
-			if(gameObject.name == "Rabbit" || gameObject.name == "Fox")
+			if(gameObject.name == "Rabbit")
 				animation.Play ("BeerPlease");
-			else if(gameObject.name == "Bear")
+			else if(gameObject.name == "Bear" || gameObject.name == "Fox")
 				myAnimator.SetBool("BeerPls", true);
 		}
 
@@ -133,6 +133,8 @@ public class Patron : Touch3D
 		else if(name == "Fox")
 		{
 			gameChoice = "FlipCup";
+			myAnimator = gameObject.GetComponent<Animator> ();
+			myAnimator.SetBool("BeerPls", true);
 		}
 
 	}
@@ -300,13 +302,13 @@ public class Patron : Touch3D
 		startMessage = true;
 		animStage = 0;
 		SetBeerChoice();
-		if(name == "Rabbit" || name == "Fox")
+		if(name == "Rabbit")
 		{
 			animation.Play ("BeerPlease");
 		}
 		else
 		{
-			myAnimator.SetBool("BeerPls", true);
+			myAnimator.SetBool("BeerPls", true || name == "Fox");
 		}
 	}
 
@@ -338,7 +340,7 @@ public class Patron : Touch3D
 	// Sets the idle animation
 	public void SetIdleAnim()
 	{
-		if(name == "Rabbit" || name == "Fox")
+		if(name == "Rabbit")
 		{
 			animation.Play ("IDLE_1");
 		}
@@ -352,7 +354,7 @@ public class Patron : Touch3D
 	// Sets the beer please animation
 	public void SetBeerPlsAnim()
 	{
-		if(name == "Rabbit" || name == "Fox")
+		if(name == "Rabbit")
 		{
 			animation.Play ("BeerPlease");
 		}
