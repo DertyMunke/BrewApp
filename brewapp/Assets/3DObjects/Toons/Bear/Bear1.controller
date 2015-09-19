@@ -582,6 +582,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110297550
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: LowPolyClothes|OkThrow
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400024, guid: 02f2f532cc12b8843adef4285ec347e5, type: 3}
+  m_ParentStateMachine: {fileID: 110774004}
+  m_Position: {x: 38, y: -287, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110774004
 StateMachine:
   serializedVersion: 2
