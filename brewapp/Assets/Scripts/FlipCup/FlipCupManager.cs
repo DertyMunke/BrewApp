@@ -14,11 +14,14 @@ public class FlipCupManager : MonoBehaviour
 	private bool putDownCup = false;
 	private bool putDownDone = false;
 	private bool startHisGame = false;
+	private float foxAnimSpacing = 1; // The amount of time between flip cup anims 
 	private int winState = 2; // 0 = win, 1 = lose, 2 = draw
 	private int myCupIndex = 0;
 	private int hisCupIndex = 0;
 
 	public static FlipCupManager managerScript;
+	public GameObject fox;
+	public GameObject foxHand;
 	public GameObject loadingImg;
 	public GameObject theWorld;
 	public GameObject camFlipView;
@@ -102,7 +105,7 @@ public class FlipCupManager : MonoBehaviour
 			Vector3 hisPos = new Vector3(hisCupSpawn.transform.position.x, hisCupSpawn.transform.position.y, 
 			                             hisCupSpawn.transform.position.z - (i*3));
 			GameObject cup1 = (GameObject)(Instantiate(myCup, myPos, Quaternion.Euler(270, 90, -90)));
-			GameObject cup2 = (GameObject)(Instantiate(hisCup, hisPos, Quaternion.Euler(270, 90, -90)));
+			GameObject cup2 = (GameObject)(Instantiate(hisCup, hisPos, Quaternion.Euler(270, 270, -90)));
 			cup1.transform.parent = theWorld.transform;
 			cup2.transform.parent = theWorld.transform;
 			myCups[i] = cup1;
@@ -112,29 +115,42 @@ public class FlipCupManager : MonoBehaviour
 		}
 		myCups [myCupIndex].SetActive (false);
 	}
-
-//	// The AI: This is all the AI until the character for this level is complete
-//	private void HisGame()
-//	{
+	#region FoxAI
+	/// <summary>
+	/// Fox AI behavior
+	/// </summary>
+	private IEnumerator FoxAI()
+	{
+		Animator foxAnims = fox.GetComponent<Animator> ();
 //		if(hisCupIndex < numCups)
 //		{
-//			if(hisCups[hisCupIndex].GetComponent<Animator>().enabled == false)
+		foxAnims.SetTrigger("PickUpCup");
+		yield return new WaitForSeconds (6.3f); // Time til put down
+		hisCup.SetActive (true);
+		yield return new WaitForSeconds (foxAnimSpacing);
+		foxAnims.SetTrigger ("FlipCup");
+		yield return new WaitForSeconds (4.6f); // Time til flip
+
+//		Debug.Log ("done");
+//		if(hisCups [hisCupIndex].GetComponent<Animator> ().GetCurrentAnimatorStateInfo(0).IsName("Done"))
+//		{
+//			hisDoneCheck[hisCupIndex].enabled = true;
+//			hisCups[hisCupIndex].SetActive(false);
+//			hisCupIndex ++;
+//			if(hisCupIndex >= numCups)
 //			{
-//				hisCups [hisCupIndex].GetComponent<Animator> ().enabled = true;
-//			}
-//		
-//			if(hisCups [hisCupIndex].GetComponent<Animator> ().GetCurrentAnimatorStateInfo(0).IsName("Done"))
-//			{
-//				hisDoneCheck[hisCupIndex].enabled = true;
-//				hisCups[hisCupIndex].SetActive(false);
-//				hisCupIndex ++;
-//				if(hisCupIndex >= numCups)
-//				{
-//					GameOver(false);
-//				}
+//				GameOver(false);
 //			}
 //		}
-//	}
+		yield return null;
+	}
+
+	public void GetFoxCurrCup(GameObject currCup)
+	{
+		hisCup = currCup;
+		foxHand.SetActive (false);
+	}
+	#endregion
 
 	// Pushing the chug button allows you to tilt the cup back to chug the beer
 	public void ChugButton()
@@ -142,6 +158,7 @@ public class FlipCupManager : MonoBehaviour
 		if(!startHisGame)
 		{
 			FlipToot.flipTootScript.CheckContinue(2);
+			StartCoroutine(FoxAI());
 			startHisGame = true;
 		}
 

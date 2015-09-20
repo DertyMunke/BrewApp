@@ -6942,7 +6942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &210434471
 GameObject:
   m_ObjectHideFlags: 0
@@ -32142,6 +32142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5f9ec135b7e1469300231a8025c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fox: {fileID: 1090054205}
+  foxHand: {fileID: 1828228294}
   loadingImg: {fileID: 536136157}
   theWorld: {fileID: 1904698958}
   camFlipView: {fileID: 252566672}
@@ -32397,7 +32399,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 471532, guid: 3427902c5000cac4c8dba4995d02d596, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.98999977
+      value: 6.90999985
       objectReference: {fileID: 0}
     - target: {fileID: 471532, guid: 3427902c5000cac4c8dba4995d02d596, type: 2}
       propertyPath: m_LocalPosition.y
@@ -35366,7 +35368,7 @@ Transform:
   m_PrefabInternal: {fileID: 999845598}
   m_GameObject: {fileID: 1090054205}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 5.98999977, y: 3.8900001, z: 8.48999977}
+  m_LocalPosition: {x: 6.90999985, y: 3.8900001, z: 8.48999977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1122693451}
@@ -35398,7 +35400,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3
+  m_Radius: 2
   m_Height: 12
   m_Direction: 1
   m_Center: {x: 0, y: 6, z: 0}
@@ -49955,7 +49957,7 @@ Transform:
   - {fileID: 1539282349}
   - {fileID: 1502361217}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1519771387
 GameObject:
   m_ObjectHideFlags: 0
@@ -56521,62 +56523,6 @@ Transform:
   - {fileID: 1081355001}
   m_Father: {fileID: 1164525526}
   m_RootOrder: 3
---- !u!1 &1722693002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1722693004}
-  - 135: {fileID: 1722693003}
-  - 54: {fileID: 1722693005}
-  m_Layer: 0
-  m_Name: PoopFace
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!135 &1722693003
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722693002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1722693004
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722693002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1400001, y: 11.0200005, z: 13.6899996}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
---- !u!54 &1722693005
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722693002}
-  serializedVersion: 2
-  m_Mass: 1.00000001e-07
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1722827831
 GameObject:
   m_ObjectHideFlags: 0
@@ -57065,7 +57011,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458528, guid: d6b0ee1200728dc47905024f7bbc0dea, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11458528, guid: d6b0ee1200728dc47905024f7bbc0dea, type: 2}
       propertyPath: flipArrow
@@ -59885,7 +59831,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1828228294}
   m_LocalRotation: {x: -.424104482, y: -.453741282, z: -.0388656296, w: .782779455}
-  m_LocalPosition: {x: .000609999988, y: -.000132000001, z: -.00671999995}
+  m_LocalPosition: {x: -.00400000019, y: -.000214, z: -.00939999986}
   m_LocalScale: {x: .00897382852, y: .00603089761, z: .00522125605}
   m_Children: []
   m_Father: {fileID: 1068004626}
@@ -59900,7 +59846,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .100000001
+  m_Radius: .00999999978
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1828228297
 Rigidbody:
