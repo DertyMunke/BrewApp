@@ -192,6 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93269ee93648635448c6e2197e49b5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myForcePoint: {fileID: 158532}
+  winTrigger: {fileID: 158530}
 --- !u!136 &13658532
 CapsuleCollider:
   m_ObjectHideFlags: 1

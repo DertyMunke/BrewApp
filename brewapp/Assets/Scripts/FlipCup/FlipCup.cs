@@ -21,6 +21,8 @@ public class FlipCup : MonoBehaviour
 	private int timeDelta = 3;
 	private int difficulty = 0;
 
+	public GameObject theWorld;
+	public GameObject cup;
 	public GameObject winTrigger;
 	public GameObject forcePoint;
 	public GameObject flipArrow;
@@ -79,15 +81,34 @@ public class FlipCup : MonoBehaviour
 			if(Time.time > timer)
 			{
 				// Checks for a successful flip
-				if(CheckSuccess() && Application.loadedLevelName != "FlipPractice")
+				if(CheckSuccess())
 				{
+					GameObject newobj = Instantiate(cup, transform.position, transform.rotation) as GameObject;
+					newobj.transform.parent = theWorld.transform;
+
 					// Success! move to the next cup position
 					FlipCupManager.managerScript.NextCupReset();
 				}
+			
 				rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
 				resetTurn(); // Reset to beginning position 
 			} 
 		}
+	}
+
+	private void FlipCheckCup()
+	{
+		if(CheckSuccess())
+		{
+			GameObject newobj = Instantiate(cup, transform.position, transform.rotation) as GameObject;
+			newobj.transform.parent = theWorld.transform;
+
+			// Success! move to the next cup position
+			FlipCupManager.managerScript.NextCupReset();
+		}
+
+		rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
+		resetTurn(); // Reset to beginning position 
 	}
 
 	// Sets the difficulty for this level
@@ -132,7 +153,7 @@ public class FlipCup : MonoBehaviour
     // Reset cup position to start
 	void resetTurn()
 	{
-		rigidbody.velocity = new Vector3(0, 0, 0);
+		rigidbody.velocity = Vector3.zero;
 		rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
 		gameObject.SetActive(false);
 		transform.rotation = flipCupRot;

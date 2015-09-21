@@ -7,6 +7,7 @@ public class FlipCupManager : MonoBehaviour
 {
 	private GameObject[] myCups = new GameObject[7];
 	private GameObject[] hisCups = new GameObject[7];
+	private Animator foxAnims;
 	private bool heDone;
 	private bool meDone;
 	private bool pickUpCup = true;
@@ -51,7 +52,10 @@ public class FlipCupManager : MonoBehaviour
 	public Vector3 chugCupPos;
 	public float tiltAngle = 30;
 	public int numCups = 0;
-	
+
+	/// <summary>
+	/// Initializations
+	/// </summary>
 	private void Start()
 	{
 		managerScript = this;
@@ -59,6 +63,8 @@ public class FlipCupManager : MonoBehaviour
 		chugCamPos = camMain.transform.position;
 		chugCamRot = camMain.transform.rotation;
 		chugCupPos = animCup.transform.position;
+
+		foxAnims = fox.GetComponent<Animator> ();
 	}
 
 	private void FixedUpdate()
@@ -115,33 +121,51 @@ public class FlipCupManager : MonoBehaviour
 		}
 		myCups [myCupIndex].SetActive (false);
 	}
+
 	#region FoxAI
+
 	/// <summary>
 	/// Fox AI behavior
 	/// </summary>
 	private IEnumerator FoxAI()
 	{
-		Animator foxAnims = fox.GetComponent<Animator> ();
-//		if(hisCupIndex < numCups)
-//		{
-		foxAnims.SetTrigger("PickUpCup");
-		yield return new WaitForSeconds (6.3f); // Time til put down
-		hisCup.SetActive (true);
-		yield return new WaitForSeconds (foxAnimSpacing);
-		foxAnims.SetTrigger ("FlipCup");
-		yield return new WaitForSeconds (4.6f); // Time til flip
+		while (hisCupIndex < numCups) 
+		{
 
-//		Debug.Log ("done");
-//		if(hisCups [hisCupIndex].GetComponent<Animator> ().GetCurrentAnimatorStateInfo(0).IsName("Done"))
-//		{
-//			hisDoneCheck[hisCupIndex].enabled = true;
-//			hisCups[hisCupIndex].SetActive(false);
-//			hisCupIndex ++;
-//			if(hisCupIndex >= numCups)
-//			{
-//				GameOver(false);
-//			}
-//		}
+			foxAnims.SetTrigger ("PickUpCup");
+			yield return new WaitForSeconds (6.3f); // Time til put down
+			hisCup.SetActive (true);
+			do
+			{
+				hisCup.GetComponent<HisCup>().SetFlipCupPos();
+				yield return new WaitForSeconds (foxAnimSpacing);
+				foxAnims.SetTrigger ("FlipCup");
+				yield return new WaitForSeconds (1.6f); // Time til flip
+				hisCup.GetComponent<HisCup> ().ApplyForce (new Vector2 (-10, 20));
+				yield return new WaitForSeconds (3.5f);
+			}
+			while(!hisCup.GetComponent<HisCup> ().CheckSuccess ());
+			if (hisCup.GetComponent<HisCup> ().CheckSuccess ()) 
+			{
+				hisCupIndex++;
+
+				yield return new WaitForSeconds (foxAnimSpacing);
+				Vector3 targetPos = new Vector3 (fox.transform.position.x, fox.transform.position.y, fox.transform.position.z - 4);
+
+				if(hisCupIndex >= numCups)
+				{
+					StartCoroutine(GameOver(false));
+					break;
+				}
+
+				while (fox.transform.position.z > targetPos.z + 1) 
+				{
+					fox.transform.position = Vector3.Lerp (fox.transform.position, targetPos, foxAnimSpacing * Time.deltaTime);
+					yield return null;
+				}
+				foxHand.SetActive(true);
+			}
+		}
 		yield return null;
 	}
 
@@ -150,6 +174,7 @@ public class FlipCupManager : MonoBehaviour
 		hisCup = currCup;
 		foxHand.SetActive (false);
 	}
+	
 	#endregion
 
 	// Pushing the chug button allows you to tilt the cup back to chug the beer
@@ -183,7 +208,7 @@ public class FlipCupManager : MonoBehaviour
 			}
 		}
 		else
-			GameOver(false);
+			StartCoroutine(GameOver(false));
 	}
 
 	// After a succesfull flip, moves you to the next cup
@@ -194,7 +219,7 @@ public class FlipCupManager : MonoBehaviour
 		if(myCupIndex >= numCups)
 		{
 			flipCup.SetActive(false);
-			GameOver(true);
+			StartCoroutine(GameOver(true));
 		}
 		else
 		{
@@ -266,30 +291,33 @@ public class FlipCupManager : MonoBehaviour
 	}
 
 	// Called on game over: triggers the end wager and double or nothing
-	private void GameOver(bool youWin)
+	private IEnumerator GameOver(bool youWin)
 	{
-		if(youWin)
+		if (winState == 2) 
 		{
+			if (youWin) 
+			{
+				winState = 0;
+				foxAnims.SetTrigger ("BadFlip");
+				yield return new WaitForSeconds(2.25f);
 
-			hisCups[hisCupIndex --].GetComponent<Animator>().enabled = false;
+				GameManager.manager.IncReRoll ();
+				if (GameManager.manager.GetFlipLvl () == GameManager.manager.GetDifficulty () - 1)
+					GameManager.manager.flipCupLevel ++;
+			} 
+			else 
+			{
+				winState = 1;
+				foxAnims.SetTrigger("GoodFlip");
+				yield return new WaitForSeconds(2.667f);
 
-			GameManager.manager.IncReRoll();
-			if(GameManager.manager.GetFlipLvl() == GameManager.manager.GetDifficulty() - 1)
-				GameManager.manager.flipCupLevel ++;
+				if (chugButton.activeInHierarchy == true)
+					chugButton.GetComponentInChildren<Button> ().enabled = false;
+			}
 
-			winState = 0;
+			GameManager.manager.flipSliderVal = 0;
+			Wager.wagerScript.InitEndWager (winState);
 		}
-		else
-		{
-			if(chugButton.activeInHierarchy == true)
-				chugButton.GetComponentInChildren<Button>().enabled = false;
-
-			winState = 1;
-		}
-
-		GameManager.manager.flipSliderVal = 0;
-
-		Wager.wagerScript.InitEndWager (winState);
 	}
 
 	// Starts end level animation and calls the BeerToss scene

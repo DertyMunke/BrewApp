@@ -14,7 +14,7 @@ GameObject:
   - 64: {fileID: 6400000}
   m_Layer: 0
   m_Name: PlasticCup
-  m_TagString: OtherCups
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: aaf34a395390400438d87160bab99834, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
