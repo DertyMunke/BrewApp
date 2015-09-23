@@ -23,6 +23,7 @@ public class FlipCupManager : MonoBehaviour
 	public static FlipCupManager managerScript;
 	public GameObject fox;
 	public GameObject foxHand;
+	public GameObject foxCup;
 	public GameObject loadingImg;
 	public GameObject theWorld;
 	public GameObject camFlipView;
@@ -133,8 +134,9 @@ public class FlipCupManager : MonoBehaviour
 		{
 
 			foxAnims.SetTrigger ("PickUpCup");
-			yield return new WaitForSeconds (6.3f); // Time til put down
+			yield return new WaitForSeconds (6.5f); // Time til put down
 			hisCup.SetActive (true);
+			foxCup.SetActive(false);
 			do
 			{
 				hisCup.GetComponent<HisCup>().SetFlipCupPos();
@@ -173,6 +175,7 @@ public class FlipCupManager : MonoBehaviour
 	{
 		hisCup = currCup;
 		foxHand.SetActive (false);
+		foxCup.SetActive (true);
 	}
 	
 	#endregion
