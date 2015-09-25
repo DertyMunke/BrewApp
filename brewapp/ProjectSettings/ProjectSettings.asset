@@ -11,8 +11,8 @@ PlayerSettings:
   targetIOSGraphics: -1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Brew App 3d
+  companyName: RandomSinProductions
+  productName: Brew App
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -72,8 +72,8 @@ PlayerSettings:
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: b8e3d84296b2b444aa00f395f0a0a383
-  iPhoneBundleVersion: 1.0
-  iPhoneShortBundleVersion: 1.0
+  iPhoneBundleVersion: 0.01
+  iPhoneShortBundleVersion: 0.01
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 17
   AndroidPreferredInstallLocation: 1

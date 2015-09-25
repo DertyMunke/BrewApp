@@ -25,9 +25,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
   - enabled: 0
     path: Assets/Scenes/Level01_sin.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FlipPractice.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PongPractice.unity
   - enabled: 1
     path: Assets/Scenes/PunchPractice.unity

@@ -68,11 +68,11 @@ public class GlassControl : MonoBehaviour
 //		}
 //	}
 
-	private void OnCollisionExit()
-	{
-		if(audio.isPlaying)
-		{
-			audio.Stop();
-		}
-	}
+//	private void OnCollisionExit()
+//	{
+//		if(audio.isPlaying)
+//		{
+//			audio.Stop();
+//		}
+//	}
 }
