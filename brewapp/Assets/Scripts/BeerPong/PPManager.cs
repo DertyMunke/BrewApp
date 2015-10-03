@@ -27,11 +27,11 @@ public class PPManager : Touch3D
 	private int maxCups = 6; // Increases in "double or nothing" when both players make their shot
 
 	public static PPManager ppManager;
+	public GameObject[] menuBtns;
 	public GameObject[] rerackBtns = new GameObject[3];
 	public GameObject[] hisCups = new GameObject[6];
 	public GameObject[] myCups = new GameObject[6];
 	public GameObject wagerPnl;
-	public GameObject practicePnl;
 	public GameObject loadingImg;
 	public GameObject tootCnvs;
 	public Sprite[] rerackIms = new Sprite[9];
@@ -92,9 +92,7 @@ public class PPManager : Touch3D
 		if(dblNothin)
 		{
 			SetupDblNothing();
-			wagerPnl.SetActive (false);
-			practicePnl.SetActive(false);
-			
+
 			// Starts the game
 			PauseManager.pauseScript.Pause();
 			StartGameBtn ();
@@ -116,8 +114,11 @@ public class PPManager : Touch3D
 	// Disables all cups but 1 on each side, in a random position
 	private void SetupDblNothing()
 	{
-		int randomCup = Random.Range(0, 6); 
+		menuBtns [0].SetActive (false);
+		menuBtns [1].SetActive (true);
+		wagerPnl.SetActive (false);
 
+		int randomCup = Random.Range(0, 6); 
 		// Turn off all of the cups except for 1, to setup for "double or nothing" challenge
 		for(int i = 0; i < hisCups.Length; i++)
 		{
@@ -141,11 +142,6 @@ public class PPManager : Touch3D
 		{
 			if(GameManager.manager.GetPongRackToot())
 			{
-//				if(!tootCnvs.activeInHierarchy)
-//				{
-//					tootCnvs.SetActive(true);
-//					PongToot.tootScript.SetTootStage(15);
-//				}
 				PongToot.tootScript.CallTootStage(15);
 			}
 

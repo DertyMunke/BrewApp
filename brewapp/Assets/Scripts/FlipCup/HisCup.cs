@@ -27,19 +27,19 @@ public class HisCup : MonoBehaviour
 //		Debug.Log ("Trigger  " + other.gameObject.name);
 		if (other.gameObject.name == "FoxHand")
 		{
-			SetFlipCupPos();
+			SetFlipCupPos(FlipCupManager.managerScript.GetMyCupIndex);
 			FlipCupManager.managerScript.GetFoxCurrCup(gameObject);
 			gameObject.SetActive (false);
 		}
 	}
 
 	/// <summary>
-	/// Sets the flip cup to its starting position
+	/// Sets the cup to its starting flip position
 	/// </summary>
-	public void SetFlipCupPos()
+	public void SetFlipCupPos(int index)
 	{
 		rigidbody.velocity = Vector3.zero;
-		transform.position = new Vector3(startPos.x + .78f, startPos.y, startPos.z);
+		transform.position = new Vector3(startPos.x + .78f, startPos.y, startPos.z + 3 * index);
 		transform.rotation = startRot;
 	}
 

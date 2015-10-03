@@ -143,7 +143,6 @@ public class PongToot : MonoBehaviour
 		}
 		else if(tootStage == 10)
 		{
-			Debug.Log("10");
 			botTxtPnl.SetActive (false);
 			powerTouch.SetActive(false);
 			tootStage++;

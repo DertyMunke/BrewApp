@@ -16,6 +16,7 @@ public class FlipCupManager : MonoBehaviour
 	private bool putDownDone = false;
 	private bool startHisGame = false;
 	private float foxAnimSpacing = 1; // The amount of time between flip cup anims 
+	private float speedAI = .2f;
 	private int winState = 2; // 0 = win, 1 = lose, 2 = draw
 	private int myCupIndex = 0;
 	private int hisCupIndex = 0;
@@ -38,7 +39,6 @@ public class FlipCupManager : MonoBehaviour
 	public GameObject flipCup;
 	public GameObject chugButton;
 	public GameObject wagerPnl;
-	public GameObject practicePnl;	
 	public Image[] myCupIms = new Image[6];
 	public Image[] hisCupIms = new Image[6];
 	public Image[] myDoneCheck = new Image[6];
@@ -53,6 +53,9 @@ public class FlipCupManager : MonoBehaviour
 	public Vector3 chugCupPos;
 	public float tiltAngle = 30;
 	public int numCups = 0;
+
+	public int GetMyCupIndex { get { return myCupIndex; } }
+	public int GetNumCups { get { return numCups; } }
 
 	/// <summary>
 	/// Initializations
@@ -98,7 +101,6 @@ public class FlipCupManager : MonoBehaviour
 		{
 			numCups = 1;
 			wagerPnl.SetActive(false);
-			practicePnl.SetActive(false);
 			oddsTxt.text = string.Format ("{0}:1", GameManager.manager.GetDifficulty ());
 			wagerTxt.text = string.Format("{0:F2}", GameManager.manager.GetMyBetAmt ());
 			totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
@@ -130,38 +132,80 @@ public class FlipCupManager : MonoBehaviour
 	/// </summary>
 	private IEnumerator FoxAI()
 	{
+		int diff = flipCup.GetComponent<FlipCup> ().Difficulty;
 		while (hisCupIndex < numCups) 
 		{
+			if (myCupIndex >= numCups) 
+			{
+				StartCoroutine (GameOver (true));
+				yield break;
+			}
 
 			foxAnims.SetTrigger ("PickUpCup");
 			yield return new WaitForSeconds (6.5f); // Time til put down
 			hisCup.SetActive (true);
 			foxCup.SetActive(false);
+
 			do
 			{
-				hisCup.GetComponent<HisCup>().SetFlipCupPos();
+				hisCup.GetComponent<HisCup>().SetFlipCupPos(myCupIndex);
+				if (myCupIndex >= numCups) 
+				{
+					StartCoroutine (GameOver (true));
+					yield break;
+				}
+
 				yield return new WaitForSeconds (foxAnimSpacing);
+				if (myCupIndex >= numCups) 
+				{
+					StartCoroutine (GameOver (true));
+					yield break;
+				}
+
 				foxAnims.SetTrigger ("FlipCup");
 				yield return new WaitForSeconds (1.6f); // Time til flip
-				hisCup.GetComponent<HisCup> ().ApplyForce (new Vector2 (-10, 20));
+				if (myCupIndex >= numCups) 
+				{
+					StartCoroutine (GameOver (true));
+					yield break;
+				}
+
+				hisCup.GetComponent<HisCup> ().ApplyForce (new Vector2 (Random.Range(-10 + 5 - diff, -10 - 5 + diff), 
+				                                                        Random.Range(20 -5 + diff, 20 + 5 - diff)));
+				if (myCupIndex >= numCups) 
+				{
+					StartCoroutine (GameOver (true));
+					yield break;
+				}
 				yield return new WaitForSeconds (3.5f);
 			}
 			while(!hisCup.GetComponent<HisCup> ().CheckSuccess ());
+
 			if (hisCup.GetComponent<HisCup> ().CheckSuccess ()) 
 			{
 				hisCupIndex++;
 
 				yield return new WaitForSeconds (foxAnimSpacing);
-				Vector3 targetPos = new Vector3 (fox.transform.position.x, fox.transform.position.y, fox.transform.position.z - 4);
 
-				if(hisCupIndex >= numCups)
+				if (myCupIndex >= numCups) 
+				{
+					StartCoroutine (GameOver (true));
+					yield break;
+				}
+				else if(hisCupIndex >= numCups)
 				{
 					StartCoroutine(GameOver(false));
 					break;
 				}
 
+				Vector3 targetPos = new Vector3 (fox.transform.position.x, fox.transform.position.y, fox.transform.position.z - 4);
 				while (fox.transform.position.z > targetPos.z + 1) 
 				{
+					if (myCupIndex >= numCups) 
+					{
+						StartCoroutine (GameOver (true));
+						yield break;
+					}
 					fox.transform.position = Vector3.Lerp (fox.transform.position, targetPos, foxAnimSpacing * Time.deltaTime);
 					yield return null;
 				}
@@ -219,12 +263,7 @@ public class FlipCupManager : MonoBehaviour
 	{
 		myDoneCheck [myCupIndex].enabled = true;
 		myCupIndex++;
-		if(myCupIndex >= numCups)
-		{
-			flipCup.SetActive(false);
-			StartCoroutine(GameOver(true));
-		}
-		else
+		if(myCupIndex < numCups)
 		{
 			camMain.transform.position = chugCamPos;
 			camMain.transform.rotation = chugCamRot;

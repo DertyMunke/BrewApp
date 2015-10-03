@@ -28,6 +28,8 @@ public class FlipCup : MonoBehaviour
 	public GameObject flipArrow;
 	public GameObject flipArrowDown;
 
+	public int Difficulty{ get{ return difficulty; }}
+
 	private void Start()
 	{
 		if(Application.loadedLevelName == "FlipPractice")  // Show the swipe images
@@ -91,6 +93,7 @@ public class FlipCup : MonoBehaviour
 				}
 			
 				rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
+			
 				resetTurn(); // Reset to beginning position 
 			} 
 		}
@@ -158,7 +161,8 @@ public class FlipCup : MonoBehaviour
 		gameObject.SetActive(false);
 		transform.rotation = flipCupRot;
 		transform.position = flipCupPos;
-		gameObject.SetActive(true);
+		if(FlipCupManager.managerScript.GetMyCupIndex < FlipCupManager.managerScript.GetNumCups)
+			gameObject.SetActive(true);
 		startTimer = false;
 		swipeActive = true;
 	}

@@ -19,12 +19,12 @@ public class PingPongBall : MonoBehaviour
 	private bool tootEnabled = false;
 	private bool oneSplashSound = true;
 	private float pwrMtrTimer = 0;
-	private float pwrMtrDelay = .03f;
+	private float pwrMtrDelay = .015f;
 	private float delay = .5f;
 	private float nextGhost;
+	public float throwPower = 0;
 	private int numGhosts = 10;
 	private int ghostIndex = 0;
-	public int throwPower = 0;
 
 	public static PingPongBall ppBallScript;
 	public GameObject dPad;
@@ -208,7 +208,7 @@ public class PingPongBall : MonoBehaviour
 	public void PwrMtrUp()
 	{
 		powerTrigger = false;
-		ReleaseBall (40 + Mathf.FloorToInt(throwPower));
+		ReleaseBall (40 + throwPower);
 		Invoke ("EndTurn", 5);
 	}
 
@@ -240,7 +240,7 @@ public class PingPongBall : MonoBehaviour
 	}
 
 	// Applies force to the ball
-	public void ReleaseBall(int force)
+	public void ReleaseBall(float force)
 	{
 		oneSplashSound = true;
 		oneDamp = true;
@@ -265,12 +265,12 @@ public class PingPongBall : MonoBehaviour
 		{
 			if(throwPower <= 0 || increasing)
 			{
-				throwPower ++;
+				throwPower += .5f;
 				increasing = true;
 			}
 			if(throwPower >= 31 || !increasing)
 			{
-				throwPower --;
+				throwPower -= .5f;
 				increasing = false;
 			}
 			pwrImg.sprite = pwrIms[Mathf.FloorToInt(throwPower)];
@@ -315,7 +315,6 @@ public class PingPongBall : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log (oneSplashSound + "  " + other.tag);
 		if(oneSplashSound && other.tag == "InCup")
 		{
 			if(!audio.isPlaying)

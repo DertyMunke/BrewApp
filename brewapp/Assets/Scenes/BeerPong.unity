@@ -14059,12 +14059,12 @@ RectTransform:
   m_GameObject: {fileID: 595450586}
   m_LocalRotation: {x: 0, y: 0, z: -3.25020949e-07, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
   m_Children: []
   m_Father: {fileID: 1714515743}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .686000049, y: .698623717}
-  m_AnchorMax: {x: .802680731, y: .831623673}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .681235611, y: .706230104}
+  m_AnchorMax: {x: .797916293, y: .839230061}
   m_AnchoredPosition: {x: -1.10000038, y: 0}
   m_SizeDelta: {x: .756103516, y: .928878784}
   m_Pivot: {x: .5, y: .5}
@@ -19345,7 +19345,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1714515743}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .59663868, y: .438311845}
   m_AnchorMax: {x: .938319385, y: .975623727}
   m_AnchoredPosition: {x: 1.89999962, y: 0}
@@ -34614,7 +34614,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1714515743}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .776680708, y: .533182859}
   m_AnchorMax: {x: .97771889, y: .84800005}
   m_AnchoredPosition: {x: -1.10000038, y: 1}
@@ -43989,9 +43989,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 632628573}
+  - {fileID: 595450587}
   - {fileID: 795776431}
   - {fileID: 1356782162}
-  - {fileID: 595450587}
   - {fileID: 725512458}
   m_Father: {fileID: 1454067176}
   m_RootOrder: 6
@@ -47221,6 +47221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusObj: {fileID: 0}
+  menuBtns:
+  - {fileID: 1361759987}
+  - {fileID: 668235520}
   rerackBtns:
   - {fileID: 727324887}
   - {fileID: 312437067}
@@ -47240,7 +47243,6 @@ MonoBehaviour:
   - {fileID: 1404175301}
   - {fileID: 298141397}
   wagerPnl: {fileID: 831465014}
-  practicePnl: {fileID: 0}
   loadingImg: {fileID: 1015710030}
   tootCnvs: {fileID: 1304842351}
   rerackIms:
@@ -50669,6 +50671,10 @@ Prefab:
     - target: {fileID: 11419788, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 119808, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}

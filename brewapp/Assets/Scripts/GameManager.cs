@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
 	{
 //		Save (currProfileName);  // took this out for testing, might need later
 
-		Debug.Log ("loading started: Level " + nextLevel);
+//		Debug.Log ("loading started: Level " + nextLevel);
 		// Async requires unity pro
 //		AsyncOperation async = Application.LoadLevelAsync ("Level01");
 //		yield return async;
 		yield return new WaitForSeconds(1.5f);
-		Debug.Log ("loading complete");
+//		Debug.Log ("loading complete");
 
 		Application.LoadLevel (nextLevel);
 	}
