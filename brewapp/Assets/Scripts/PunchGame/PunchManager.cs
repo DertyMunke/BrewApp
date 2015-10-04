@@ -21,8 +21,8 @@ public class PunchManager : MonoBehaviour
 	public GameObject loadingImg;
 	public GameObject wagerPnl;
 	public GameObject bag;
+	public GameObject[] menuBtns;
 	public Canvas tootCns;
-//	public GameObject practicePnl;
 	public Camera bearCam;
 	public Camera mainCam;
 	public Image[] myGlove = new Image[3];
@@ -59,7 +59,8 @@ public class PunchManager : MonoBehaviour
 		{
 			numPunches = 1;
 			wagerPnl.SetActive(false);
-//			practicePnl.SetActive(false);
+			menuBtns[0].SetActive(false);
+			menuBtns[1].SetActive(true);
 
 			for(int i = 1; i < 3; i++)
 			{
@@ -138,6 +139,8 @@ public class PunchManager : MonoBehaviour
 		// |<----
 
 		int punchIndex = punchNum % 3;
+
+		Debug.Log (myIndex + " " + bearIndex);
 		if(myIndex > bearIndex)
 		{
 			myScore ++;
@@ -179,6 +182,9 @@ public class PunchManager : MonoBehaviour
 
 						myCheck[i].enabled = false;
 						hisCheck[i].enabled = false;
+
+						myX[i].enabled = false;
+						hisX[i].enabled = false;
 					}
 				}
 
@@ -223,7 +229,7 @@ public class PunchManager : MonoBehaviour
 	// Sets the final values for the top banner -> Used with start game button and in Init()
 	public void StartGameBtn()
 	{
-		if (Wager.wagerScript.GetBetAmt () != 0) 
+		if (Wager.wagerScript.GetBetAmt () != 0 || dblNothin) 
 		{
 			Time.timeScale = 1;
 			bag.GetComponent<Animator>().enabled = true;

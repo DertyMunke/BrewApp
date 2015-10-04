@@ -10,6 +10,7 @@ public class PingPongBall : MonoBehaviour
 	private Vector3 cameraRight;
 	private Vector3 hisCup1Pos;
 	private Quaternion rotateBall;
+	private Vector3 cameraStartRot;
 	private bool oneDamp = true;
 	private bool aimLeft = false;
 	private bool aimRight = false;
@@ -65,6 +66,7 @@ public class PingPongBall : MonoBehaviour
 	private void Start()
 	{
 		Init ();
+		cameraStartRot = Camera.main.transform.localEulerAngles;
 		recentRotation = transform.rotation;
 	}
 
@@ -75,17 +77,21 @@ public class PingPongBall : MonoBehaviour
 			rigidbody.angularVelocity = Vector3.zero;
 		}
 
-		if(Application.loadedLevelName != "PongPractice")
-		{
-			if(endTurn)
-				EndMyTurn();
-		}
-		else if(endTurn)
+//		if(Application.loadedLevelName != "PongPractice")
+//		{
+		if(endTurn)
 		{
 			endTurn = false;
-			PPManager.ppManager.SetRandomCupActive(); 
-			ResetTurn();
+			EndMyTurn();
 		}
+				
+
+//		else if(endTurn)
+//		{
+//			endTurn = false;
+//			PPManager.ppManager.SetRandomCupActive(); 
+//			ResetTurn();
+//		}
 
 		if(Time.time > nextGhost && targeting && PPManager.ppManager.myScore != 6)
 		{
@@ -179,13 +185,10 @@ public class PingPongBall : MonoBehaviour
 	private void EndMyTurn()
 	{
 		myTurn = false;
-		if(renderer.enabled == false)
-		{
-			renderer.enabled = true;
-			camFollow = false;
-		}
-		endTurn = false;
+		renderer.enabled = false;
+		camFollow = false;
 
+		Camera.main.transform.localEulerAngles = Vector3.Lerp (Camera.main.transform.localEulerAngles, cameraStartRot, 1);
 		if(!PPManager.ppManager.GetDblNothin())
 		{
 			PPManager.ppManager.GetWinner ();

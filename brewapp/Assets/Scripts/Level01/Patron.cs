@@ -78,10 +78,7 @@ public class Patron : Touch3D
 			animStage = 0;
 			SetBeerChoice();
 
-			if(gameObject.name == "Rabbit")
-				animation.Play ("BeerPlease");
-			else if(gameObject.name == "Bear" || gameObject.name == "Fox")
-				myAnimator.SetBool("BeerPls", true);
+			myAnimator.SetBool("BeerPls", true);
 		}
 
 		if(targetEnabled && barScript.targetEnable)
@@ -122,11 +119,12 @@ public class Patron : Touch3D
 		if(name == "Rabbit")
 		{
 			gameChoice = "BeerPong";
+			myAnimator = gameObject.GetComponent<Animator> ();
+			myAnimator.SetBool("BeerPls", true);
 		}
 		else if(name == "Bear")
 		{
 			gameChoice = "PunchGame";
-			// This will need to be for all patrons when they are done ***********************************
 			myAnimator = gameObject.GetComponent<Animator> ();
 			myAnimator.SetBool("BeerPls", true);
 		}
@@ -194,7 +192,6 @@ public class Patron : Touch3D
 			countMe = true;
 			targetEnabled = true;
 			BarController.barControlScript.servOrder.Add(gameObject);
-//			BarController.barControlScript.numOrders ++;
 			BarController.barControlScript.rightViewBtn.interactable = true;
 		}
 		if(animStage == 0)
@@ -302,14 +299,7 @@ public class Patron : Touch3D
 		startMessage = true;
 		animStage = 0;
 		SetBeerChoice();
-		if(name == "Rabbit")
-		{
-			animation.Play ("BeerPlease");
-		}
-		else
-		{
-			myAnimator.SetBool("BeerPls", true || name == "Fox");
-		}
+		myAnimator.SetBool("BeerPls", true);
 	}
 
 	// Starts the animation for the response from the patron according to your score for that throw
@@ -340,28 +330,16 @@ public class Patron : Touch3D
 	// Sets the idle animation
 	public void SetIdleAnim()
 	{
-		if(name == "Rabbit")
-		{
-			animation.Play ("IDLE_1");
-		}
-		else
-		{
-			myAnimator.SetBool("BeerPls", false);
-		}
+		myAnimator.SetBool("BeerPls", false);
+
 		startMessage = false;
 	}
 
 	// Sets the beer please animation
 	public void SetBeerPlsAnim()
 	{
-		if(name == "Rabbit")
-		{
-			animation.Play ("BeerPlease");
-		}
-		else
-		{
-			myAnimator.SetBool("BeerPls", true);
-		}
+		myAnimator.SetBool("BeerPls", true);
+
 		startMessage = true;
 	}
 }

@@ -3142,10 +3142,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2118073113}
   m_RootOrder: 3
-  m_AnchorMin: {x: .0195557475, y: .018631041}
-  m_AnchorMax: {x: .975164473, y: .163284153}
-  m_AnchoredPosition: {x: 1, y: 2}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: .198141336}
+  m_AnchoredPosition: {x: -1.49829102, y: -2}
+  m_SizeDelta: {x: -214.050003, y: -24}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &77983121
 MonoBehaviour:
@@ -14563,7 +14563,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -20742,8 +20742,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2118073113}
   m_RootOrder: 5
-  m_AnchorMin: {x: .0440923683, y: -.00614434853}
-  m_AnchorMax: {x: .0785565004, y: .134284005}
+  m_AnchorMin: {x: .0944500268, y: -.00661629857}
+  m_AnchorMax: {x: .128914163, y: .133812055}
   m_AnchoredPosition: {x: -.200000763, y: 0}
   m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: .5, y: .5}
@@ -35461,7 +35461,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4447915342d9eae4fb3c390a698d8520, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -47435,8 +47435,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2118073113}
   m_RootOrder: 6
-  m_AnchorMin: {x: .165418357, y: -.00460812356}
-  m_AnchorMax: {x: .205468357, y: .130997881}
+  m_AnchorMin: {x: .213594645, y: -.00739034452}
+  m_AnchorMax: {x: .253644645, y: .128215656}
   m_AnchoredPosition: {x: -.5, y: 1}
   m_SizeDelta: {x: -2, y: 1}
   m_Pivot: {x: .5, y: .5}
@@ -50844,8 +50844,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2118073113}
   m_RootOrder: 8
-  m_AnchorMin: {x: .921761274, y: -.0065957089}
-  m_AnchorMax: {x: .957761228, y: .135404289}
+  m_AnchorMin: {x: .848100901, y: -.00350087998}
+  m_AnchorMax: {x: .884100854, y: .138499111}
   m_AnchoredPosition: {x: 0, y: .5}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: .5, y: .5}
@@ -61212,8 +61212,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2118073113}
   m_RootOrder: 7
-  m_AnchorMin: {x: .552786112, y: -.00639401935}
-  m_AnchorMax: {x: .588786066, y: .135605991}
+  m_AnchorMin: {x: .542091012, y: -.0110182371}
+  m_AnchorMax: {x: .578090966, y: .130981773}
   m_AnchoredPosition: {x: 0, y: .5}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: .5, y: .5}
@@ -66683,7 +66683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2101945797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67338,6 +67338,9 @@ MonoBehaviour:
   loadingImg: {fileID: 574841354}
   wagerPnl: {fileID: 2052183602}
   bag: {fileID: 1918740487}
+  menuBtns:
+  - {fileID: 302563689}
+  - {fileID: 1743752271}
   tootCns: {fileID: 103045956}
   bearCam: {fileID: 461466109}
   mainCam: {fileID: 2141342141}
@@ -67739,7 +67742,7 @@ Camera:
   m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

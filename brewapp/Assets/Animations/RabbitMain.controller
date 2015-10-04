@@ -7,7 +7,43 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: RabbitMain
   serializedVersion: 2
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: BeerPls
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: BadThrow
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: OkThrow
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: PerfectThrow
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: SwatBall
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: ThrowBall
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -29,11 +65,11 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110211596}
   m_DstState: {fileID: 110263564}
-  m_TransitionDuration: .0199335534
+  m_TransitionDuration: .158785671
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 2
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .980066419
   m_Atomic: 1
@@ -52,8 +88,8 @@ Transition:
   m_TransitionDuration: .0129589625
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: OkThrow
     m_EventTreshold: 0
     m_ExitTime: .987041056
   m_Atomic: 1
@@ -72,8 +108,8 @@ Transition:
   m_TransitionDuration: .0129589625
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: PerfectThrow
     m_EventTreshold: 0
     m_ExitTime: .987041056
   m_Atomic: 1
@@ -92,8 +128,8 @@ Transition:
   m_TransitionDuration: .0129589625
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: BadThrow
     m_EventTreshold: 0
     m_ExitTime: .987041056
   m_Atomic: 1
@@ -113,7 +149,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .928571403
   m_Atomic: 1
@@ -133,7 +169,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .901639342
   m_Atomic: 1
@@ -153,7 +189,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .90476191
   m_Atomic: 1
@@ -172,8 +208,8 @@ Transition:
   m_TransitionDuration: .0129589625
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: SwatBall
     m_EventTreshold: 0
     m_ExitTime: .987041056
   m_Atomic: 1
@@ -192,8 +228,8 @@ Transition:
   m_TransitionDuration: .0129589625
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: ThrowBall
     m_EventTreshold: 0
     m_ExitTime: .987041056
   m_Atomic: 1
@@ -213,7 +249,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .90625
   m_Atomic: 1
@@ -233,7 +269,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .939393938
   m_Atomic: 1
@@ -252,8 +288,8 @@ Transition:
   m_TransitionDuration: .0129589625
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: BeerPls
     m_EventTreshold: 0
     m_ExitTime: .987041056
   m_Atomic: 1
@@ -286,7 +322,7 @@ State:
   m_Motions:
   - {fileID: 7400034, guid: b031a1600532a55469d8a175ac08a8a9, type: 3}
   m_ParentStateMachine: {fileID: 110712718}
-  m_Position: {x: -276, y: -36, z: 0}
+  m_Position: {x: -84, y: 36, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -301,7 +337,7 @@ State:
   m_Motions:
   - {fileID: 7400010, guid: b031a1600532a55469d8a175ac08a8a9, type: 3}
   m_ParentStateMachine: {fileID: 110712718}
-  m_Position: {x: 180, y: 36, z: 0}
+  m_Position: {x: 180, y: -12, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -316,7 +352,7 @@ State:
   m_Motions:
   - {fileID: 7400032, guid: b031a1600532a55469d8a175ac08a8a9, type: 3}
   m_ParentStateMachine: {fileID: 110712718}
-  m_Position: {x: -192, y: 12, z: 0}
+  m_Position: {x: 120, y: 36, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -331,7 +367,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: b031a1600532a55469d8a175ac08a8a9, type: 3}
   m_ParentStateMachine: {fileID: 110712718}
-  m_Position: {x: 180, y: -60, z: 0}
+  m_Position: {x: 180, y: -108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -361,7 +397,7 @@ State:
   m_Motions:
   - {fileID: 7400022, guid: b031a1600532a55469d8a175ac08a8a9, type: 3}
   m_ParentStateMachine: {fileID: 110712718}
-  m_Position: {x: 180, y: -12, z: 0}
+  m_Position: {x: 180, y: -60, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -385,30 +421,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110244354}
-      second:
-      - {fileID: 110157484}
-    data:
-      first: {fileID: 110212320}
-      second:
-      - {fileID: 110121360}
-    data:
-      first: {fileID: 110211596}
-      second:
-      - {fileID: 110100054}
-    data:
-      first: {fileID: 110263736}
-      second:
-      - {fileID: 110172764}
-    data:
-      first: {fileID: 110251776}
-      second:
-      - {fileID: 110177038}
-    data:
-      first: {fileID: 110220182}
-      second:
-      - {fileID: 110153302}
-    data:
       first: {fileID: 110263564}
       second:
       - {fileID: 110187720}
@@ -417,6 +429,30 @@ StateMachine:
       - {fileID: 110112812}
       - {fileID: 110170784}
       - {fileID: 110159298}
+    data:
+      first: {fileID: 110220182}
+      second:
+      - {fileID: 110153302}
+    data:
+      first: {fileID: 110251776}
+      second:
+      - {fileID: 110177038}
+    data:
+      first: {fileID: 110263736}
+      second:
+      - {fileID: 110172764}
+    data:
+      first: {fileID: 110211596}
+      second:
+      - {fileID: 110100054}
+    data:
+      first: {fileID: 110212320}
+      second:
+      - {fileID: 110121360}
+    data:
+      first: {fileID: 110244354}
+      second:
+      - {fileID: 110157484}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -240, y: 180, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

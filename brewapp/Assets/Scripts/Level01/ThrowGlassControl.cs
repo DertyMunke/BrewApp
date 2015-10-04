@@ -369,7 +369,6 @@ public class ThrowGlassControl : Touch3D
 			pwrMeterSkin.enabled = true;
 			powerMeterPanel.enabled = true;
 			armWithPivot.SetActive(true);
-			Debug.Log(powerMeter.enabled);
 			DownArrows();
 
 			if(throwPower > 235)
@@ -805,23 +804,13 @@ public class ThrowGlassControl : Touch3D
 		else
 			numThrown += 1;
 
-		// This will need to be done for all patrons when they are done ****************************
-		if(pat.name == "Bear")
-		{
-			if(throwTipTot < .5f)
-			{
-				patScript.SetResponseAnim("bad");
-			}
-			else if(throwTipTot > .75f)
-			{
-				patScript.SetResponseAnim("good");
-			}
-			else
-			{
-				patScript.SetResponseAnim("ok");
-			}
-		}
-
+		if(throwTipTot < .5f)
+			patScript.SetResponseAnim("bad");
+		else if(throwTipTot > .75f)
+			patScript.SetResponseAnim("good");
+		else
+			patScript.SetResponseAnim("ok");
+		
 		Invoke("tipAndRepEnabled", tipAndRepDelay);
 		ScoreAnims.scoreAnimsScript.scoreAnimTrig = true;
 		ScoreAnims.scoreAnimsScript.tipValue = throwTipTot;

@@ -16,6 +16,7 @@ public class Dude : MonoBehaviour
 	private int cupIndex;
 	
 	public static Dude dudeScript;
+	public GameObject rabbitsBall;
 	public GameObject ppBall;
 	public Transform cup1;
 	public Transform cup2;
@@ -23,8 +24,6 @@ public class Dude : MonoBehaviour
 	public Transform cup4;
 	public Transform cup5;
 	public Transform cup6;
-	public AnimationClip celebration1;
-	public AnimationClip drinkBeer;
 	public bool dudetest = false;
 
 	private void Awake()
@@ -45,7 +44,7 @@ public class Dude : MonoBehaviour
 //			dudetest = false;
 //			PPManager.ppManager.ReRackDude();
 //		}
-
+		 
 		DudesTarget ();
 	}
 
@@ -79,8 +78,10 @@ public class Dude : MonoBehaviour
 					MissProbability(missPower, missRotation);
 				}
 
+				rabbitsBall.renderer.enabled = true;
 				ppBall.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-				Invoke("ThrowIt", 2);
+				gameObject.GetComponent<Animator>().SetTrigger("ThrowBall");
+				Invoke("ThrowIt", 1.75f);
 				throwPowerSwitch = false;
 			}
 		}
@@ -131,6 +132,8 @@ public class Dude : MonoBehaviour
 	// Access the ping pong ball script and tell it to throw the ball
 	private void ThrowIt()
 	{
+		rabbitsBall.renderer.enabled = false;
+		ppBall.renderer.enabled = true;
 		ppballScript.ReleaseBall (throwPower);
 		Invoke ("MyTurn", 5);
 

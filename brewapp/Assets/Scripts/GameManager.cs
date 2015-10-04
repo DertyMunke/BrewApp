@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour
 	private bool gotPongMsg = false;
 	private bool gotFlipMsg = false;
 	private bool gotPunchMsg = false;
-	private bool pongToot = true;
+	private bool pongToot = false;
 	private bool pongRackToot = true;
-	private bool flipToot = false;
+	private bool flipToot = true;
 	private bool punchToot = true;
 	private bool restartLvl = false;
 	private float highTips = 0;
