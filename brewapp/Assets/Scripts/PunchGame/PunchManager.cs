@@ -54,13 +54,13 @@ public class PunchManager : MonoBehaviour
 	{
 		GameManager.manager.SetPunchMsg (false);
 		dblNothin = GameManager.manager.GetDblNothing ();
+		menuBtns[0].SetActive(false);
+		menuBtns[1].SetActive(true);
 
 		if(dblNothin)
 		{
 			numPunches = 1;
 			wagerPnl.SetActive(false);
-			menuBtns[0].SetActive(false);
-			menuBtns[1].SetActive(true);
 
 			for(int i = 1; i < 3; i++)
 			{
@@ -105,6 +105,7 @@ public class PunchManager : MonoBehaviour
 	// Prepair and reset for the next punch
 	private void NextPunch()
 	{
+		Debug.Log ("toot");
 		if(GameManager.manager.GetPunchToot())
 			tootCns.enabled = true;
 		mainCam.enabled = true;

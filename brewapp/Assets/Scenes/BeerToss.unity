@@ -63792,6 +63792,14 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: .894067049
       objectReference: {fileID: 0}
+    - target: {fileID: 11439180, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: patrons.Array.data[0]
+      value: 
+      objectReference: {fileID: 627189814}
+    - target: {fileID: 11439180, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: patrons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1180602136}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
   m_RootGameObject: {fileID: 1450213711}
@@ -68098,8 +68106,8 @@ MonoBehaviour:
   - {fileID: 968591541}
   - {fileID: 1053634701}
   patrons:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 627189814}
+  - {fileID: 1180602136}
   - {fileID: 1997198897}
   powerArrows: {fileID: 0}
   rulesTutTouch: {fileID: 193277078}
@@ -80822,7 +80830,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossLevel
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: beerTossXP
@@ -81644,7 +81652,7 @@ MonoBehaviour:
   xpSliderValue: 0
   flipSliderVal: 0
   punchSliderVal: 0
-  barTossLevel: 5
+  barTossLevel: 0
   flipCupLevel: 0
   beerPongLevel: 0
   punchLevel: 0

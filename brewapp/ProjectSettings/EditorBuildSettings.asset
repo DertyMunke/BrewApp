@@ -29,5 +29,5 @@ EditorBuildSettings:
     path: Assets/Scenes/FlipPractice.unity
   - enabled: 0
     path: Assets/Scenes/PongPractice.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PunchPractice.unity

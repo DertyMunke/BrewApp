@@ -806,7 +806,7 @@ public class ThrowGlassControl : Touch3D
 
 		if(throwTipTot < .5f)
 			patScript.SetResponseAnim("bad");
-		else if(throwTipTot > .75f)
+		else if(throwTipTot == 1)
 			patScript.SetResponseAnim("good");
 		else
 			patScript.SetResponseAnim("ok");
