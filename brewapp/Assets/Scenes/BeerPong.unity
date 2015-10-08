@@ -820,7 +820,7 @@ RectTransform:
   m_Children:
   - {fileID: 1127539488}
   m_Father: {fileID: 932325586}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: .533108294, y: .63509661}
   m_AnchorMax: {x: .928527474, y: .898217559}
   m_AnchoredPosition: {x: -2, y: .5}
@@ -13533,7 +13533,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 139160, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 139110, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
       propertyPath: m_IsActive
@@ -13941,6 +13941,10 @@ Prefab:
     - target: {fileID: 22439130, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
       propertyPath: m_AnchorMax.y
       value: .804842651
+      objectReference: {fileID: 0}
+    - target: {fileID: 22339110, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11439180, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
@@ -19869,42 +19873,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 391339061}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 900141544}
-        m_MethodName: ToggleInteract
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 900141544}
-        m_MethodName: ToggleObj
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: MenuContBtn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32404,8 +32372,8 @@ RectTransform:
   - {fileID: 34583288}
   - {fileID: 1361759988}
   - {fileID: 832650865}
-  - {fileID: 1668153411}
   - {fileID: 29957362}
+  - {fileID: 1668153411}
   m_Father: {fileID: 900141542}
   m_RootOrder: 2
   m_AnchorMin: {x: .0571736507, y: .171967715}
@@ -46117,7 +46085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1304842352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59659,7 +59627,7 @@ RectTransform:
   m_Children:
   - {fileID: 1736723823}
   m_Father: {fileID: 932325586}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: .0551459566, y: .651724756}
   m_AnchorMax: {x: .442130148, y: .902495742}
   m_AnchoredPosition: {x: .400006294, y: -.550000191}
@@ -65964,7 +65932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusObj: {fileID: 0}
   menuBtns:
-  - {fileID: 1361759987}
+  - {fileID: 595284556}
   - {fileID: 668235520}
   rerackBtns:
   - {fileID: 727324887}
@@ -70419,6 +70387,10 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11419836, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483820, guid: d8d8e8458d4874c45a5730c3e0914a4f, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}

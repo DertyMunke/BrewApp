@@ -54,11 +54,12 @@ public class PunchManager : MonoBehaviour
 	{
 		GameManager.manager.SetPunchMsg (false);
 		dblNothin = GameManager.manager.GetDblNothing ();
-		menuBtns[0].SetActive(false);
-		menuBtns[1].SetActive(true);
 
 		if(dblNothin)
 		{
+			menuBtns[0].SetActive(false);
+			menuBtns[1].SetActive(true);
+
 			numPunches = 1;
 			wagerPnl.SetActive(false);
 
@@ -232,6 +233,9 @@ public class PunchManager : MonoBehaviour
 	{
 		if (Wager.wagerScript.GetBetAmt () != 0 || dblNothin) 
 		{
+			menuBtns[0].SetActive(false);
+			menuBtns[1].SetActive(true);
+
 			Time.timeScale = 1;
 			bag.GetComponent<Animator>().enabled = true;
 			difficulty = GameManager.manager.GetDifficulty ();

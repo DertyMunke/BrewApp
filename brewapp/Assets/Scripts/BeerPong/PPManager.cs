@@ -510,6 +510,8 @@ public class PPManager : Touch3D
 	public void StartGameBtn()
 	{
 		if (Wager.wagerScript.GetBetAmt () != 0) {
+			menuBtns [0].SetActive (false);
+			menuBtns [1].SetActive (true);
 			difficulty = GameManager.manager.GetDifficulty ();
 			Dude.dudeScript.SetDudeDiff (difficulty);
 
