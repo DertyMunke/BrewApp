@@ -95,18 +95,18 @@ public class BarController : MonoBehaviour
 					targetEnable = false;
 				}
 				
-				if(!tapBlocker.collider.enabled)
+				if(!tapBlocker.GetComponent<Collider>().enabled)
 				{
-					tapBlocker.collider.enabled = true;
+					tapBlocker.GetComponent<Collider>().enabled = true;
 				}
 			}
 		}
 		else if(stage1Once)
 		{
 			stage1Once = false;
-			if(tapBlocker.collider.enabled)
+			if(tapBlocker.GetComponent<Collider>().enabled)
 			{
-				tapBlocker.collider.enabled = false;
+				tapBlocker.GetComponent<Collider>().enabled = false;
 			}
 		}
 
@@ -267,7 +267,7 @@ public class BarController : MonoBehaviour
 			{
 				leftViewBtn.interactable = false;
 				rightViewBtn.interactable = true;
-				tapBlocker.collider.enabled = true;
+				tapBlocker.GetComponent<Collider>().enabled = true;
 				cameraScript.camSwitch1 = true;
 				stage = 1;
 			}
@@ -314,14 +314,14 @@ public class BarController : MonoBehaviour
 				rightViewBtn.interactable = false;
 			}
 			leftViewBtn.interactable = true;
-			tapBlocker.collider.enabled = false;
+			tapBlocker.GetComponent<Collider>().enabled = false;
 			cameraScript.camSwitch2 = true;
 			stage = 2;
 		}
 		else if(stage == 3)
 		{
 			cameraScript.camSwitch3_view = false;
-			tapBlocker.collider.enabled = false;
+			tapBlocker.GetComponent<Collider>().enabled = false;
 			tgcScript.enabled = true;
 			stage3ViewEnabled = false;
 			cameraScript.camSwitch3 = true;
@@ -339,7 +339,7 @@ public class BarController : MonoBehaviour
 			if(stage == 3)
 			{
 				//			TootText.tootScript.tootEnabled = false;
-				tapBlocker.collider.enabled = true;
+				tapBlocker.GetComponent<Collider>().enabled = true;
 				CameraManager.camManScript.camSwitch3_view = true;
 				ThrowGlassControl.tgcScript.downArrows.enabled = false;
 				ThrowGlassControl.tgcScript.powerMeter.enabled = false;

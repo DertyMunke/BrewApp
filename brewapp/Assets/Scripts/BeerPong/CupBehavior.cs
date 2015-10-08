@@ -37,7 +37,7 @@ public class CupBehavior : MonoBehaviour
 			}
 
 			visibleTimer = Time.time + delay;
-			other.renderer.enabled = false;
+			other.GetComponent<Renderer>().enabled = false;
 			visibleTrigger = true;
 			PingPongBall.ppBallScript.camFollow = false;
 		}

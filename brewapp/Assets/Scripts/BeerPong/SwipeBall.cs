@@ -14,7 +14,7 @@ public class SwipeBall : MonoBehaviour
 	
 	private void FixedUpdate()
 	{
-		if((swipeTimer < Time.time && swipeBallText.enabled) || !renderer.enabled)
+		if((swipeTimer < Time.time && swipeBallText.enabled) || !GetComponent<Renderer>().enabled)
 		{
 			swipeBallText.enabled = false;
 		}
@@ -25,7 +25,7 @@ public class SwipeBall : MonoBehaviour
 	// Allows you to swipe the ball after it bounces, when thrown by the computer character
 	private void EnableBallSwipe()
 	{
-		if(ballBounced && renderer.enabled)
+		if(ballBounced && GetComponent<Renderer>().enabled)
 		{
 			if (Input.touchCount > 0)
 			{
@@ -56,7 +56,7 @@ public class SwipeBall : MonoBehaviour
 	// Adds a force to the ball to simulate swatting the ball
 	private void Swipe()
 	{
-		rigidbody.AddForce (deltaTouch.x, deltaTouch.y, 10);
+		GetComponent<Rigidbody>().AddForce (deltaTouch.x, deltaTouch.y, 10);
 	}
 
 	// On collision, checks to see if "swipe ball" text can be displayed
@@ -68,7 +68,7 @@ public class SwipeBall : MonoBehaviour
 	// Helper funcion for OnCollisionEnter: Allows a pause using the Invoke() method
 	private void SwipeTextEnabled()
 	{
-		if(!PingPongBall.ppBallScript.myTurn && renderer.enabled)
+		if(!PingPongBall.ppBallScript.myTurn && GetComponent<Renderer>().enabled)
 		{
 			ballBounced = true;
 			swipeBallText.enabled = true;

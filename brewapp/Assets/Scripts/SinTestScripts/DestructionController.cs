@@ -17,9 +17,9 @@ public class DestructionController : MonoBehaviour
 
 	void Update () 
 	{
-		if(rigidbody.velocity.x <= mugVelocity.x)
+		if(GetComponent<Rigidbody>().velocity.x <= mugVelocity.x)
 		{
-			mugVelocity = rigidbody.velocity;
+			mugVelocity = GetComponent<Rigidbody>().velocity;
 		}
 		BeerExplode ();
 	}

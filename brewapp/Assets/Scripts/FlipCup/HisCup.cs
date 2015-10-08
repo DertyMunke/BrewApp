@@ -38,7 +38,7 @@ public class HisCup : MonoBehaviour
 	/// </summary>
 	public void SetFlipCupPos(int index)
 	{
-		rigidbody.velocity = Vector3.zero;
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
 		transform.position = new Vector3(startPos.x + .78f, startPos.y, startPos.z + 3 * index);
 		transform.rotation = startRot;
 	}
@@ -64,7 +64,7 @@ public class HisCup : MonoBehaviour
 	public void ApplyForce(Vector2 dist)
 	{
 		// Apply force to cup then start game timer
-		rigidbody.AddForceAtPosition(new Vector3(dist.x, dist.y, 0), 
+		GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(dist.x, dist.y, 0), 
 		                             myForcePoint.transform.position);
 	}
 }

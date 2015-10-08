@@ -14,7 +14,7 @@ public class SpriteAnimator : MonoBehaviour
 	void Start () 
 	{
 		_size = new Vector2 (1.0f / _uvTieX , 1.0f / _uvTieY);
-		_myRenderer = renderer;
+		_myRenderer = GetComponent<Renderer>();
 		if(_myRenderer == null)
 			enabled = false;
 	}
