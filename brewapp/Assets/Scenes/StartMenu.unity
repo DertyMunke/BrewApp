@@ -9494,14 +9494,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currProfileName: 
-  barTossToot: 1
-  total: 0
+  barTossToot: 0
+  total: 100
   beerTossXP: 0
-  pongSliderValue: 0
+  pongSliderValue: 100
   xpSliderValue: 0
-  flipSliderVal: 0
-  punchSliderVal: 0
-  barTossLevel: 0
+  flipSliderVal: 75
+  punchSliderVal: 75
+  barTossLevel: 5
   flipCupLevel: 0
   beerPongLevel: 0
   punchLevel: 0
@@ -11778,7 +11778,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossLevel
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossSublevel
@@ -11790,11 +11790,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: flipSliderVal
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: punchSliderVal
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: flipCupLevel
@@ -11810,11 +11810,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossToot
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: pongSliderValue
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: numReRolls
@@ -11822,7 +11822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: total
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}

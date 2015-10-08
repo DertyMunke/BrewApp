@@ -63800,6 +63800,22 @@ Prefab:
       propertyPath: patrons.Array.data[1]
       value: 
       objectReference: {fileID: 1180602136}
+    - target: {fileID: 139172, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139116, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139132, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139140, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77e9f8c48cdf6e9438bc0dbdd4dfecef, type: 2}
   m_RootGameObject: {fileID: 1450213711}
@@ -68125,7 +68141,6 @@ MonoBehaviour:
   tutDragObj: {fileID: 547149350}
   pwrTutDrag: {fileID: 2085364802}
   throwGlassTrigger: {fileID: 550264666}
-  tradePtr: {fileID: 0}
   continueBtn: {fileID: 1187394192}
   rulesBtn: {fileID: 869567013}
   menuBtn: {fileID: 1190400684}
@@ -80870,7 +80885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossToot
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: dblNothing
@@ -81645,7 +81660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currProfileName: 
-  barTossToot: 0
+  barTossToot: 1
   total: 0
   beerTossXP: 0
   pongSliderValue: 0

@@ -31,7 +31,6 @@ public class TootText : MonoBehaviour
 	public GameObject tutDragObj;
 	public GameObject pwrTutDrag;
 	public GameObject throwGlassTrigger;
-	public GameObject tradePtr;
 	public Button continueBtn;
 	public Button rulesBtn;
 	public Button menuBtn;
@@ -275,7 +274,6 @@ public class TootText : MonoBehaviour
 			punchRepBtn.interactable = false;
 			flipRepBtn.interactable = false;
 			xpRepBtn.interactable = false;
-			tradePtr.SetActive(false);
 			continueBtn.gameObject.SetActive(false);
 			botTootPnl.SetActive(false);
 			topTootPnl.SetActive(true);
@@ -381,7 +379,6 @@ public class TootText : MonoBehaviour
 			botTootTxt[1].text = "Touch to continue...";
 			midTootPnl.SetActive(false);
 			botTootPnl.SetActive(true);
-			tradePtr.SetActive(true);
 			continueBtn.gameObject.SetActive (true);
 			xpTutTouch.SetActive(false);
 			newToot++;
