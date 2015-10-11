@@ -132,8 +132,6 @@ public class FlipCupManager : MonoBehaviour
 	/// </summary>
 	private IEnumerator FoxAI()
 	{
-        Debug.Log("fox");
-        foxAnims.SetBool("FlipCupActive", true);
 		int diff = flipCup.GetComponent<FlipCup> ().Difficulty;
 		while (hisCupIndex < numCups) 
 		{

@@ -52,7 +52,7 @@ public class TapControl : Touch3D
 			glassClone.GetComponent<Animator>().enabled = true;
 			glassClone.SetActive(true);
 			glassSpawn.transform.FindChild("BeerPour").gameObject.SetActive(true);
-			GetComponent<AudioSource>().Play ();
+			audio.Play ();
 		}
 
 		Invoke("TapReturn", .9f);
@@ -70,7 +70,7 @@ public class TapControl : Touch3D
 
 	private void EndTapReturn()
 	{
-		GetComponent<AudioSource>().Stop ();
+		audio.Stop ();
 		BarController.barControlScript.MoveToThrow (glassClone);
 	}
 }

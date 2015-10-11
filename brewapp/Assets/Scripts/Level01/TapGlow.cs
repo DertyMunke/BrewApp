@@ -47,14 +47,14 @@ public class TapGlow : MonoBehaviour
 				rimPower = rimMin;
 			}
 		
-			GetComponent<Renderer>().material.SetFloat ("_RimPower", rimPower);
+			renderer.material.SetFloat ("_RimPower", rimPower);
 			resetRim = true;
 		}
 		else 
 		{
 			if(resetRim)
 			{
-				GetComponent<Renderer>().material.SetFloat("_RimPower", 4.8f);
+				renderer.material.SetFloat("_RimPower", 4.8f);
 				resetRim = false;
 			}
 		}

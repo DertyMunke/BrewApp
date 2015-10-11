@@ -54,7 +54,7 @@ public class GlassControl : MonoBehaviour
 		gameObject.SetActive(false);
 		transform.rotation = origRot;
 		transform.position = origPos;
-		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+		rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 	}
 
 //	private void OnCollisionEnter(Collision other)

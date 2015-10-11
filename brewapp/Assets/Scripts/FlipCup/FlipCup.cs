@@ -68,7 +68,7 @@ public class FlipCup : MonoBehaviour
 			{
 				flipArrowDown.SetActive(false);
 			}
-			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			rigidbody.constraints = RigidbodyConstraints.None;
 			FlipSwipe ();
 		}
 		else 
@@ -92,7 +92,7 @@ public class FlipCup : MonoBehaviour
 					FlipCupManager.managerScript.NextCupReset();
 				}
 			
-				GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll; 
+				rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
 			
 				resetTurn(); // Reset to beginning position 
 			} 
@@ -110,7 +110,7 @@ public class FlipCup : MonoBehaviour
 			FlipCupManager.managerScript.NextCupReset();
 		}
 
-		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll; 
+		rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
 		resetTurn(); // Reset to beginning position 
 	}
 
@@ -156,8 +156,8 @@ public class FlipCup : MonoBehaviour
     // Reset cup position to start
 	void resetTurn()
 	{
-		GetComponent<Rigidbody>().velocity = Vector3.zero;
-		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll; 
+		rigidbody.velocity = Vector3.zero;
+		rigidbody.constraints = RigidbodyConstraints.FreezeAll; 
 		gameObject.SetActive(false);
 		transform.rotation = flipCupRot;
 		transform.position = flipCupPos;
@@ -212,7 +212,7 @@ public class FlipCup : MonoBehaviour
 						swipeTime = minHeight; 
 					}
 			
-					GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+					rigidbody.constraints = RigidbodyConstraints.None;
 					if(Application.loadedLevelName == "FlipPractice")
 					{
 						flipArrowDown.SetActive(true);
@@ -232,7 +232,7 @@ public class FlipCup : MonoBehaviour
 	// When there's a "bad" flip, bump the cup to show the game is still responsive
 	private void Bump()
 	{
-		GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(0, 1.5f, 0), forcePoint.transform.position);
+		rigidbody.AddForceAtPosition(new Vector3(0, 1.5f, 0), forcePoint.transform.position);
 	}
 
     // Applies the appropriate amount of force and direction to the cup
@@ -250,7 +250,7 @@ public class FlipCup : MonoBehaviour
 		}
 
 		// Apply force to cup then start game timer
-		GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(ySwipe * .033f, 15 - (swipeTime * 100 - 15) + Mathf.CeilToInt(ySwipe/swipeTime * .001f) * 2, 0), 
+		rigidbody.AddForceAtPosition(new Vector3(ySwipe * .033f, 15 - (swipeTime * 100 - 15) + Mathf.CeilToInt(ySwipe/swipeTime * .001f) * 2, 0), 
 		                             forcePoint.transform.position);
 
 		timer = Time.time + timeDelta;

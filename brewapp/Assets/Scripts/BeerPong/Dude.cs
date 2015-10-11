@@ -78,8 +78,8 @@ public class Dude : MonoBehaviour
 					MissProbability(missPower, missRotation);
 				}
 
-				rabbitsBall.GetComponent<Renderer>().enabled = true;
-				ppBall.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+				rabbitsBall.renderer.enabled = true;
+				ppBall.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 				gameObject.GetComponent<Animator>().SetTrigger("ThrowBall");
 				Invoke("ThrowIt", 1.75f);
 				throwPowerSwitch = false;
@@ -132,8 +132,8 @@ public class Dude : MonoBehaviour
 	// Access the ping pong ball script and tell it to throw the ball
 	private void ThrowIt()
 	{
-		rabbitsBall.GetComponent<Renderer>().enabled = false;
-		ppBall.GetComponent<Renderer>().enabled = true;
+		rabbitsBall.renderer.enabled = false;
+		ppBall.renderer.enabled = true;
 		ppballScript.ReleaseBall (throwPower);
 		Invoke ("MyTurn", 5);
 
