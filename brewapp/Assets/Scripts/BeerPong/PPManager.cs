@@ -218,7 +218,7 @@ public class PPManager : Touch3D
 	// The camera watches the ball fly through the air
 	private void WatchBallFly()
 	{
-		if(PingPongBall.ppBallScript.camFollow && pingPongBall.renderer.enabled == true)
+		if(PingPongBall.ppBallScript.camFollow && pingPongBall.GetComponent<Renderer>().enabled == true)
 		{
 			Quaternion rotate = Quaternion.LookRotation(pingPongBall.position - transform.position);
 

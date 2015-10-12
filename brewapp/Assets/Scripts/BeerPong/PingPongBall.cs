@@ -74,7 +74,7 @@ public class PingPongBall : MonoBehaviour
 	{
 		if(transform.rotation != recentRotation && !(aimUp || aimDown || aimLeft || aimRight))
 		{
-			rigidbody.angularVelocity = Vector3.zero;
+			GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		}
 
 //		if(Application.loadedLevelName != "PongPractice")
@@ -169,10 +169,10 @@ public class PingPongBall : MonoBehaviour
 		powerTrigger = false;
 		Camera.main.transform.position = camPos;
 		Camera.main.transform.rotation = camRot;
-		rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 		transform.position = origPos;
 		transform.rotation = origRot;
-		renderer.enabled = true;
+		GetComponent<Renderer>().enabled = true;
 		resetTurn = false;
 		pwrImg.sprite = pwrIms [0];
 	
@@ -185,7 +185,7 @@ public class PingPongBall : MonoBehaviour
 	private void EndMyTurn()
 	{
 		myTurn = false;
-		renderer.enabled = false;
+		GetComponent<Renderer>().enabled = false;
 		camFollow = false;
 
 		Camera.main.transform.localEulerAngles = Vector3.Lerp (Camera.main.transform.localEulerAngles, cameraStartRot, 1);
@@ -234,7 +234,7 @@ public class PingPongBall : MonoBehaviour
 		ghosts [ghostIndex].transform.position = transform.position;
 		ghosts [ghostIndex].transform.rotation = transform.rotation;
 		ghosts [ghostIndex].SetActive (true);
-		ghosts [ghostIndex].rigidbody.AddRelativeForce (0, 0, 64);
+		ghosts [ghostIndex].GetComponent<Rigidbody>().AddRelativeForce (0, 0, 64);
 		if(ghostIndex < numGhosts -1)
 			ghostIndex ++;
 		else
@@ -248,8 +248,8 @@ public class PingPongBall : MonoBehaviour
 		oneSplashSound = true;
 		oneDamp = true;
 		targeting = false;
-		transform.rigidbody.constraints = RigidbodyConstraints.None;
-		transform.rigidbody.AddRelativeForce (0, 0, force);
+		transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+		transform.GetComponent<Rigidbody>().AddRelativeForce (0, 0, force);
 		throwPower = 0;
 		throwBall = false;
 		Invoke ("watchBall", .1f);
@@ -284,7 +284,7 @@ public class PingPongBall : MonoBehaviour
 	// Determines the behavior of the ball on collision
 	private void OnCollisionEnter(Collision other)
 	{
-		audio.volume = 1;
+		GetComponent<AudioSource>().volume = 1;
 		//For ping pong ball bounce effect
 		if(gameObject.GetComponent<MeshRenderer>().enabled)
 		{
@@ -293,25 +293,25 @@ public class PingPongBall : MonoBehaviour
 				if(oneDamp)
 				{
 					oneDamp = false;
-					Vector3	lastBounce = transform.rigidbody.velocity;
-					transform.rigidbody.velocity = new Vector3(lastBounce.x * .5f, lastBounce.y * .5f, lastBounce.z * .5f);
+					Vector3	lastBounce = transform.GetComponent<Rigidbody>().velocity;
+					transform.GetComponent<Rigidbody>().velocity = new Vector3(lastBounce.x * .5f, lastBounce.y * .5f, lastBounce.z * .5f);
 
-					audio.clip = bounceSounds[1];
-					audio.Play();
+					GetComponent<AudioSource>().clip = bounceSounds[1];
+					GetComponent<AudioSource>().Play();
 
 				}
 			}
 			else if (other.gameObject.tag == "Table")
 			{
-				audio.clip = bounceSounds[0];
-				gameObject.audio.Play ();
+				GetComponent<AudioSource>().clip = bounceSounds[0];
+				gameObject.GetComponent<AudioSource>().Play ();
 			}
 
 			else
 			{
-				audio.volume = .3f;
-				audio.clip = bounceSounds[0];
-				gameObject.audio.Play ();
+				GetComponent<AudioSource>().volume = .3f;
+				GetComponent<AudioSource>().clip = bounceSounds[0];
+				gameObject.GetComponent<AudioSource>().Play ();
 			}
 		}
 	}
@@ -320,10 +320,10 @@ public class PingPongBall : MonoBehaviour
 	{
 		if(oneSplashSound && other.tag == "InCup")
 		{
-			if(!audio.isPlaying)
+			if(!GetComponent<AudioSource>().isPlaying)
 			{
-				audio.clip = bounceSounds[1];
-				audio.Play();
+				GetComponent<AudioSource>().clip = bounceSounds[1];
+				GetComponent<AudioSource>().Play();
 				oneSplashSound = false;
 			}
 		}

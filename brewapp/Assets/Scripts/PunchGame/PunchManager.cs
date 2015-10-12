@@ -237,6 +237,7 @@ public class PunchManager : MonoBehaviour
 			menuBtns[1].SetActive(true);
 
 			Time.timeScale = 1;
+            
 			bag.GetComponent<Animator>().enabled = true;
 			difficulty = GameManager.manager.GetDifficulty ();
 			if (GameManager.manager.GetDblNothing ())

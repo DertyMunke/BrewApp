@@ -33,7 +33,7 @@ public class GhostBall : MonoBehaviour
 				inactive = false;
 			}
 			if(gameObject.transform.position == PingPongBall.ppBallScript.GetGhostStartPos())
-				gameObject.collider.enabled = false;
+				gameObject.GetComponent<Collider>().enabled = false;
 			BlinkyGhost ();
 		}
 	}
@@ -49,8 +49,8 @@ public class GhostBall : MonoBehaviour
 			if(oneDamp)
 			{
 				oneDamp = false;
-				Vector3	lastBounce = transform.rigidbody.velocity;
-				transform.rigidbody.velocity = new Vector3(lastBounce.x * .5f, lastBounce.y * .5f, lastBounce.z * .5f);
+				Vector3	lastBounce = transform.GetComponent<Rigidbody>().velocity;
+				transform.GetComponent<Rigidbody>().velocity = new Vector3(lastBounce.x * .5f, lastBounce.y * .5f, lastBounce.z * .5f);
 			}
 		}
 
@@ -61,12 +61,12 @@ public class GhostBall : MonoBehaviour
 	private void GhostDestructor()
 	{
 		gameObject.GetComponent<TrailRenderer> ().enabled = false;
-		gameObject.rigidbody.velocity = Vector3.zero;
+		gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		gameObject.SetActive (false);
 		inactive = true;
 		oneDamp = true;
-		renderer.enabled = false;
-		collider.enabled = false;
+		GetComponent<Renderer>().enabled = false;
+		GetComponent<Collider>().enabled = false;
 	}
 
 	// Gives the ball it's blinking effects
@@ -79,19 +79,19 @@ public class GhostBall : MonoBehaviour
 
 		if(Time.time > colliderTime)
 		{
-			if(renderer.enabled == false)
+			if(GetComponent<Renderer>().enabled == false)
 			{
-				renderer.enabled = true;
+				GetComponent<Renderer>().enabled = true;
 			}
 			else
 			{
-				renderer.enabled = false;
+				GetComponent<Renderer>().enabled = false;
 			}
 			
 			colliderTime = Time.time + colliderDelay;
-			if(!collider.enabled)
+			if(!GetComponent<Collider>().enabled)
 			{
-				collider.enabled = true;
+				GetComponent<Collider>().enabled = true;
 			}
 		}
 	}

@@ -271,8 +271,8 @@ public class ThrowGlassControl : Touch3D
 			armRot = new Vector3(0, armRotMin, 0);
 			armWithPivot.transform.eulerAngles = armRot;
 			glassObj.transform.parent = null;
-			glassObj.rigidbody.constraints = RigidbodyConstraints.None;
-			glassObj.rigidbody.freezeRotation = true;
+			glassObj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			glassObj.GetComponent<Rigidbody>().freezeRotation = true;
 			ApplyForce();
 			throwPowerTrigger = 1;
 			throwPower = 0;
@@ -614,7 +614,7 @@ public class ThrowGlassControl : Touch3D
 	// Camera follows the glass down the bar
 	private void CameraFollow()
 	{
-		if(glassThrown && !glassObj.transform.rigidbody.IsSleeping())
+		if(glassThrown && !glassObj.transform.GetComponent<Rigidbody>().IsSleeping())
 		{
 			isMoving = true;
 		}
@@ -646,7 +646,7 @@ public class ThrowGlassControl : Touch3D
 				}
 			}
 		
-			if(glassObj.transform.rigidbody.IsSleeping() || !getPoints)
+			if(glassObj.transform.GetComponent<Rigidbody>().IsSleeping() || !getPoints)
 			{
 				GetPoints();
 				if(cameraReturn)
@@ -859,103 +859,103 @@ public class ThrowGlassControl : Touch3D
 	{
 		if(throwPower > 300)
 		{
-			glassObj.transform.rigidbody.AddForce(-15000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-15000, 0, 0);
 		}
 		else if(throwPower > 250)
 		{
-			glassObj.transform.rigidbody.AddForce(-9500, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-9500, 0, 0);
 		}
 		else if(throwPower > 230)
 		{
-			glassObj.transform.rigidbody.AddForce(-9000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-9000, 0, 0);
 		}
 		else if(throwPower > 220)
 		{
-			glassObj.transform.rigidbody.AddForce(-8500, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-8500, 0, 0);
 		}
 		else if(throwPower > 210)
 		{
-			glassObj.transform.rigidbody.AddForce(-8000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-8000, 0, 0);
 		}
 		else if(throwPower > 200)
 		{
-			glassObj.transform.rigidbody.AddForce(-7800, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-7800, 0, 0);
 		}
 		else if(throwPower > 190)
 		{
-			glassObj.transform.rigidbody.AddForce(-7600, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-7600, 0, 0);
 		}
 		else if(throwPower > 180)
 		{
-			glassObj.transform.rigidbody.AddForce(-7400, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-7400, 0, 0);
 		}
 		else if(throwPower > 170)
 		{
-			glassObj.transform.rigidbody.AddForce(-7200, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-7200, 0, 0);
 		}
 		else if(throwPower > 160)
 		{
-			glassObj.transform.rigidbody.AddForce(-6800, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-6800, 0, 0);
 		}
 		else if(throwPower > 150)
 		{
-			glassObj.transform.rigidbody.AddForce(-6400, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-6400, 0, 0);
 		}
 		else if(throwPower > 140)
 		{
-			glassObj.transform.rigidbody.AddForce(-6100, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-6100, 0, 0);
 		}
 		else if(throwPower > 130)
 		{
-			glassObj.transform.rigidbody.AddForce(-5800, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-5800, 0, 0);
 		}
 		else if(throwPower > 120)
 		{
-			glassObj.transform.rigidbody.AddForce(-5400, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-5400, 0, 0);
 		}
 		else if(throwPower > 110)
 		{
-			glassObj.transform.rigidbody.AddForce(-5000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-5000, 0, 0);
 		}
 		else if(throwPower > 100)
 		{
-			glassObj.transform.rigidbody.AddForce(-4600, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-4600, 0, 0);
 		}
 		else if(throwPower > 90)
 		{
-			glassObj.transform.rigidbody.AddForce(-4200, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-4200, 0, 0);
 		}
 		else if(throwPower > 80)
 		{
-			glassObj.transform.rigidbody.AddForce(-3800, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-3800, 0, 0);
 		}
 		else if(throwPower > 70)
 		{
-			glassObj.transform.rigidbody.AddForce(-3400, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-3400, 0, 0);
 		}
 		else if(throwPower > 60)
 		{
-			glassObj.transform.rigidbody.AddForce(-3000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-3000, 0, 0);
 		}
 		else if(throwPower > 50)
 		{
-			glassObj.transform.rigidbody.AddForce(-2500, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-2500, 0, 0);
 		}
 		else if(throwPower > 40)
 		{
-			glassObj.transform.rigidbody.AddForce(-2000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-2000, 0, 0);
 		}
 		else if(throwPower > 30)
 		{
-			glassObj.transform.rigidbody.AddForce(-1500, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-1500, 0, 0);
 		}
 		else if(throwPower > 20)
 		{
-			glassObj.transform.rigidbody.AddForce(-1000, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-1000, 0, 0);
 		}
 		else if(throwPower <= 20)
 		{
-			glassObj.transform.rigidbody.AddForce(-750, 0, 0);
+			glassObj.transform.GetComponent<Rigidbody>().AddForce(-750, 0, 0);
 		}
 	}
 
