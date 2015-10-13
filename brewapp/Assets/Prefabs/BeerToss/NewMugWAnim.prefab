@@ -92,6 +92,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400002}
+  - 65: {fileID: 6561822}
   m_Layer: 0
   m_Name: NewMugWAnim
   m_TagString: Glass
@@ -168,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113918e-08}
-  m_LocalPosition: {x: 6.74034023, y: .815295637, z: 17.272768}
+  m_LocalPosition: {x: 3.6158514, y: 8.96000004, z: 2.87008476}
   m_LocalScale: {x: 1.02999997, y: 1.02999997, z: 1.02999997}
   m_Children:
   - {fileID: 400008}
@@ -230,7 +231,7 @@ MeshCollider:
   m_GameObject: {fileID: 100004}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300002, guid: 9d8c019b0a3b4d64984d10272142a9e9, type: 3}
@@ -246,6 +247,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 9d8c019b0a3b4d64984d10272142a9e9, type: 3}
+--- !u!65 &6561822
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .00999999978, z: 1}
+  m_Center: {x: .0700000003, y: -.800000012, z: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -338,6 +351,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -161,8 +161,8 @@ public class BearAI : MonoBehaviour
 	// Triggers the bag hit anim
 	private void BagHit()
 	{
-		bag.GetComponent<Animator> ().SetBool ("punch", true);
-	}
+        bag.GetComponent<Animator>().SetBool("punch", true);
+    }
 
 	// Set the difficulty of the Bear's AI
 	public void SetBearDiff(int diff)

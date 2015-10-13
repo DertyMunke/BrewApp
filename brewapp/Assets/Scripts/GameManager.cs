@@ -57,16 +57,12 @@ public class GameManager : MonoBehaviour
 	// Loads the next level: Need unity pro to finish this
 	private IEnumerator Loading()
 	{
-//		Save (currProfileName);  // took this out for testing, might need later
+       //Save (currProfileName);  // took this out for testing, might need late
 
-//		Debug.Log ("loading started: Level " + nextLevel);
-		// Async requires unity pro
-//		AsyncOperation async = Application.LoadLevelAsync ("Level01");
-//		yield return async;
-		yield return new WaitForSeconds(1.5f);
-//		Debug.Log ("loading complete");
-
-		Application.LoadLevel (nextLevel);
+        // Async requires unity pro
+        yield return new WaitForSeconds(1.5f);
+        AsyncOperation async = Application.LoadLevelAsync(nextLevel);
+        yield return async;
 	}
 
 	// Allows other scripts to start the loading level coroutine
