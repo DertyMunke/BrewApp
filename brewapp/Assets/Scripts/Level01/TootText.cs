@@ -68,7 +68,7 @@ public class TootText : MonoBehaviour
 				// Camera 1: Starts the game walkthrough
 				subStage = 1;
 				topTootTxt[0].text = "The views buttons in the bottom right, " +
-					"will allow you to look at the costomers or the tap handles";
+					"will allow you to look at the customers or the tap handles";
 				topTootTxt[1].text = "Touch to continue...";
 				continueBtn.gameObject.SetActive(true);
 				viewsPnlObj.SetActive(true);
@@ -119,7 +119,7 @@ public class TootText : MonoBehaviour
 				if(!OverthrowCollider.overThrowScript.GetOverthrow())
 				{
 					subStage = 1;
-					topTootTxt[0].text = "You've earned a tip, experience and reputation towards a beer pong challenge!";
+					topTootTxt[0].text = "You've earned a tip, experience, and reputation towards a beer pong challenge!";
 					xpBtnObj.SetActive(true);
 					xpSliderObj.SetActive(true);
 					headerTxt[0].enabled = true;
@@ -208,7 +208,7 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 3)
 		{
-			midTootTxt[0].text = "This is the menu button. Push it and see what it does.";
+			midTootTxt[0].text = "This is the menu button. Push it.";
 			midTootTxt[1].text = "Push the menu button...";
 			continueBtn.gameObject.SetActive (false);
 			topTootPnl.SetActive(false);
@@ -281,7 +281,7 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 16)
 		{
-			topTootTxt[0].text = "Our customers are always thursty. " +
+			topTootTxt[0].text = "Our customers are always thirsty. " +
 				"See how many beers you can serve before the timer runs out";
 			topTootTxt[1].text = "Touch to continue...";
 			continueBtn.gameObject.SetActive(true);
