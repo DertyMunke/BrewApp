@@ -119,7 +119,7 @@ public class TootText : MonoBehaviour
 				if(!OverthrowCollider.overThrowScript.GetOverthrow())
 				{
 					subStage = 1;
-					topTootTxt[0].text = "You've earned a tip, experience, and reputation towards a beer pong challenge!";
+					topTootTxt[0].text = "You've earned a tip, experience and reputation towards a beer pong challenge!";
 					xpBtnObj.SetActive(true);
 					xpSliderObj.SetActive(true);
 					headerTxt[0].enabled = true;
@@ -208,7 +208,7 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 3)
 		{
-			midTootTxt[0].text = "This is the menu button. Push it.";
+			midTootTxt[0].text = "This is the menu button. Push it and see what it does.";
 			midTootTxt[1].text = "Push the menu button...";
 			continueBtn.gameObject.SetActive (false);
 			topTootPnl.SetActive(false);
