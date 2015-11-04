@@ -12956,8 +12956,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fc0eb4ac59bfa694ead765c570c2e1df, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -19150,6 +19150,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 187062, guid: 465b96c0965069841bbcc1e0a8d7e706, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465b96c0965069841bbcc1e0a8d7e706, type: 2}
   m_IsPrefabParent: 0
@@ -23273,8 +23277,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.31411743, y: -.812988281}
-  m_SizeDelta: {x: -.628173828, y: 3.63000488}
+  m_AnchoredPosition: {x: .750061035, y: -.812988281}
+  m_SizeDelta: {x: 2.4999001, y: 4}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1512418978
 MonoBehaviour:
@@ -26095,8 +26099,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -.450012207}
-  m_SizeDelta: {x: 1, y: -.899993896}
+  m_AnchoredPosition: {x: 0, y: .593490601}
+  m_SizeDelta: {x: 1, y: 1.18700004}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1694375965
 MonoBehaviour:
@@ -33125,6 +33129,10 @@ Prefab:
     - target: {fileID: 11455344, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
       propertyPath: m_Type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 155354, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
