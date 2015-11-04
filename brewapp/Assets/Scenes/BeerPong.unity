@@ -8962,7 +8962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595450587
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9403,10 +9403,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1714515743}
   m_RootOrder: 0
-  m_AnchorMin: {x: .658000052, y: .510688186}
-  m_AnchorMax: {x: .9006387, y: .901371837}
-  m_AnchoredPosition: {x: -1.10000038, y: .5}
-  m_SizeDelta: {x: .288818359, y: 2.39572144}
+  m_AnchorMin: {x: .820475817, y: .226000011}
+  m_AnchorMax: {x: .97771889, y: .631000042}
+  m_AnchoredPosition: {x: .800003052, y: .5}
+  m_SizeDelta: {x: -2, y: -1.52590001e-05}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &632628574
 MonoBehaviour:
@@ -9427,7 +9427,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f59f5797ac8f9824ea72e058250a7a52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acaf03b9c4b5b6a42817cbf04a4de2ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11372,10 +11372,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1714515743}
   m_RootOrder: 4
-  m_AnchorMin: {x: .76000005, y: .522430182}
-  m_AnchorMax: {x: .991400599, y: .861506999}
-  m_AnchoredPosition: {x: .200000048, y: 1}
-  m_SizeDelta: {x: 1.79202271, y: 1.40234375}
+  m_AnchorMin: {x: .83774066, y: .0632447004}
+  m_AnchorMax: {x: .966506302, y: .269000024}
+  m_AnchoredPosition: {x: -.5, y: -.5}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &725512459
 MonoBehaviour:
@@ -11459,7 +11459,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b3d1e168100fe7348a471f60823120c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e770e652ab0a4a478f49539bc465dee, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12550,16 +12550,16 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 795776430}
-  m_LocalRotation: {x: 0, y: 0, z: -.0126573648, w: .999919951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1714515743}
   m_RootOrder: 2
-  m_AnchorMin: {x: .59663868, y: .438311845}
-  m_AnchorMax: {x: .938319385, y: .975623727}
-  m_AnchoredPosition: {x: 1.89999962, y: 0}
-  m_SizeDelta: {x: -1.1496582, y: 3.69012451}
+  m_AnchorMin: {x: .825226426, y: .0430000015}
+  m_AnchorMax: {x: .97771889, y: .631000042}
+  m_AnchoredPosition: {x: .506999969, y: 0}
+  m_SizeDelta: {x: -1, y: 1}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &795776432
 MonoBehaviour:
@@ -12580,7 +12580,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: abe33024a742ae14a8bae628ed78a628, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ba3089fa378ef24eae8472d21be0a69, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -17889,35 +17889,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -.5
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_AnchorMin.x
-      value: .705224872
+      value: .797150016
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: .580266356
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 1.01077557
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .357145995
+      value: .946456552
       objectReference: {fileID: 0}
     - target: {fileID: 22416358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_Pivot.x
@@ -17958,6 +17958,10 @@ Prefab:
     - target: {fileID: 11416360, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: R_ViewsBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 116358, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20803fb6f3932d547a57236e676ca6c9, type: 2}
@@ -22500,7 +22504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356782162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24614,7 +24618,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155324, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11455314, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
       propertyPath: reRollBtn
