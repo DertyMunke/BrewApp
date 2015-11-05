@@ -10,8 +10,6 @@ public class BarController : MonoBehaviour
 	private Patron patronScript;
 	private ThrowGlassControl tgcScript;
 	private GUITexture[] labels;
-	private Vector3 fingerLeftView;
-	private Vector3 fingerRightView; 
 	private bool tootBack = true;
 	private bool stage1Once = false;
 	private bool stage2Once = false;
@@ -61,8 +59,6 @@ public class BarController : MonoBehaviour
 	{
 		SetupLevel ();
 		labels = tapHandleClones.GetComponentsInChildren<GUITexture> ();
-		fingerLeftView = fingerPtr.transform.position;
-		fingerRightView = new Vector3 (fingerLeftView.x + .083f, fingerLeftView.y, fingerLeftView.z);
 		camViewStart = Camera.main.fieldOfView;
 		stage = 1;
 

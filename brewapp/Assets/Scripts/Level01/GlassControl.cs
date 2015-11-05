@@ -5,7 +5,6 @@ public class GlassControl : MonoBehaviour
 {
 	private Vector3 origPos;
 	private Quaternion origRot;
-	private bool firstSlideSound = true;
 
 	public static GlassControl glassScript;
 	public bool glassDestroy = false;
@@ -34,7 +33,6 @@ public class GlassControl : MonoBehaviour
 		if(this.gameObject.transform.position.y < -2 || this.gameObject.transform.position.z < -3 || 
 		   this.gameObject.transform.position.z > 11)
 		{
-			firstSlideSound = true;
 //			audio.clip = "LongSlide1";
 			KillIt();
 			ThrowGlassControl.tgcScript.getPoints = false;
@@ -42,7 +40,6 @@ public class GlassControl : MonoBehaviour
 
 		if (glassDestroy)
 		{
-			firstSlideSound = true;
 //			audio.clip = "LongSlide1";
 			KillIt ();
 			glassDestroy = false;

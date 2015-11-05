@@ -7,8 +7,6 @@ public class FingerTrail : MonoBehaviour
 	private GameObject swipeTrail;
 	private LineRenderer lineRenderer;
 	private Vector2 deltaTouch;
-	private bool goodPunchStart = false;
-	private bool goodPunchEnd = false;
 	private bool swipe1Active = false;
 	private bool swipe2Active = false;
 	private float lineSize = 0;
@@ -91,8 +89,6 @@ public class FingerTrail : MonoBehaviour
 				bonusPower = 0;
 
 				TotalPunch();
-				goodPunchStart = false;
-				goodPunchEnd = false;
 			}
 		}
 	}

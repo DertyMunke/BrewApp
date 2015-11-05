@@ -10,7 +10,6 @@ public class PunchManager : MonoBehaviour
 	private float bearIndex = 0;
 	private float myIndex = 0;
 	private int punchNum = 0;
-	private int winner = 0;
 	private int difficulty = 0;
 	private int hisScore = 0;
 	private int myScore = 0;

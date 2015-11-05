@@ -7,13 +7,9 @@ public class FlipCup : MonoBehaviour
 	private Vector3 flipCupPos;
 	private Vector2 swipeDist;      // Delta dist-> Determins distance of flipped cup
 	private bool swipeActive = true;
-	private bool badStall = false;
-	private bool stallTimeActive = true;
 	private bool startTimer = false;
 	private float swipeTime = 0;    // Delta time-> Determins height of flipped cup
 	private float timer = 0;
-	private float stallTimer = 0;
-	private float maxStallTime = 0; // This is set in FlipSwipe()
 	private float maxHeight = .17f;  // Maximum value for swipeTime   //30
 	private float minHeight = .13f;  // Minimum value for swipeTime   // 9
 	private float maxDist = 212;    // Max value for ySwipe  (each unit = .033)  //212 ~ 7
@@ -185,9 +181,6 @@ public class FlipCup : MonoBehaviour
 		{
 			if(Input.GetTouch (0).phase == TouchPhase.Began)
 			{
-				badStall = false;
-				stallTimeActive = true;
-				maxStallTime = .4f;
 				swipeTime = Time.time;
 				swipeDist = Input.GetTouch (0).position;
 			}

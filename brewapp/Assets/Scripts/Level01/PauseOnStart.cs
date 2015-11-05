@@ -4,7 +4,6 @@ using System.Collections;
 public class PauseOnStart : MonoBehaviour 
 {
 	private bool oneTime = true;
-	private Animator myAnim;
 
 	public static PauseOnStart POSscript;
 	// Use this for initialization
@@ -12,7 +11,6 @@ public class PauseOnStart : MonoBehaviour
 	private void Start()
 	{
 		POSscript = this;
-		myAnim = gameObject.GetComponent<Animator> ();
 	}
 
 	private void Update ()

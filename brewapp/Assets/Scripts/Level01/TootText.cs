@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 public class TootText : MonoBehaviour 
 {
 	private Patron patronScript; // Not generic needs to be assigned to a specific patrons Patron.cs
-	private float timer = 0;
-	private float timerDelay = 5;
-	private int stage = 0;
 	private int subStage = 0;
 	private int newToot = 0;
 	
@@ -55,8 +52,6 @@ public class TootText : MonoBehaviour
 		{
 			Init ();
 		}
-
-		timer = Time.time + timerDelay;
 	}
 
 	void FixedUpdate()
@@ -151,12 +146,6 @@ public class TootText : MonoBehaviour
 			{
 				GameManager.manager.barTossToot = false;
 				subStage = 1;
-//				topTootTxt[0].text = "You can press the left views button if you've made a mistake and want to go back. (FYI)";
-//				topTootTxt[1].text = "Touch to continue";
-//				topTootPnl.SetActive(true);
-//				continueBtn.gameObject.SetActive (true);
-//				ThrowGlassControl.tgcScript.TouchActive();
-//				Time.timeScale = 0;
 			}
 		}
 	}

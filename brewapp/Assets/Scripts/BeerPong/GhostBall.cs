@@ -5,8 +5,6 @@ using System.Collections;
 public class GhostBall : MonoBehaviour 
 {
 	private Vector3 lastBounce;
-	private float destroyDelay = 3;
-	private float destroyTime = 0;
 	private float colliderDelay = .5f;
 	private float colliderTime = 0;
 	private float destroyDistZ = 0;
@@ -16,7 +14,6 @@ public class GhostBall : MonoBehaviour
 	private void Start()
 	{
 		destroyDistZ = 12 - PPManager.ppManager.GetLvlDifficulty () * 2;
-		destroyTime = Time.time + destroyDelay;
 		colliderTime = Time.time + colliderDelay;
 	}
 
@@ -28,7 +25,6 @@ public class GhostBall : MonoBehaviour
 			if(inactive)
 			{
 				gameObject.GetComponent<TrailRenderer> ().enabled = true;
-				destroyTime = Time.time + destroyDelay;
 				colliderTime = Time.time + colliderDelay;
 				inactive = false;
 			}

@@ -16,7 +16,6 @@ public class FlipCupManager : MonoBehaviour
 	private bool putDownDone = false;
 	private bool startHisGame = false;
 	private float foxAnimSpacing = 1; // The amount of time between flip cup anims 
-	private float speedAI = .2f;
 	private int winState = 2; // 0 = win, 1 = lose, 2 = draw
 	private int myCupIndex = 0;
 	private int hisCupIndex = 0;

@@ -24,7 +24,6 @@ public class Patron : Touch3D
 	private bool beerMessage = false;
 	private bool allowTouch = true;
 	private float startMessageTimer = 0;
-	private float arrowTimer = 0;
 	private float showMessageTimer = 0;
 	private int beerNum = 0;
 	private int numBeers = 0;

@@ -10,8 +10,6 @@ public class ThrowGlassControl : Touch3D
 	private Patron patScript;
 	private Score scoreScript;
 	private Transform patArrow;
-	private GameObject[] patrons;
-//	private Transform glassTarget;
 	private Vector3 armRot = new Vector3 (0, 14.2f, 0);
 	private Vector3 cameraStart;
 	private Vector3 cam3FollowPos;
@@ -37,7 +35,6 @@ public class ThrowGlassControl : Touch3D
 	private float bearRepPerc = .3f;   // Multiplier for rep increase per level
 	private float foxRepPerc = .3f;   // Multiplier for rep increase per level
 	private int numThrown = 0;
-	private int numPatrons = 0;
 	private int repTotal = 0;
 
 	public static ThrowGlassControl tgcScript;
@@ -134,8 +131,6 @@ public class ThrowGlassControl : Touch3D
 	private void Start () 
 	{
 		armRotMax = armWithPivot.transform.eulerAngles.y;
-		patrons = GameObject.FindGameObjectsWithTag ("Patron");
-		numPatrons = patrons.Length;
 
 		cam3FollowPos = cam3Follow.transform.position;
 		cam3FollowRot = cam3Follow.transform.rotation;

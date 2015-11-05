@@ -7,12 +7,10 @@ public class BearAI : MonoBehaviour
 	private Vector3 bearStartPos;
 	private Vector3 punch2Pos = new Vector3 (8.7f, -.8f, 23.85f);
 	private Vector3 punch1Pos = new Vector3 (7.77f, -.8f, 22.51f);
-	private bool firstTime = true;
 	private float oddsIncr = 0;
 	private float gauge1Limit = 1f;
 	private float gauge3Limit = .85f;
 	private float gauge2Value = .3f;
-	private int difficulty = 0;
 	private int punchNum = 0;  // 1 = strong; 2 = medium; 3 = weak
 	private int gaugeSpeed = 5;
 
@@ -173,7 +171,5 @@ public class BearAI : MonoBehaviour
 		gauge1Limit = gauge1Limit - multplr * .025f;
 		gauge3Limit = gauge3Limit + multplr * .025f;
 		gauge2Value = gauge2Value - multplr * .05f;
-
-		difficulty = diff;
 	}
 }

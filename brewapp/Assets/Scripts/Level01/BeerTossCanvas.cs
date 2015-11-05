@@ -11,14 +11,12 @@ public class BeerTossCanvas : MonoBehaviour
 	private Color fromColor;
 	private Color toColor;
 	private Color chalColor;
-	private bool expanded = false;
 	private bool tradeSelected = false;
 	private bool acceptChal = false;
 	private bool activateTimer = false;
 	private bool repSelectActive = true;
 	private float timer = 0;
 	private float timeDelay = 5;
-	private int tradeRepAmt = 0;
 
 	public static BeerTossCanvas tossCanvasScript;
 	public GameObject fox;

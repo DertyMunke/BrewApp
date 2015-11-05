@@ -6,19 +6,13 @@ public class PPManager : Touch3D
 {
 	private Vector3[] hisStarPos = new Vector3[6];
 	private Vector3[] myStartPos = new Vector3[6];
-	private Vector3 lookAtCupsPos;
-	private Vector3 lookAtCupsAngle;
 	private Vector3 origBallPos;
-	private bool iHaveCups = true;
-	private bool heHasCups = true;
 	private bool myTurn = true;
-	private bool setMyLast = true;
 	private bool reRackClose = false;
 	private bool reRacked = false;
 	private bool winner = false;
 	private bool dblNothin = false;
 	private float camFastLook = 10;
-	private int myLastTurn = 0;
 	private int hisReRack = 0;
 	private int myReRack = 0;
 	private int totReRacks = 1;
@@ -105,10 +99,6 @@ public class PPManager : Touch3D
 //			hisScore = 0;
 			// |<----
 		}
-		
-		setMyLast = true;
-		lookAtCupsPos = new Vector3 (transform.position.x, transform.position.y, 5.75f);
-		lookAtCupsAngle = new Vector3 (59, transform.rotation.y, transform.rotation.z);
 	}
 
 	// Disables all cups but 1 on each side, in a random position

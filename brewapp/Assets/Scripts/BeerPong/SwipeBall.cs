@@ -7,7 +7,6 @@ public class SwipeBall : MonoBehaviour
 	public Text swipeBallText;
 
 	private Vector2 deltaTouch = new Vector2(0, 0);
-	private Vector2 swipeAngle = new Vector2(0, 0);
 	private bool ballBounced = false;
 	private float swipeDelay = .5f;
 	private float swipeTimer = 0;

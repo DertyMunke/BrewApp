@@ -5,15 +5,12 @@ using System.Collections;
 public class Score : MonoBehaviour 
 {
 	private GameManager manager;
-	private Color red = new Color(.88f, .55f, .44f);
 	private Color green = new Color(.48f, .82f, .07f);
 	private Color yellow = new Color(.85f, .91f, .04f);
 	private Color myColor;
 	private float highScore;
-	private float bonusPerSec = .01f;
 	private float timeDelay = 1;
 	private int timer;
-	private bool beerPong = false;
 	private bool onlyOnce = false;
 	private bool timerActivated = false;
 
