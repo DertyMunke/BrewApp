@@ -73,25 +73,21 @@ public class PongToot : MonoBehaviour
 		}
 		else if (tootStage == 2)
 		{
-			topTxt.text = "Try it by pressing and holding one of the views buttons.";
-			topInstTxt.text = "Press and hold a views button...";
+			botTxt.text = "Try it by pressing and holding one of the views buttons.";
+			botInstTxt.text = "Press and hold a views button...";
 			viewsTouch.SetActive(true);
-			botTxtPnl.SetActive (false);
-			topTxtPnl.SetActive(true);
 			viewsPnl.SetActive (true);
 			contBtnObj.SetActive(false);
-			tootStage++;
+			tootStage ++;
 		}
 		else if(tootStage == 3)
 		{
 			viewsTouch.SetActive(false);
-			topTxtPnl.SetActive(false);
 			tootStage++;
 		}
 		else if(tootStage == 4)
 		{
 			botTxt.text = "Perfect! Now lets cover the direction controller. The d-pad will help you aim the ball.";
-			botTxtPnl.SetActive (true);
 			contBtnObj.SetActive (true);
 			tootStage++;
 		}
@@ -133,9 +129,10 @@ public class PongToot : MonoBehaviour
 		}
 		else if(tootStage == 9)
 		{
-			Debug.Log("9");
-			botTxt.text = "Adjust the direction then hold down the power button until it's almost where you want it, then let go.";
-			botInstTxt.text = "Hold power button, then release...";
+			topTxt.text = "Adjust the direction then hold down the power button until it's almost where you want it, then let go.";
+			topInstTxt.text = "Hold power button, then release...";
+            topTxtPnl.SetActive(true);
+            botTxtPnl.SetActive(false);
 			pwrBarPoint.SetActive(false);
 			powerTouch.SetActive(true);
 			contBtnObj.SetActive(false);
@@ -153,6 +150,7 @@ public class PongToot : MonoBehaviour
 			botTxt.text = "Well, you threw it. You will take turns throwing now.";
 			botInstTxt.text = "Touch to continue...";
 			botTxtPnl.SetActive(true);
+            topTxtPnl.SetActive(false);
 			contBtnObj.SetActive (true);
 			tootStage++;
 		}
@@ -178,8 +176,10 @@ public class PongToot : MonoBehaviour
 		}
 		else if(tootStage == 15)
 		{
-			// Introduce re-rack button
-			botTxt.text = "You have an option to re-rack the cups! You only get one and can use it at 4, 3, or 2 cups.";
+            Debug.Log("15");
+
+            // Introduce re-rack button
+            botTxt.text = "You have an option to re-rack the cups! You only get one and can use it at 4, 3, or 2 cups.";
 			botTxtPnl.SetActive(true);
 			topTxtPnl.SetActive(false);
 			dpadPnl.SetActive(false);

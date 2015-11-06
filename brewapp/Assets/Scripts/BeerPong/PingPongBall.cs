@@ -288,31 +288,35 @@ public class PingPongBall : MonoBehaviour
 		//For ping pong ball bounce effect
 		if(gameObject.GetComponent<MeshRenderer>().enabled)
 		{
-			if((other.gameObject.tag == "MyCups" || other.gameObject.tag == "OtherCups"))
-			{
-				if(oneDamp)
-				{
-					oneDamp = false;
-					Vector3	lastBounce = transform.GetComponent<Rigidbody>().velocity;
-					transform.GetComponent<Rigidbody>().velocity = new Vector3(lastBounce.x * .5f, lastBounce.y * .5f, lastBounce.z * .5f);
+            if ((other.gameObject.tag == "MyCups" || other.gameObject.tag == "OtherCups"))
+            {
+                if (oneDamp)
+                {
+                    oneDamp = false;
+                    Vector3 lastBounce = transform.GetComponent<Rigidbody>().velocity;
+                    transform.GetComponent<Rigidbody>().velocity = new Vector3(lastBounce.x * .5f, lastBounce.y * .5f, lastBounce.z * .5f);
 
-					GetComponent<AudioSource>().clip = bounceSounds[1];
-					GetComponent<AudioSource>().Play();
+                    GetComponent<AudioSource>().clip = bounceSounds[1];
+                    GetComponent<AudioSource>().Play();
 
-				}
-			}
-			else if (other.gameObject.tag == "Table")
-			{
-				GetComponent<AudioSource>().clip = bounceSounds[0];
-				gameObject.GetComponent<AudioSource>().Play ();
-			}
-
-			else
-			{
-				GetComponent<AudioSource>().volume = .3f;
-				GetComponent<AudioSource>().clip = bounceSounds[0];
-				gameObject.GetComponent<AudioSource>().Play ();
-			}
+                }
+            }
+            else if (other.gameObject.tag == "Table")
+            {
+                GetComponent<AudioSource>().clip = bounceSounds[0];
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            else if (other.gameObject.tag == "Patron")
+            {
+                Vector3 lastBounce = transform.GetComponent<Rigidbody>().velocity;
+                transform.GetComponent<Rigidbody>().velocity = new Vector3(lastBounce.x * .2f, lastBounce.y * .2f, lastBounce.z * .2f);
+            }
+            else
+            {
+                GetComponent<AudioSource>().volume = .3f;
+                GetComponent<AudioSource>().clip = bounceSounds[0];
+                gameObject.GetComponent<AudioSource>().Play();
+            }
 		}
 	}
 
