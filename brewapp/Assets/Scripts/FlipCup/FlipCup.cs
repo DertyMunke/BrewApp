@@ -196,21 +196,8 @@ public class FlipCup : MonoBehaviour
 				// Determines if there's a good swipe or just bump the cup
 				if(swipeActive && swipeDist.y > 30 && swipeTime < .5f)	
 				{
-					if(swipeTime > maxHeight)
-					{
-						swipeTime = maxHeight; 
-					}
-					else if(swipeTime < minHeight)
-					{
-						swipeTime = minHeight; 
-					}
-			
 					GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-					if(Application.loadedLevelName == "FlipPractice")
-					{
-						flipArrowDown.SetActive(true);
-					}
-//					flipArrow.SetActive(false);
+
 					swipeActive = false;
 					ApplyForce(swipeDist);
 				}
@@ -233,18 +220,28 @@ public class FlipCup : MonoBehaviour
 	{
 		float ySwipe = dist.y; // Delta dist y dir
 
-		if(ySwipe < minDist)
-		{
-			ySwipe = minDist;  
-		}
-		else if(ySwipe > maxDist)
-		{
-			ySwipe = maxDist;
-		}
+        // If the time length of the swipe is > or < the max or min values, set them to the max or min values respectively 
+        if (swipeTime > maxHeight)
+            swipeTime = maxHeight;
+        else if (swipeTime < minHeight)
+            swipeTime = minHeight;
 
-		// Apply force to cup then start game timer
-		GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(ySwipe * .033f, 15 - (swipeTime * 100 - 15) + Mathf.CeilToInt(ySwipe/swipeTime * .001f) * 2, 0), 
-		                             forcePoint.transform.position);
+        // If the distance length of the swipe is > or < the max or min values, set them to the max or min values respectively 
+        if (ySwipe < minDist)
+			ySwipe = minDist;  
+		else if(ySwipe > maxDist)
+			ySwipe = maxDist;
+
+        // Calculates the total force from time and distance of swipe
+        //Debug.Log(ySwipe + " dist : time " + swipeTime + " ratio " + ySwipe/(swipeTime * 100));
+        float forceDist = (ySwipe * .035f);
+        float forceHeight = ((ySwipe / (swipeTime * 100)) * 2f) - swipeTime * 50f;
+        //float forceHeight = 15 - (swipeTime * 100 - 15) + Mathf.CeilToInt(ySwipe / swipeTime * .001f) * 2;
+
+        Vector3 force = new Vector3(forceDist, forceHeight, 0);
+
+        // Apply force to cup then start game timer
+        GetComponent<Rigidbody>().AddForceAtPosition(force, forcePoint.transform.position);
 
 		timer = Time.time + timeDelta;
 	}
