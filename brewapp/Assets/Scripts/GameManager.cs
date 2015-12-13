@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 	private bool pongToot = true;
 	private bool pongRackToot = true;
 	private bool flipToot = true;
-	private bool punchToot = true;
+	private bool punchToot = false;
 	private bool restartLvl = false;
 	private float highTips = 0;
 	private float myBet = 0;

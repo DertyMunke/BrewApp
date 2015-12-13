@@ -73,8 +73,9 @@ public class PunchManager : MonoBehaviour
 		}
 
 	}
-
-	// Determines how well you punched and displays it
+    /// <summary>
+    /// Determines how well you punched and displays it
+    /// </summary>
 	public void CompletePunch(float pow, float max)
 	{
 //		Debug.Log (pow);
@@ -90,13 +91,16 @@ public class PunchManager : MonoBehaviour
 		else
 		{
 			float blockSize = (max *.5f) / 8;
-			punchCat.text = strength[Mathf.FloorToInt((pow - max*.5f)/ blockSize)];
+			punchCat.text = strength[Mathf.CeilToInt((pow - max*.5f)/ blockSize)];
 
 			if(myTurn)
 				myIndex = Mathf.CeilToInt((pow - max*.5f)/ blockSize);
 			else
 				bearIndex = Mathf.CeilToInt((pow - max*.5f)/ blockSize);
 		}
+
+        PowerMeter2.powerMeter2Script.MeterObj_2.SetActive(false);
+        PowerMeter2.powerMeter2Script.MeterObj_1.SetActive(true);
 
 		punchCatPnl.SetActive(true);
 		Invoke ("NextPunch", 2);
@@ -108,25 +112,14 @@ public class PunchManager : MonoBehaviour
 		Debug.Log ("toot");
 		if(GameManager.manager.GetPunchToot())
 			tootCns.enabled = true;
-		mainCam.enabled = true;
+		mainCam.enabled = true; 
 		bearCam.enabled = false;
 
-		if(myTurn && Application.loadedLevelName != "PunchPractice")
+		myTurn = false;
+		if(!Winner ())
 		{
-			myTurn = false;
-			if(!Winner ())
-			{
-				FingerTrail.fingerScript.ResetRound (myTurn);
-				BearAI.bearScript.BearIt();
-				punchCatPnl.SetActive (false);
-			}
-
-		}
-		else
-		{
-			myTurn = true;
 			FingerTrail.fingerScript.ResetRound (myTurn);
-			BearAI.bearScript.RestartBear();
+			BearAI.bearScript.BearIt();
 			punchCatPnl.SetActive (false);
 		}
 	}
