@@ -109,20 +109,23 @@ public class PunchManager : MonoBehaviour
 	// Prepair and reset for the next punch
 	private void NextPunch()
 	{
-		Debug.Log ("toot");
 		if(GameManager.manager.GetPunchToot())
 			tootCns.enabled = true;
 		mainCam.enabled = true; 
 		bearCam.enabled = false;
 
-		myTurn = false;
-		if(!Winner ())
+		if((myTurn && !Winner ()) || !myTurn)
 		{
-			FingerTrail.fingerScript.ResetRound (myTurn);
-			BearAI.bearScript.BearIt();
+			//FingerTrail.fingerScript.ResetRound (myTurn);
+			//BearAI.bearScript.BearIt();
 			punchCatPnl.SetActive (false);
-		}
-	}
+            bag.GetComponent<Animator>().SetBool("punch", false);
+        }
+        myTurn = !myTurn;
+
+        if (!myTurn)
+            BearAI.bearScript.BearIt();
+    }
 
 	// Determines winner and updates UI and score
 	private bool Winner()
@@ -242,8 +245,7 @@ public class PunchManager : MonoBehaviour
 			wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());
 			totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
 
-			if (Application.loadedLevelName != "PunchPractice")
-				BearAI.bearScript.BearIt ();
+			BearAI.bearScript.BearIt ();
 		}
 	}
 }

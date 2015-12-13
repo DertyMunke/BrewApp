@@ -14,7 +14,8 @@ public class PowerMeter2 : MonoBehaviour {
     public Image meter_1;
     public Image meterSprite_2;
     public Sprite[] meterSprites_1;
-    
+
+    private bool userTurn = false;
     private bool meterAnim_1 = true;
     private bool meterAnim_2 = true;
     private bool meterIncr_1 = true;
@@ -27,6 +28,21 @@ public class PowerMeter2 : MonoBehaviour {
     #region Public Methods
     public GameObject MeterObj_1 { get { return meterObj_1; } }
     public GameObject MeterObj_2 { get { return meterObj_2; } }
+    public float MtrDist_2 { get { return Mathf.Abs(meterSprite_2.transform.localPosition.x - center_2.localPosition.x); } }
+    public int MtrIndex_1 { get { return meterIndex_1; } }
+
+    /// <summary>
+    /// Resets both power meters to the start position
+    /// </summary>
+    public void ResetMeters()
+    {
+        meter_1.sprite = meterSprites_1[0];
+        meterSprite_2.transform.position = rightBound_2.position;
+        userTurn = !userTurn;
+        meterAnim_1 = true;
+        meterAnim_2 = true;
+        meterIndex_1 = 0;
+    }
 
     /// <summary>
     /// Starts power meter 1 animation on button press
@@ -45,6 +61,20 @@ public class PowerMeter2 : MonoBehaviour {
         StartCoroutine(PowerMeterAnim_2());
     }
 
+    /// <summary>
+    /// Stops the second power meter and calculates the total, final score
+    /// </summary>
+    public float FinalScore()
+    {
+        meterAnim_2 = false;
+
+        // Calculate the final values
+        float meterVal_2 = 100 - Mathf.Abs(meterSprite_2.transform.localPosition.x - center_2.localPosition.x);
+        float meterVal_1 = 100 - (Mathf.Abs(21 - meterIndex_1) * 9.9f);
+
+        return meterVal_1 + meterVal_2;
+    }
+
     #endregion
     #region Private Methods
     private void Start()
@@ -54,19 +84,16 @@ public class PowerMeter2 : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(meterAnim_2 && meterObj_2.activeInHierarchy)
+        if(userTurn && meterAnim_2 && meterObj_2.activeInHierarchy)
         {
             // Stops the second meter when the user touches the screen
             if(Input.GetMouseButtonDown(0))
             {
-                meterAnim_2 = false;
-
-                // Calculate the final values
-                float meterVal_2 = 100 - Mathf.Abs(meterSprite_2.transform.localPosition.x - center_2.localPosition.x);
-                float meterVal_1 = 100 - (Mathf.Abs(21 - meterIndex_1) * 9.9f);
-
                 // Displays the results of the added final values
-                PunchManager.pManagerScript.CompletePunch(meterVal_1 + meterVal_2, 200);
+                PunchManager.pManagerScript.CompletePunch(FinalScore(), 200);
+
+                // Reset for the next turn
+                ResetMeters();
             }
         }
     }

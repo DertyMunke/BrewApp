@@ -16438,7 +16438,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155324, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11455310, guid: da2a1db245b609647b047b38b7aafdd9, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -22901,8 +22901,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1762052017}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.015444712, y: 0.15637228}
-  m_AnchorMax: {x: 1, y: 0.8781496}
+  m_AnchorMin: {x: 0.060617656, y: 0.13000917}
+  m_AnchorMax: {x: 0.9016876, y: 0.8781496}
   m_AnchoredPosition: {x: -1, y: -2}
   m_SizeDelta: {x: 4, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22925,7 +22925,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cfc387cc97341aa4684aa9d0824f1455, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 028589bfa44baee439e510403c8ad185, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
