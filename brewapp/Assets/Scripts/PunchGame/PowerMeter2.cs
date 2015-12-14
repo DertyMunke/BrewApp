@@ -8,6 +8,7 @@ public class PowerMeter2 : MonoBehaviour {
     public static PowerMeter2 powerMeter2Script;
     public GameObject meterObj_1;
     public GameObject meterObj_2;
+    public GameObject meterBtn_1;
     public Transform leftBound_2;
     public Transform rightBound_2;
     public Transform center_2;
@@ -20,8 +21,9 @@ public class PowerMeter2 : MonoBehaviour {
     private bool meterAnim_2 = true;
     private bool meterIncr_1 = true;
     private bool meterIncr_2 = true;
-    private float meterSpeed_1 = .03f;
-    private float meterSpeed_2 = .02f;
+    private float meterDist_2 = 5;
+    private float meterSpeed_1 = 0.04f;
+    private float meterSpeed_2 = 0.03f;
     private int meterIndex_1;
 
     #endregion
@@ -32,13 +34,30 @@ public class PowerMeter2 : MonoBehaviour {
     public int MtrIndex_1 { get { return meterIndex_1; } }
 
     /// <summary>
+    /// Sets the speed of the power meter according to the odds
+    /// </summary>
+    public void SetPowerDifficulty(int odds)
+    {
+        meterSpeed_1 -= (odds * 0.01f) * odds;
+        meterSpeed_2 -= (odds * 0.01f) * odds;
+        meterDist_2 = 4 + odds;
+    }
+
+    /// <summary>
     /// Resets both power meters to the start position
     /// </summary>
     public void ResetMeters()
     {
-        meter_1.sprite = meterSprites_1[0];
-        meterSprite_2.transform.position = rightBound_2.position;
         userTurn = !userTurn;
+        meterObj_1.SetActive(true);
+        MeterObj_2.SetActive(false);
+        if (userTurn)
+            meterBtn_1.SetActive(true);
+        else
+            meterBtn_1.SetActive(false);
+
+        meter_1.sprite = meterSprites_1[0];
+        meterSprite_2.transform.position = rightBound_2.position;       
         meterAnim_1 = true;
         meterAnim_2 = true;
         meterIndex_1 = 0;
@@ -57,6 +76,7 @@ public class PowerMeter2 : MonoBehaviour {
     /// </summary>
     public void PowerBtnUp()
     {
+        PunchToot.punchTootScript.CheckContinue(3);
         meterAnim_1 = false;
         StartCoroutine(PowerMeterAnim_2());
     }
@@ -89,11 +109,10 @@ public class PowerMeter2 : MonoBehaviour {
             // Stops the second meter when the user touches the screen
             if(Input.GetMouseButtonDown(0))
             {
+                PunchToot.punchTootScript.CheckContinue(4);
                 // Displays the results of the added final values
                 PunchManager.pManagerScript.CompletePunch(FinalScore(), 200);
-
-                // Reset for the next turn
-                ResetMeters();
+                PunchManager.pManagerScript.SetBag = true;
             }
         }
     }
@@ -103,6 +122,8 @@ public class PowerMeter2 : MonoBehaviour {
     /// </summary>
     private IEnumerator PowerMeterAnim_2()
     {
+        //meterSpeed_2 = maxMtrSpeed;
+
         yield return new WaitForSeconds(.5f);
         meterObj_1.SetActive(false);
         yield return new WaitForSeconds(.1f);
@@ -113,19 +134,19 @@ public class PowerMeter2 : MonoBehaviour {
         {
             // Determins the direction of the meter bar
             if (meterIncr_2)
-                meterDelta = -5;
+                meterDelta = -meterDist_2;
             else
-                meterDelta = 5;
+                meterDelta = meterDist_2;
 
             // Set new position
             meterSprite_2.transform.position = new Vector2(meterSprite_2.transform.position.x + meterDelta, meterSprite_2.transform.position.y);
 
             // Switch direction if the bar passes the boundry
-            if (meterSprite_2.transform.position.x <= leftBound_2.position.x)
-                meterIncr_2 = false;
-            else if (meterSprite_2.transform.position.x >= rightBound_2.position.x)
+            if (meterIncr_2 && meterSprite_2.transform.position.x <= leftBound_2.position.x)
+                meterIncr_2 = false;   
+            else if (!meterIncr_2 && meterSprite_2.transform.position.x >= rightBound_2.position.x)
                 meterIncr_2 = true;
-
+    
             yield return new WaitForSeconds(meterSpeed_2);
         }
 
@@ -137,24 +158,20 @@ public class PowerMeter2 : MonoBehaviour {
     /// </summary>
     private IEnumerator PowerMeterAnim_1()
     {
+        //meterSpeed_1 = maxMtrSpeed;
+
         while(meterAnim_1)
         {
             // If increasing then add index
             if (meterIncr_1 && meterIndex_1 < meterSprites_1.Length -1)
-            {
                 meterIndex_1++;
-                meterIncr_1 = true;
-            }
-            else
+            else if (meterIncr_1)
                 meterIncr_1 = false;
 
             // If decreasing then subtract index
             if (!meterIncr_1 && meterIndex_1 > 0)
-            {
                 meterIndex_1--;
-                meterIncr_1 = false;
-            }
-            else
+            else if (!meterIncr_1)
                 meterIncr_1 = true;
 
             // Set new power meter image

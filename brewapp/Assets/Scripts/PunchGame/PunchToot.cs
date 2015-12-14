@@ -42,38 +42,33 @@ public class PunchToot : MonoBehaviour
 		}
 		else if(tootStage == 1)
 		{
-			topTxt.text = "There are 3 meters. One to psych yourself up, one for focus, and one for power.";
-			powerPointer.SetActive(true);
+			topTxt.text = "There are 2 meters. One for focus and one for power.";
 			tootStage++;
 		}
 		else if(tootStage == 2)
 		{
-			midTxt.text = "Tap the button to get psyched. The bottom left meter will tell you how psyched you are.";
-			botTxt.text = "When you're plenty psyched, swipe down to get a focus bonus and reveal the focus button.";
-			botInstTxt.text = "Tap the button...";
+			botTxt.text = "Push the power button on the right and release it when the power is on the line.";
+			botInstTxt.text = "Push and hold the button...";
 			topTootPnl.SetActive(false);
-			midTootPnl.SetActive(true);
 			botTootPnl.SetActive(true);
 			btn1Touch.SetActive(true);
-			powerPointer.SetActive(false);
 			contBtn.gameObject.SetActive(false);
 			tootStage++;
 		}
 		else if(tootStage == 3)
 		{
-//			btn1Touch.SetActive(false);
-//			midTootPnl.SetActive(false);
-//			botTootPnl.SetActive(false);
-//			btn1Touch.SetActive(false);
-			menuBtn.enabled = true;
+            botTxt.text = "Touch anywhere to stop the focus meter on the center line.";
+            botInstTxt.text = "Touch anywhere...";
+            btn1Touch.SetActive(false);
+            menuBtn.enabled = true;
 			rulesBtn.enabled = true;
-			GameManager.manager.SetPunchToot();
-			gameObject.SetActive(false);
 			tootStage++;
 		}
 		else if(tootStage == 4)
 		{
-			tootStage++;
+            GameManager.manager.SetPunchToot();
+            gameObject.SetActive(false);
+            tootStage++;
 		}
 		else if(tootStage == 5)
 		{

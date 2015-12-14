@@ -13,8 +13,8 @@ public class BearAI : MonoBehaviour
 	private float gauge2Value = .3f;
 	private int punchNum = 0;  // 1 = strong; 2 = medium; 3 = weak
 	private int gaugeSpeed = 5;
-    private int minStopMtr_1 = 17;
-    private int maxStopMtr_1 = 24;
+    private int minStopMtr_1 = 15;
+    private int maxStopMtr_1 = 28;
     private int minStopMtr_2;
     private int maxStopMtr_2 = 30;
 
@@ -103,9 +103,9 @@ public class BearAI : MonoBehaviour
         BagHit();
         gameObject.GetComponent<Animator>().SetBool("PunchIdle", false);
 
-        yield return new WaitForSeconds(.1f);
+        //yield return new WaitForSeconds(2f);
         PunchManager.pManagerScript.CompletePunch(score, 200);
-        PowerMeter2.powerMeter2Script.ResetMeters();
+        //PowerMeter2.powerMeter2Script.ResetMeters();
         yield return null;
     }
 
@@ -225,14 +225,13 @@ public class BearAI : MonoBehaviour
         bag.GetComponent<Animator>().SetBool("punch", true);
     }
 
-	// Set the difficulty of the Bear's AI
-	public void SetBearDiff(int diff)
+    /// <summary>
+    /// Set the difficulty of the Bear's AI
+    /// </summary>
+    public void SetBearDiff(int diff)
 	{
-		float multplr = diff - 1;
-
-		oddsIncr = multplr * .2f + .1f;
-		gauge1Limit = gauge1Limit - multplr * .025f;
-		gauge3Limit = gauge3Limit + multplr * .025f;
-		gauge2Value = gauge2Value - multplr * .05f;
+        minStopMtr_1 += diff;
+        maxStopMtr_1 -= diff;
+        maxStopMtr_2 -= (diff - 1) * 5;
 	}
 }

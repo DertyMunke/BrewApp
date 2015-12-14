@@ -37,6 +37,11 @@ public class PunchManager : MonoBehaviour
 	public Text winnerTxt;
 	public bool testActive = true;
 
+    public bool SetBag {
+        set {
+            bool active = value;
+            bag.GetComponent<Animator>().SetBool("punch", active);}
+    }
 
 	private void Awake()
 	{
@@ -78,7 +83,7 @@ public class PunchManager : MonoBehaviour
     /// </summary>
 	public void CompletePunch(float pow, float max)
 	{
-//		Debug.Log (pow);
+		Debug.Log (pow);
 		if(pow <= max *.5f)
 		{
 			punchCat.text = strength[0];
@@ -99,25 +104,29 @@ public class PunchManager : MonoBehaviour
 				bearIndex = Mathf.CeilToInt((pow - max*.5f)/ blockSize);
 		}
 
-        PowerMeter2.powerMeter2Script.MeterObj_2.SetActive(false);
-        PowerMeter2.powerMeter2Script.MeterObj_1.SetActive(true);
-
-		punchCatPnl.SetActive(true);
-		Invoke ("NextPunch", 2);
+        StartCoroutine(NextPunch());
 	}
 
-	// Prepair and reset for the next punch
-	private void NextPunch()
+    /// <summary>
+    /// Prepair and reset for the next punch
+    /// </summary>
+	private IEnumerator NextPunch()
 	{
-		if(GameManager.manager.GetPunchToot())
+        yield return new WaitForSeconds(2);
+        punchCatPnl.SetActive(true);
+        //PowerMeter2.powerMeter2Script.MeterObj_2.SetActive(false);
+        //PowerMeter2.powerMeter2Script.MeterObj_1.SetActive(true);
+        PowerMeter2.powerMeter2Script.ResetMeters();
+
+        yield return new WaitForSeconds(2);
+
+        if (GameManager.manager.GetPunchToot())
 			tootCns.enabled = true;
 		mainCam.enabled = true; 
 		bearCam.enabled = false;
 
 		if((myTurn && !Winner ()) || !myTurn)
 		{
-			//FingerTrail.fingerScript.ResetRound (myTurn);
-			//BearAI.bearScript.BearIt();
 			punchCatPnl.SetActive (false);
             bag.GetComponent<Animator>().SetBool("punch", false);
         }
@@ -239,7 +248,9 @@ public class PunchManager : MonoBehaviour
 				BearAI.bearScript.SetBearDiff (difficulty < 5 ? difficulty + 1 : difficulty);
 			else 
 				BearAI.bearScript.SetBearDiff (difficulty);
-			PowerMeter.pmeterScript.PowerDifficulty (difficulty);
+
+            PowerMeter2.powerMeter2Script.SetPowerDifficulty(difficulty);
+            Debug.Log(difficulty);
 
 			oddsTxt.text = string.Format ("{0}:1", difficulty);
 			wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());
