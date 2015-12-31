@@ -44,9 +44,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -.258779943, y: -.0168577787, z: -.00451703416, w: .965778649}
-  m_LocalPosition: {x: .600000024, y: 15.1727352, z: -20}
-  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
+  m_LocalRotation: {x: -0.25877994, y: -0.016857779, z: -0.004517034, w: 0.96577865}
+  m_LocalPosition: {x: 5.3341293, y: -0.024034023, z: 10.609441}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -57,14 +57,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -0, y: 0, z: 1.31621552}
-  m_LocalScale: {x: .200000003, y: .400000006, z: .200000003}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 1.3162155}
+  m_LocalScale: {x: 0.2, y: 0.4, z: 0.2}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
 --- !u!23 &2300000
-Renderer:
+MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,19 +72,25 @@ Renderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5092487efb50c864fb1e52c4b431d8e4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!23 &2300002
-Renderer:
+MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -92,15 +98,21 @@ Renderer:
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5092487efb50c864fb1e52c4b431d8e4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!33 &3300000
@@ -124,7 +136,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   serializedVersion: 2
-  m_Mass: .100000001
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -143,23 +155,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e54fb7b2da46f547bf479a84aa83228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusObj: {fileID: 0}
+  throwPower: 0
+  dPad: {fileID: 0}
+  ghostBall: {fileID: 5400000, guid: 95c02ab9dff5fb141a41eba3d4343367, type: 2}
+  tootCvs: {fileID: 0}
+  pwrMtrPnl: {fileID: 0}
+  bounceSounds: []
+  pointer: {fileID: 400002}
+  hisCup1: {fileID: 0}
+  dudesTarget: {x: 0, y: 0, z: 0, w: 0}
+  camRot: {x: 0, y: 0, z: 0, w: 0}
+  origRot: {x: 0, y: 0, z: 0, w: 0}
+  recentRotation: {x: 0, y: 0, z: 0, w: 0}
+  origPos: {x: 0, y: 0, z: 0}
+  camPos: {x: 0, y: 0, z: 0}
+  pwrImg: {fileID: 0}
+  pwrIms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   camFollow: 0
   isTouched: 0
-  crosshair: {fileID: 2800000, guid: 2a29c897be427c145b7fbde86774cc92, type: 3}
   myTurn: 1
-  origPos: {x: 0, y: 0, z: 0}
-  origRot: {x: 0, y: 0, z: 0, w: 0}
-  destroyDist: 25
-  ghostBall: {fileID: 5400000, guid: 95c02ab9dff5fb141a41eba3d4343367, type: 2}
-  pointer: {fileID: 400002}
-  lookLeft: {fileID: 0}
-  lookRight: {fileID: 0}
-  dudesTarget: {x: 0, y: 0, z: 0, w: 0}
-  throwPower: 0
+  resetTurn: 0
+  endTurn: 0
+  throwBall: 0
+  targeting: 1
+  bTouched: 0
   powerTrigger: 0
-  touch2Watch: 100
+  showUI: 1
+  incThrowPower: 1.5
   rotSpeed: 25
+  destroyDist: 25
+  touch2Watch: 100
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -170,7 +226,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13600000
 CapsuleCollider:
@@ -181,7 +237,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  m_Radius: .5
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -196,4 +252,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
