@@ -55,6 +55,8 @@ public class BearAI : MonoBehaviour
     /// </summary>
     private IEnumerator BearsTurn()
     {
+        PunchGameUI.punchGameUIScript.GoEnabled();
+
         // Switch to the AI camera
         bearCam.enabled = true;
         punchCam.enabled = false;
@@ -105,7 +107,7 @@ public class BearAI : MonoBehaviour
 
         //yield return new WaitForSeconds(2f);
         PunchManager.pManagerScript.CompletePunch(score, 200);
-        //PowerMeter2.powerMeter2Script.ResetMeters();
+
         yield return null;
     }
 

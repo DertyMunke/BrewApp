@@ -4,11 +4,11 @@ using System.Collections;
 
 public class PunchManager : MonoBehaviour 
 {
-	private string[] strength = {"Toddler", "Baby", "Child", "Sissy", "Weakling", "Bully", "Tough Guy", "World Champ", "Herculies"};
+	private string[] strength = {"Flea", "Mosq", "Mouse", "Todler", "Sissy", "Nerd", "Tough", "Champ", "Herc"};
 	private bool myTurn = false;
 	private bool dblNothin = false;
-	private float bearIndex = 0;
-	private float myIndex = 0;
+	private int bearIndex = 0;
+	private int myIndex = 0;
 	private int punchNum = 0;
 	private int difficulty = 0;
 	private int hisScore = 0;
@@ -83,7 +83,6 @@ public class PunchManager : MonoBehaviour
     /// </summary>
 	public void CompletePunch(float pow, float max)
 	{
-		Debug.Log (pow);
 		if(pow <= max *.5f)
 		{
 			punchCat.text = strength[0];
@@ -104,6 +103,17 @@ public class PunchManager : MonoBehaviour
 				bearIndex = Mathf.CeilToInt((pow - max*.5f)/ blockSize);
 		}
 
+        if(myTurn)
+        {
+            PunchGameUI.punchGameUIScript.SetTitle = myIndex;
+            PunchGameUI.punchGameUIScript.SetPlayer = 1;
+        }  
+        else
+        {
+            PunchGameUI.punchGameUIScript.SetTitle = bearIndex;
+            PunchGameUI.punchGameUIScript.SetPlayer = 0;
+        }
+
         StartCoroutine(NextPunch());
 	}
 
@@ -113,17 +123,28 @@ public class PunchManager : MonoBehaviour
 	private IEnumerator NextPunch()
 	{
         yield return new WaitForSeconds(2);
-        punchCatPnl.SetActive(true);
-        //PowerMeter2.powerMeter2Script.MeterObj_2.SetActive(false);
-        //PowerMeter2.powerMeter2Script.MeterObj_1.SetActive(true);
+        //punchCatPnl.SetActive(true);
+
+        PunchGameUI.punchGameUIScript.PunchTrigger(punchCat.text);
+        yield return new WaitForSeconds(0.4f);
+        mainCam.enabled = true;
+        bearCam.enabled = false;
+
         PowerMeter2.powerMeter2Script.ResetMeters();
 
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
+        while (!PunchGameUI.punchGameUIScript.AnimDone)
+            yield return null;
+
+        PunchGameUI.punchGameUIScript.AnimDone = false;
+        yield return new WaitForSeconds(0.5f);
+        PunchGameUI.punchGameUIScript.GoEnabled();
+        yield return new WaitForSeconds(1f); 
+
 
         if (GameManager.manager.GetPunchToot())
 			tootCns.enabled = true;
-		mainCam.enabled = true; 
-		bearCam.enabled = false;
+
 
 		if((myTurn && !Winner ()) || !myTurn)
 		{
@@ -145,8 +166,7 @@ public class PunchManager : MonoBehaviour
 		// |<----
 
 		int punchIndex = punchNum % 3;
-
-		Debug.Log (myIndex + " " + bearIndex);
+	
 		if(myIndex > bearIndex)
 		{
 			myScore ++;
@@ -168,8 +188,10 @@ public class PunchManager : MonoBehaviour
 		}
 
 		punchNum ++;
+        punchIndex = punchNum % 3;
+        PunchGameUI.punchGameUIScript.SetPunch = punchIndex;
 
-		if((punchNum >= numPunches) || Mathf.Abs(myScore - hisScore) >= 2)
+        if ((punchNum >= numPunches) || Mathf.Abs(myScore - hisScore) >= 2)
 		{
 			if(myScore != hisScore)
 			{

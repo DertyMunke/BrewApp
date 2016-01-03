@@ -17597,6 +17597,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1164584269}
   - 95: {fileID: 1164584270}
+  - 114: {fileID: 1164584271}
   m_Layer: 0
   m_Name: PunchGameUI
   m_TagString: Untagged
@@ -17639,6 +17640,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1164584271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164584268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a39cbabb67aa0241acd9856bf974fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 2071103265}
+  player: {fileID: 672650324}
+  punch: {fileID: 1004543442}
+  players:
+  - {fileID: 21300000, guid: e60c1bbb82a4864498098fc2281d61aa, type: 3}
+  - {fileID: 21300000, guid: 48572b4daf2f73141950d76e6804ba40, type: 3}
+  punches:
+  - {fileID: 21300000, guid: 2803936ed799c9e4abaea58ea90c7102, type: 3}
+  - {fileID: 21300000, guid: d3c7cdedff9f2ef4fb77f5d05fcc001d, type: 3}
+  - {fileID: 21300000, guid: 08f04f6bbe40c7e4e8f6c0d783bb2767, type: 3}
+  scoreTitles:
+  - {fileID: 21300000, guid: 8f14d5baaad22ca4a87feea8deee9fae, type: 3}
+  - {fileID: 21300000, guid: a9dd3479904196a4f9fdafdd8095990c, type: 3}
+  - {fileID: 21300000, guid: 6c4b742ea81d18943b42d1ed996f77e1, type: 3}
+  - {fileID: 21300000, guid: 706818173611bf244b48df66338db748, type: 3}
+  - {fileID: 21300000, guid: 21200d316c269de4db217b2b668c8323, type: 3}
+  - {fileID: 21300000, guid: ccd0a712896d9ae4ca0cfc6200589af3, type: 3}
+  - {fileID: 21300000, guid: 4f9fc19885a1589428c4346da0b52cee, type: 3}
+  - {fileID: 21300000, guid: ef2d82f0a716b104f868a88da52c57b6, type: 3}
+  - {fileID: 21300000, guid: fac5ec88d0e465c4795e156ed13b9df4, type: 3}
+  punchDone: 0
 --- !u!1 &1171089868
 GameObject:
   m_ObjectHideFlags: 0
