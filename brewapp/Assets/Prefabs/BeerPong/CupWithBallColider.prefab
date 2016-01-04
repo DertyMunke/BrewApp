@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ppBall: {fileID: 100000, guid: a6b9fc814674ed8459f5c73c201146ba, type: 2}
+  splash: {fileID: 171452, guid: 1a55c183ee8ab5741973264bf7ad09c1, type: 2}
+  poof: {fileID: 102408, guid: fdc17a0f2ebfd2e48bf6c2c6420525ce, type: 2}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -188,7 +190,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: splash
+      value: 
+      objectReference: {fileID: 171452, guid: 1a55c183ee8ab5741973264bf7ad09c1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: poof
+      value: 
+      objectReference: {fileID: 102408, guid: fdc17a0f2ebfd2e48bf6c2c6420525ce, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}

@@ -28,6 +28,7 @@ public class PPManager : Touch3D
 	public GameObject wagerPnl;
 	public GameObject loadingImg;
 	public GameObject tootCnvs;
+    public GameObject niceShot;
 	public Sprite[] rerackIms = new Sprite[9];
 	public Transform pingPongBall;
 	public Text wagerTxt;
@@ -511,4 +512,21 @@ public class PPManager : Touch3D
 			tootCnvs.SetActive (true);
 		}
 	}
+
+    /// <summary>
+    /// Triggers "nice shot" anim
+    /// </summary>
+    public void NiceShot()
+    {
+        niceShot.SetActive(true);
+        Invoke("EndNiceShot", 2f);
+    }
+
+    /// <summary>
+    /// Turns off "nice shot" anim
+    /// </summary>
+    private void EndNiceShot()
+    {
+        niceShot.SetActive(false);
+    }
 }
