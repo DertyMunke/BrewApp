@@ -10,7 +10,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: RandomSinProductions
-  productName: Brew App
+  productName: Red Hare Bar
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -89,15 +89,15 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.RandomSin.BrewApp
-  bundleVersion: 0.01
+  bundleIdentifier: com.RandomSin.RedHareBar
+  bundleVersion: 1.1
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: b8e3d84296b2b444aa00f395f0a0a383
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/DirtyMunke/Desktop/GitProjects/BrewApp/brewapp/brewapp.keystore
-  AndroidKeyaliasName: brewapp
+  AndroidKeystoreName: C:/Users/DirtyMunke/Desktop/GitProjects/BrewApp/brewapp/redharebar.keystore
+  AndroidKeyaliasName: redharebar
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
@@ -173,7 +173,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 1653acec571468641a972e5465ac81f4, type: 3}
+      m_Icon: {fileID: 2800000, guid: ce9f60cf6b5e90f4fbe4d1f3f43461ba, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching:

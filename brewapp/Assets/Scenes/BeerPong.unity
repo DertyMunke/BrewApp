@@ -34763,15 +34763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465502, guid: 47de867c04ce7444e841e823c0b44063, type: 2}
       propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 461610, guid: 47de867c04ce7444e841e823c0b44063, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 461610, guid: 47de867c04ce7444e841e823c0b44063, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 2.2
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47de867c04ce7444e841e823c0b44063, type: 2}

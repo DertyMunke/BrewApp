@@ -43,5 +43,6 @@ public class PunchGameUI : MonoBehaviour {
     private void LowerBag()
     {
         PunchManager.pManagerScript.SetBag = true;
+        //PowerMeter2.powerMeter2Script.MeterObj_1.SetActive(true);
     }
 }

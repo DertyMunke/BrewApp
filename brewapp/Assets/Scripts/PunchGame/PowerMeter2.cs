@@ -49,8 +49,9 @@ public class PowerMeter2 : MonoBehaviour {
     public void ResetMeters()
     {
         userTurn = !userTurn;
-        meterObj_1.SetActive(true);
+        //meterObj_1.SetActive(true);
         MeterObj_2.SetActive(false);
+
         if (userTurn)
             meterBtn_1.SetActive(true);
         else
@@ -112,9 +113,17 @@ public class PowerMeter2 : MonoBehaviour {
                 PunchToot.punchTootScript.CheckContinue(4);
                 // Displays the results of the added final values
                 PunchManager.pManagerScript.CompletePunch(FinalScore(), 200);
-                PunchManager.pManagerScript.SetBag = true;
+                Invoke("PunchPause", 0.5f);
             }
         }
+    }
+
+    /// <summary>
+    /// Helper for a space between last power meter action and bag anim
+    /// </summary>
+    private void PunchPause()
+    {
+        PunchManager.pManagerScript.SetBag = true;
     }
 
     /// <summary>

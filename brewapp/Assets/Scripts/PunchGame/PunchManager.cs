@@ -7,6 +7,7 @@ public class PunchManager : MonoBehaviour
 	private string[] strength = {"Flea", "Mosq", "Mouse", "Todler", "Sissy", "Nerd", "Tough", "Champ", "Herc"};
 	private bool myTurn = false;
 	private bool dblNothin = false;
+    private bool gameOva = false;
 	private int bearIndex = 0;
 	private int myIndex = 0;
 	private int punchNum = 0;
@@ -36,6 +37,8 @@ public class PunchManager : MonoBehaviour
 	public Text punchCat;
 	public Text winnerTxt;
 	public bool testActive = true;
+
+    public bool GameOva { get { return gameOva; } }
 
     public bool SetBag {
         set {
@@ -151,9 +154,12 @@ public class PunchManager : MonoBehaviour
 			punchCatPnl.SetActive (false);
             bag.GetComponent<Animator>().SetBool("punch", false);
         }
+
+        PowerMeter2.powerMeter2Script.MeterObj_1.SetActive(true);
+
         myTurn = !myTurn;
 
-        if (!myTurn)
+        if (!myTurn && !gameOva)
             BearAI.bearScript.BearIt();
     }
 
@@ -228,6 +234,8 @@ public class PunchManager : MonoBehaviour
 	// Ends the game and shows end wager panel and double or nothing challenge
 	void GameOver()
 	{
+        gameOva = true;
+
 		int winState = 2; // 0 = win, 1 = lose, 2 = tie
 
 		if(myScore > hisScore)

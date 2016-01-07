@@ -91,7 +91,7 @@ public class BearAI : MonoBehaviour
         float score = PowerMeter2.powerMeter2Script.FinalScore();
 
         // Time the punch animations with the bag hit animation
-        float punchNum = score >= 80 ? 1 : score >= 60 ? 2 : 3;
+        float punchNum = score >= 180 ? 1 : score >= 150 ? 2 : 3;
         string punchAnim = "Punch" + punchNum.ToString();
         gameObject.GetComponent<Animator>().SetTrigger(punchAnim);
 
