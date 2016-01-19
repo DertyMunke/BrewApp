@@ -184,6 +184,7 @@ public class FlipCupManager : MonoBehaviour
 
 			if (hisCup.GetComponent<HisCup> ().CheckSuccess ()) 
 			{
+				hisDoneCheck [hisCupIndex].enabled = true;
 				hisCupIndex++;
 
 				yield return new WaitForSeconds (foxAnimSpacing);
