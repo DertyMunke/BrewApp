@@ -9,14 +9,47 @@ public class PauseManager : MonoBehaviour
 {		
 	public static PauseManager pauseScript;
 	public GameObject loadingImg;
+    public Slider tint;
+    public Slider vol;
 	public Text stopPractice;
 	public Text stopMiniGame;
 	public bool isPaused = false;
+
+    private GameManager manager;
 
 	private void Awake()
 	{
 		pauseScript = this;
 	}
+    
+    private void Start()
+    {
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+        tint.value = manager.Tint;
+        vol.value = manager.Volume;
+    }
+
+    /// <summary>
+    /// Changes the tint when the slider is changed
+    /// </summary>
+    public void ScreenTint(Slider newTint)
+    {
+        if(manager)
+            manager.TintScreen(newTint.value);
+        else
+            manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+    }
+
+    /// <summary>
+    /// Changes the volume when the slider is changed
+    /// </summary>
+    public void FXVolume(Slider newVol)
+    {
+        if(manager)
+            manager.VolumeLvl(newVol.value);
+        else
+            manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+    }
 
 	// Pauses and unpauses the game
 	public void Pause()

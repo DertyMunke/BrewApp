@@ -19,17 +19,21 @@ public class GameManager : MonoBehaviour
 	private bool flipToot = true;
 	private bool punchToot = true;
 	private bool restartLvl = false;
-	private float highTips = 0;
+    private float fxVolume = 100.0f;
+    private float screenTint = 255.0f;
+    private float highTips = 0;
 	private float myBet = 0;
 	private int lvlDifficulty = 0;  // 1-5
-	private int lvlDiffBackup = 0;  // Saves the difficulty level when doing practice or "double or nothing"
+	private int lvlDiffBackup = 0;  // Saves the difficulty level when chooses "double or nothing"
 	private int highThrown = 0;
 	private int numReRolls = 0;
 	private int reRollsBackup = 0;
 
 	public static GameManager manager;
+    public GameObject lightPnl;
+    //public AudioListener audioListner;
 	public String currProfileName = "";
-	public bool barTossToot = true;
+	public bool barTossToot = false;
 	public double total = 0;
 	public float beerTossXP = 0;
 	public float pongSliderValue = 0;
@@ -41,6 +45,9 @@ public class GameManager : MonoBehaviour
 	public int beerPongLevel = 1;
 	public int punchLevel = 1;
 	
+    public float Tint { get { return screenTint; } }
+    public float Volume { get { return fxVolume; } }
+
 	private void Awake()
 	{
 		if(manager == null)
@@ -55,12 +62,29 @@ public class GameManager : MonoBehaviour
 
 	}
 
+    /// <summary>
+    /// Changes the light intensity to newTint when changed in options menu
+    /// </summary>
+    public void TintScreen(float newTint)
+    {
+        screenTint = (255 - newTint) / 255;
+        lightPnl.GetComponent<Image>().color = new Color(0, 0, 0, screenTint);
+    }
+
+    /// <summary>
+    /// Changes the volume to newVol when changed in options menu
+    /// </summary>
+    public void VolumeLvl(float newVol)
+    {
+        fxVolume = newVol;
+        AudioListener.volume = newVol;
+    }
+
 	// Loads the next level: Need unity pro to finish this
 	private IEnumerator Loading()
 	{
-       //Save (currProfileName);  // took this out for testing, might need late
+       //Save (currProfileName);  // took this out for testing, might need later
 
-        // Async requires unity pro
         yield return new WaitForSeconds(1.5f);
         AsyncOperation async = Application.LoadLevelAsync(nextLevel);
         yield return async;
@@ -103,6 +127,8 @@ public class GameManager : MonoBehaviour
 			data.xpSliderValue = xpSliderValue;
 			data.flipSliderVal = flipSliderVal;
 			data.punchSliderVal = punchSliderVal;
+            data.fxVolume = fxVolume;
+            data.screenTint = screenTint;
 
 			bf.Serialize (file, data);
 			file.Close ();
@@ -147,6 +173,9 @@ public class GameManager : MonoBehaviour
 				xpSliderValue = data.xpSliderValue;
 				flipSliderVal = data.flipSliderVal;
 				punchSliderVal = data.punchSliderVal;
+
+                VolumeLvl(data.fxVolume);
+                TintScreen(data.screenTint);
 			}
 			finally
 			{
@@ -481,6 +510,8 @@ class PlayerData
 	public float flipSliderVal;
 	public float punchSliderVal;
 	public float highTips;
+    public float fxVolume;
+    public float screenTint;
 	public int highThrown;
 	public int barTossLevel;
 	public int flipCupLevel;
