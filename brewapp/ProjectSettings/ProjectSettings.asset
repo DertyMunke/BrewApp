@@ -89,7 +89,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.RandomSin.BrewGames
+  bundleIdentifier: com.RandomSin.BrewApp
   bundleVersion: 1.3
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -97,7 +97,7 @@ PlayerSettings:
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: b8e3d84296b2b444aa00f395f0a0a383
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/DirtyMunke/Desktop/GitProjects/BrewApp/brewapp/redharebar.keystore
-  AndroidKeyaliasName: redharebar
+  AndroidKeystoreName: C:/Users/DirtyMunke/Desktop/GitProjects/BrewApp/brewapp/brewapp.keystore
+  AndroidKeyaliasName: brewapp
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
@@ -173,7 +173,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: d127bd7dfb39d43eeb79915cf8458afb, type: 3}
+      m_Icon: {fileID: 2800000, guid: ce9f60cf6b5e90f4fbe4d1f3f43461ba, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching:
