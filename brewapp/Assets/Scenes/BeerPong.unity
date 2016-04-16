@@ -2316,10 +2316,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1014286307}
   m_RootOrder: 0
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.9771475, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 4.5, y: 0}
+  m_SizeDelta: {x: 11, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191605323
 MonoBehaviour:
@@ -3398,10 +3398,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2112022267}
   m_RootOrder: 0
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.9771475, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 4.5, y: 0}
+  m_SizeDelta: {x: 11, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254211001
 MonoBehaviour:
@@ -7347,7 +7347,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 363621599}
   m_HandleRect: {fileID: 254211000}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 100
   m_MaxValue: 255
   m_WholeNumbers: 1
   m_Value: 255
@@ -16312,7 +16312,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1015401873
 GameObject:
@@ -29059,6 +29059,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 900141543}
+        m_MethodName: OptionsEdit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1759902503
@@ -34094,7 +34105,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2115518725
 GameObject:

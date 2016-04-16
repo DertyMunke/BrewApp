@@ -578,7 +578,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &18045953
 GameObject:
@@ -2592,8 +2592,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 5, y: 0}
+  m_SizeDelta: {x: 10, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103939150
 MonoBehaviour:
@@ -4551,7 +4551,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1339363953}
   m_HandleRect: {fileID: 1950718859}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 100
   m_MaxValue: 255
   m_WholeNumbers: 1
   m_Value: 255
@@ -10292,7 +10292,7 @@ Transform:
   m_PrefabParentObject: {fileID: 445574, guid: 2268bc553158454478fd4926b369a6eb, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 431435124}
-  m_LocalRotation: {x: 0.7061345, y: 0.69901633, z: 0.041489806, w: 0.105018236}
+  m_LocalRotation: {x: 0.70613456, y: 0.6990164, z: 0.04148981, w: 0.10501823}
   m_LocalPosition: {x: 0.048988905, y: 0.0029538397, z: 0.096705794}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
   m_Children:
@@ -12449,7 +12449,7 @@ Transform:
   m_PrefabParentObject: {fileID: 445510, guid: 2268bc553158454478fd4926b369a6eb, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 511689246}
-  m_LocalRotation: {x: 0.70613444, y: -0.6990164, z: -0.041490097, w: 0.10501796}
+  m_LocalRotation: {x: 0.7061345, y: -0.69901645, z: -0.0414901, w: 0.10501795}
   m_LocalPosition: {x: -0.048880015, y: 0.0029538397, z: 0.096705794}
   m_LocalScale: {x: 1.0000001, y: 1.0000005, z: 1}
   m_Children:
@@ -25008,6 +25008,17 @@ MonoBehaviour:
       - m_Target: {fileID: 754501814}
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1314862060}
+        m_MethodName: OptionsEdit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -43399,7 +43410,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1788961111
 GameObject:
@@ -47411,8 +47422,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 4.5, y: 0}
+  m_SizeDelta: {x: 11, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950718860
 MonoBehaviour:

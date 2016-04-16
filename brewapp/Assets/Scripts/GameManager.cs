@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
 	private bool flipToot = true;
 	private bool punchToot = true;
 	private bool restartLvl = false;
-    private float fxVolume = 100.0f;
-    private float screenTint = 255.0f;
+    private float fxVolume = 0.58f;
+    private float screenTint = 190.0f;
     private float highTips = 0;
 	private float myBet = 0;
 	private int lvlDifficulty = 0;  // 1-5
@@ -59,7 +59,9 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		Debug.Log(Application.persistentDataPath);
 
+		LoadOptions();
 	}
 
     /// <summary>
@@ -67,8 +69,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TintScreen(float newTint)
     {
-        screenTint = (255 - newTint) / 255;
-        lightPnl.GetComponent<Image>().color = new Color(0, 0, 0, screenTint);
+		screenTint = newTint;
+		lightPnl.GetComponent<Image>().color = new Color(0, 0, 0, (255 - newTint) / 255);
     }
 
     /// <summary>
@@ -96,7 +98,58 @@ public class GameManager : MonoBehaviour
 		nextLevel = lvl;
 		StartCoroutine ("Loading");
 	}
+		
+	/// <summary>
+	/// Saves the options.
+	/// </summary>
+	public void SaveOptions()
+	{
+		try
+		{
+			BinaryFormatter bf = new BinaryFormatter ();
+			file = File.Create (Application.persistentDataPath + "/options.options"); 
+			Options data = new Options();
 
+			data.sfxVolume = fxVolume;
+			data.screenTint = screenTint;
+
+			bf.Serialize (file, data);
+			file.Close ();
+		}
+		finally
+		{
+			if(file != null)
+				file.Close();
+		}
+	}
+
+	/// <summary>
+	/// Loads the options.
+	/// </summary>
+	public void LoadOptions()
+	{
+		if(File.Exists(Application.persistentDataPath + "/options.options"))
+		{
+			try
+			{
+				BinaryFormatter bf = new BinaryFormatter();
+				file = File.Open(Application.persistentDataPath + "/options.options", FileMode.Open);
+				Options data = (Options)bf.Deserialize(file); //without cast, makes generic obj
+				file.Close();
+
+				VolumeLvl(data.sfxVolume);
+				TintScreen(data.screenTint);
+			}
+			finally
+			{
+				if(file != null)
+					file.Close();
+			}
+		}
+		else
+			SaveOptions();
+	}
+		
 	// Saves the current profiles data to PlayerData class
 	public void Save(string playerName)
 	{
@@ -127,8 +180,6 @@ public class GameManager : MonoBehaviour
 			data.xpSliderValue = xpSliderValue;
 			data.flipSliderVal = flipSliderVal;
 			data.punchSliderVal = punchSliderVal;
-            data.fxVolume = fxVolume;
-            data.screenTint = screenTint;
 
 			bf.Serialize (file, data);
 			file.Close ();
@@ -174,8 +225,6 @@ public class GameManager : MonoBehaviour
 				flipSliderVal = data.flipSliderVal;
 				punchSliderVal = data.punchSliderVal;
 
-                VolumeLvl(data.fxVolume);
-                TintScreen(data.screenTint);
 			}
 			finally
 			{
@@ -510,12 +559,18 @@ class PlayerData
 	public float flipSliderVal;
 	public float punchSliderVal;
 	public float highTips;
-    public float fxVolume;
-    public float screenTint;
 	public int highThrown;
 	public int barTossLevel;
 	public int flipCupLevel;
 	public int beerPongLevel;
 	public int punchLevel;
 	public int numReRolls;
+}
+
+//data container that allows you to write the data to a file
+[Serializable]
+class Options
+{
+	public float screenTint;
+	public float sfxVolume;
 }

@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 2022470934}
   m_HandleRect: {fileID: 398722502}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 100
   m_MaxValue: 255
   m_WholeNumbers: 1
   m_Value: 255
@@ -3305,6 +3305,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11403376, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: barTossToot
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
   m_IsPrefabParent: 0
@@ -3891,9 +3899,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1013676475}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1450057283}
+        m_MethodName: OptionsEdit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3901,7 +3909,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 1284782631}
         m_MethodName: SetActive
         m_Mode: 6

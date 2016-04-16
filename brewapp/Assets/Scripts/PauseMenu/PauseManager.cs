@@ -15,8 +15,6 @@ public class PauseManager : MonoBehaviour
 	public Text stopMiniGame;
 	public bool isPaused = false;
 
-    private GameManager manager;
-
 	private void Awake()
 	{
 		pauseScript = this;
@@ -24,9 +22,8 @@ public class PauseManager : MonoBehaviour
     
     private void Start()
     {
-        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
-        tint.value = manager.Tint;
-        vol.value = manager.Volume;
+		tint.value = GameManager.manager.Tint;
+		vol.value = GameManager.manager.Volume;
     }
 
     /// <summary>
@@ -34,10 +31,8 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     public void ScreenTint(Slider newTint)
     {
-        if(manager)
-            manager.TintScreen(newTint.value);
-        else
-            manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+		if(GameManager.manager)
+			GameManager.manager.TintScreen(newTint.value);
     }
 
     /// <summary>
@@ -45,11 +40,14 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     public void FXVolume(Slider newVol)
     {
-        if(manager)
-            manager.VolumeLvl(newVol.value);
-        else
-            manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+		if(GameManager.manager)
+			GameManager.manager.VolumeLvl(newVol.value);
     }
+
+	public void OptionsEdit()
+	{
+		GameManager.manager.SaveOptions();
+	}
 
 	// Pauses and unpauses the game
 	public void Pause()

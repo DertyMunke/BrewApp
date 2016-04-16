@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: RandomSinProductions
-  productName: Red Hare Bar
+  companyName: Random Sin Productions
+  productName: Red Hare Games
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -89,8 +89,8 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.RandomSin.RedHareBar
-  bundleVersion: 1.1
+  bundleIdentifier: com.RandomSin.BrewGames
+  bundleVersion: 1.3
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
@@ -105,7 +105,7 @@ PlayerSettings:
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
-  iPhoneBuildNumber: 0
+  iPhoneBuildNumber: 2
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
@@ -173,7 +173,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f9dd5bf9506b75547a95a0d974925fd9, type: 3}
+      m_Icon: {fileID: 2800000, guid: d127bd7dfb39d43eeb79915cf8458afb, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching:
