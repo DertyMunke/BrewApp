@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour
 {
 	//private bool lookForInput = false;
 	private FileStream file = null;
-	private String userName;  //This is the selected profile player name
-	private String defaultName;	 //This is the selected profile default name
+	private string userName;  //This is the selected profile player name
+	private string defaultName;	 //This is the selected profile default name
 
 	public Canvas startMenu;
 //	public Canvas optionsMenu;
@@ -61,62 +61,42 @@ public class MainMenu : MonoBehaviour
 		userName = null;
 		defaultName = null;
 
-		//for testing only
-		//ResetProfilesTestingFunction ();
+        //for testing only
+        //ResetProfilesTestingFunction ();
+        //Debug.Log (Application.persistentDataPath);
 
-		StartingProfiles ();
+        StartingProfiles();
 		SetStartMenuButtons ();
-	}
-
-	private void Update()
-	{
-		//Debug.Log (Application.persistentDataPath);
-		//createName.onEndEdit.AddListener (OnSubmit);
 	}
 
 	// Submits a new profile name in the next available spot and saves the new profile 
 	public void OnSubmit(Text line)
 	{
-		if(!profile_1_active )
+		if(defaultName == "Profile 1")
 		{
 			profile_1.GetComponentInChildren<Text>().text = line.text;
 			profile_1_active = true;
 			profile_1.interactable = true;
 		}
-		else if(!profile_2_active)
+		else if(defaultName == "Profile 2")
 		{
 			profile_2.GetComponentInChildren<Text>().text = line.text;
 			profile_2_active = true;
 			profile_2.interactable = true;
 		}
-		else if(!profile_3_active)
+		else if(defaultName == "Profile 3")
 		{
 			profile_3.GetComponentInChildren<Text>().text = line.text;
 			profile_3_active = true;
 			profile_3.interactable = true;
 		}
-		else if(!profile_4_active)
-		{
-			profile_4.GetComponentInChildren<Text>().text = line.text;
-			profile_4_active = true;
-			profile_4.interactable = true;
-		}
-		else if(!profile_5_active)
-		{
-			profile_5.GetComponentInChildren<Text>().text = line.text;
-			profile_5_active = true;
-			profile_5.interactable = true;
-		}
-		else
-		{
-			createButton.interactable = false;
-			return;
-		}
+
 
 		currText.text = line.text;
 		SaveProfiles ();
 		GameManager.manager.Save (line.text);
-		playButton.interactable = true;
+        deleteButton.interactable = true;
+        playButton.interactable = true;
 		createName.text = "";
 		createName.interactable = false;
 	}
@@ -196,6 +176,7 @@ public class MainMenu : MonoBehaviour
 		}
 
 		GameManager.manager.currProfileName = currText.text;
+        userName = currText.text;
 	}
 
 	// Determines which buttons should be active
@@ -207,27 +188,22 @@ public class MainMenu : MonoBehaviour
 		{
 			profile_1.interactable = true;
 			isActive++;
+            defaultName = "Profile 1";
 		}
+
 		if(profile_2_active)
 		{
 			profile_2.interactable = true;
 			isActive++;
-		}
+            defaultName = "Profile 2";
+        }
+
 		if(profile_3_active)
 		{
 			profile_3.interactable = true;
 			isActive++;
-		}
-		if(profile_4_active)
-		{
-			profile_4.interactable = true;
-			isActive++;
-		}
-		if(profile_5_active)
-		{
-			profile_5.interactable = true; 
-			isActive++;
-		}
+            defaultName = "Profile 3";
+        }
 
 		if(isActive > 0)
 		{
@@ -297,6 +273,7 @@ public class MainMenu : MonoBehaviour
 		{
 			currText.text = "Choose Profile";
 		}
+
 		SetStartMenuButtons ();
 		SaveProfiles ();
 	}
@@ -321,9 +298,26 @@ public class MainMenu : MonoBehaviour
 	// Sets this profile as the currently selected profile
 	public void SetProfileSelected(Button selected)
 	{
-		userName = selected.GetComponentInChildren<Text>().text;
-		defaultName = selected.name;
-	}
+        userName = selected.GetComponentInChildren<Text>().text;
+        currText.text = userName;
+        defaultName = selected.name;
+
+        if (selected.name.Equals("Profile 1") && !profile_1_active)
+        {
+            createName.interactable = true;
+            createName.ActivateInputField();
+        }
+        else if (selected.name == "Profile 2" && !profile_2_active)
+        {
+            createName.interactable = true;
+            createName.ActivateInputField();
+        }
+        else if (selected.name == "Profile 3" && !profile_3_active)
+        {
+            createName.interactable = true;
+            createName.ActivateInputField();
+        }
+    }
 }
 
 //data container that allows you to write the data to a file

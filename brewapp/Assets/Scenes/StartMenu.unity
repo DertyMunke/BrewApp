@@ -965,7 +965,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 315645983}
   m_OnClick:
     m_PersistentCalls:
@@ -991,7 +991,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1423520567}
         m_MethodName: SetProfileSelected
         m_Mode: 2
@@ -1045,10 +1045,10 @@ RectTransform:
   - {fileID: 466626888}
   m_Father: {fileID: 1385555795}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.104, y: 0.33900002}
-  m_AnchorMax: {x: 0.898898, y: 0.47262076}
-  m_AnchoredPosition: {x: -0.8000202, y: 0.39999008}
-  m_SizeDelta: {x: 0.19995117, y: -0.7999878}
+  m_AnchorMin: {x: 0.104, y: 0.091526024}
+  m_AnchorMax: {x: 0.898898, y: 0.2274526}
+  m_AnchoredPosition: {x: -0.8000202, y: -0.5}
+  m_SizeDelta: {x: 0.19995117, y: -1.7999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &315645985
 CanvasRenderer:
@@ -2588,7 +2588,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 680376028}
   m_OnClick:
     m_PersistentCalls:
@@ -2614,7 +2614,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1423520567}
         m_MethodName: SetProfileSelected
         m_Mode: 2
@@ -2668,10 +2668,10 @@ RectTransform:
   - {fileID: 147909202}
   m_Father: {fileID: 1385555795}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0.104, y: 0.5}
-  m_AnchorMax: {x: 0.898898, y: 0.63600004}
-  m_AnchoredPosition: {x: -0.5, y: 0.40000153}
-  m_SizeDelta: {x: 0.19995117, y: -0.7999878}
+  m_AnchorMin: {x: 0.104, y: 0.2958838}
+  m_AnchorMax: {x: 0.898898, y: 0.4388104}
+  m_AnchoredPosition: {x: -0.5, y: 1.5}
+  m_SizeDelta: {x: 0.19995117, y: -2.7999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &680376030
 CanvasRenderer:
@@ -2822,7 +2822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &769358676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3140,7 +3140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &815616074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3312,6 +3312,46 @@ Prefab:
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossToot
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: beerTossXP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: pongSliderValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: xpSliderValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: flipSliderVal
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: punchSliderVal
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: barTossLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: flipCupLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: beerPongLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: punchLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
+      propertyPath: total
+      value: 30000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
@@ -3629,7 +3669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &914241246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7162,9 +7202,9 @@ RectTransform:
   - {fileID: 407869465}
   m_Father: {fileID: 1935727998}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.62779325, y: 0.036000002}
-  m_AnchorMax: {x: 0.9728725, y: 0.17740351}
-  m_AnchoredPosition: {x: -0.3274498, y: -0.5}
+  m_AnchorMin: {x: 0.62779325, y: 0.26441064}
+  m_AnchorMax: {x: 0.9728725, y: 0.40525442}
+  m_AnchoredPosition: {x: -0.3274498, y: 1}
   m_SizeDelta: {x: -0.65493774, y: -0.2765808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1857578883
@@ -7484,7 +7524,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1904076205}
   m_OnClick:
     m_PersistentCalls:
@@ -7510,7 +7550,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 1
+        m_CallState: 0
       - m_Target: {fileID: 1423520567}
         m_MethodName: SetProfileSelected
         m_Mode: 2
@@ -7570,10 +7610,10 @@ RectTransform:
   - {fileID: 1324868746}
   m_Father: {fileID: 1385555795}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.104, y: 0.66642153}
-  m_AnchorMax: {x: 0.898898, y: 0.8}
-  m_AnchoredPosition: {x: -0.79998016, y: -0.09998608}
-  m_SizeDelta: {x: 0.19999695, y: 0.2000122}
+  m_AnchorMin: {x: 0.104, y: 0.5166208}
+  m_AnchorMax: {x: 0.898898, y: 0.65500003}
+  m_AnchoredPosition: {x: -0.79998016, y: 0}
+  m_SizeDelta: {x: 0.19999695, y: -1.7999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1935727997
 GameObject:
@@ -8179,7 +8219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2057972117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8422,7 +8462,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Create Profile
+  m_Text: Select Profile
 --- !u!224 &2094715844
 RectTransform:
   m_ObjectHideFlags: 0
