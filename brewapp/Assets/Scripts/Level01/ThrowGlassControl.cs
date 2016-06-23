@@ -46,7 +46,6 @@ public class ThrowGlassControl : Touch3D
 	public GameObject cam3Follow;
 	public GameObject armWithPivot;
 	public GUITexture downArrows;
-	// Need to replace the following 12 items with an array
 	public Texture2D down_arrow_0;
 	public Texture2D down_arrow_1;
 	public Texture2D down_arrow_2;
@@ -63,7 +62,6 @@ public class ThrowGlassControl : Touch3D
 	public Image powerMeter;
 	public Image powerMeterPanel;
 	public Text numThrownAnim;
-	// Need to replace the following 46 items with an array
 	public Sprite pwr_bg;
 	public Sprite pwr_1;
 	public Sprite pwr_2;
@@ -765,22 +763,22 @@ public class ThrowGlassControl : Touch3D
 				scoreScript.miniGame = patScript.gameChoice;
 			}
 		}
-		else if(distTarget < 3)
+		else if(distTarget < 4)
 		{
 			throwTipTot += .40f;
 			repTotal += 40;
 		}
-		else if(distTarget < 4)
+		else if(distTarget < 5)
 		{
 			throwTipTot += .30f;
 			repTotal += 30;
 		}
-		else if(distTarget < 5)
+		else if(distTarget < 6)
 		{
 			throwTipTot += .20f;
 			repTotal += 20;
 		}
-		else if(distTarget < 6)
+		else if(distTarget < 7)
 		{
 			throwTipTot += .10f;
 			repTotal += 10;

@@ -72,7 +72,7 @@ public class PauseManager : MonoBehaviour
 		Time.timeScale = 1;
 		loadingImg.SetActive (true);
 		GameManager.manager.SetLoadBackup ();
-		GameManager.manager.Load (GameManager.manager.currProfileName);
+		GameManager.manager.Load ();
 		GameManager.manager.NextScene (Application.loadedLevelName);
 	}
 

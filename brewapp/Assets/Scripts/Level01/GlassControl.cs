@@ -30,8 +30,8 @@ public class GlassControl : MonoBehaviour
 
 	private void Update () 
 	{		
-		if(this.gameObject.transform.position.y < -2 || this.gameObject.transform.position.z < -3 || 
-		   this.gameObject.transform.position.z > 11)
+		if(gameObject.transform.position.y < -2 || gameObject.transform.position.z < -3 || 
+		   gameObject.transform.position.z > 11)
 		{
 //			audio.clip = "LongSlide1";
 			KillIt();

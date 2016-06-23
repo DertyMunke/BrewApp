@@ -55,22 +55,22 @@ public class MainMenu : MonoBehaviour
 #endif
 	}
 
-	private void Start()
-	{
+    private void Start()
+    {
 
-		userName = null;
-		defaultName = null;
+        //userName = null;
+        //defaultName = null;
 
-        //for testing only
-        //ResetProfilesTestingFunction ();
-        //Debug.Log (Application.persistentDataPath);
+        ////for testing only
+        ////ResetProfilesTestingFunction ();
+        ////Debug.Log (Application.persistentDataPath);
 
-        StartingProfiles();
-		SetStartMenuButtons ();
-	}
+        //StartingProfiles();
+        //SetStartMenuButtons();
+    }
 
-	// Submits a new profile name in the next available spot and saves the new profile 
-	public void OnSubmit(Text line)
+    // Submits a new profile name in the next available spot and saves the new profile      
+    public void OnSubmit(Text line)
 	{
 		if(defaultName == "Profile 1")
 		{
@@ -94,7 +94,7 @@ public class MainMenu : MonoBehaviour
 
 		currText.text = line.text;
 		SaveProfiles ();
-		GameManager.manager.Save (line.text);
+		GameManager.manager.Save ();
         deleteButton.interactable = true;
         playButton.interactable = true;
 		createName.text = "";
@@ -236,37 +236,37 @@ public class MainMenu : MonoBehaviour
 	// Allows you to delete the currently selected profile and the profile name
 	public void DeleteButton()
 	{
-		GameManager.manager.Delete (userName);
+		//GameManager.manager.Delete (userName);
 
 		if(defaultName == "Profile 1")
 		{
 			profile_1.GetComponentInChildren<Text>().text = defaultName;
 			profile_1_active = false;
-			profile_1.interactable = false;
+			//profile_1.interactable = false;
 		}
 		else if(defaultName == "Profile 2")
 		{
 			profile_2.GetComponentInChildren<Text>().text = defaultName;
 			profile_2_active = false;
-			profile_2.interactable = false;
+			//profile_2.interactable = false;
 		}
 		else if(defaultName == "Profile 3")
 		{
 			profile_3.GetComponentInChildren<Text>().text = defaultName;
 			profile_3_active = false;
-			profile_3.interactable = false;
+			//profile_3.interactable = false;
 		}
 		else if(defaultName == "Profile 4")
 		{
 			profile_4.GetComponentInChildren<Text>().text = defaultName;
 			profile_4_active = false;
-			profile_4.interactable = false;
+			//profile_4.interactable = false;
 		}	
 		else if(defaultName == "Profile 5")
 		{
 			profile_5.GetComponentInChildren<Text>().text = defaultName;
 			profile_5_active = false;
-			profile_5.interactable = false;
+			//profile_5.interactable = false;
 		}
 
 		if(currText.text == userName)
@@ -288,10 +288,10 @@ public class MainMenu : MonoBehaviour
 	}
 
 	// Loads the currently selected profile and begins the game
-	public void PlayButton(GameObject myImage)
+	public void PlayBeerToss(GameObject myImage)
 	{
 		myImage.SetActive (true);
-		GameManager.manager.Load (currText.text);
+		GameManager.manager.Load ();
 		GameManager.manager.NextScene ("BeerToss");
 	}
 	

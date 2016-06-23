@@ -130,7 +130,7 @@ public class EndWager : MonoBehaviour
 		}
 		GameManager.manager.SetLvlDifficulty (0);
 		GameManager.manager.SetTotal (newTotal);
-		GameManager.manager.Save (GameManager.manager.currProfileName);
+		GameManager.manager.Save ();
 		StartCoroutine ("EndWagerActive");
 	}
 

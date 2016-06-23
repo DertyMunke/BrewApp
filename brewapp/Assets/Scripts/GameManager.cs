@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -14,10 +15,10 @@ public class GameManager : MonoBehaviour
 	private bool gotPongMsg = false;
 	private bool gotFlipMsg = false;
 	private bool gotPunchMsg = false;
-	private bool pongToot = true;
-	private bool pongRackToot = true;
-	private bool flipToot = true;
-	private bool punchToot = true;
+	private bool pongToot = false;
+	private bool pongRackToot = false;
+	private bool flipToot = false;
+	private bool punchToot = false;
 	private bool restartLvl = false;
     private float fxVolume = 0.58f;
     private float screenTint = 190.0f;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager manager;
     public GameObject lightPnl;
     //public AudioListener audioListner;
-	public String currProfileName = "";
+	public string currProfileName = "default";
 	public bool barTossToot = false;
 	public double total = 0;
 	public float beerTossXP = 0;
@@ -59,10 +60,18 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		Debug.Log(Application.persistentDataPath);
-
-		LoadOptions();
+		Debug.Log(Application.persistentDataPath);		
 	}
+
+    private void Start()
+    {
+        LoadOptions();
+
+        if (!File.Exists(Application.persistentDataPath + "/player.dat"))
+            Save();
+        else
+            Load();
+    }
 
     /// <summary>
     /// Changes the light intensity to newTint when changed in options menu
@@ -87,14 +96,15 @@ public class GameManager : MonoBehaviour
 	{
        //Save (currProfileName);  // took this out for testing, might need later
 
-        yield return new WaitForSeconds(1.5f);
-        AsyncOperation async = Application.LoadLevelAsync(nextLevel);
+        //yield return new WaitForSeconds(0.5f);
+        AsyncOperation async = SceneManager.LoadSceneAsync(nextLevel);
         yield return async;
 	}
 
 	// Allows other scripts to start the loading level coroutine
-	public void NextScene(String lvl)
+	public void NextScene(string lvl)
 	{
+        //Save();
 		nextLevel = lvl;
 		StartCoroutine ("Loading");
 	}
@@ -151,12 +161,12 @@ public class GameManager : MonoBehaviour
 	}
 		
 	// Saves the current profiles data to PlayerData class
-	public void Save(string playerName)
+	public void Save()
 	{
 		try
 		{
 			BinaryFormatter bf = new BinaryFormatter ();
-			file = File.Create (Application.persistentDataPath + "/" + playerName + ".dat"); 
+			file = File.Create (Application.persistentDataPath + "/player.dat"); 
 			PlayerData data = new PlayerData();
 
 			data.punchToot = punchToot;
@@ -192,14 +202,14 @@ public class GameManager : MonoBehaviour
 	}
 
 	// Loads the data from PlayerData class
-	public void Load(string playerName)
+	public void Load()
 	{
-		if(File.Exists(Application.persistentDataPath + "/" + playerName + ".dat"))
+		if(File.Exists(Application.persistentDataPath + "/player.dat"))
 		{
 			try
 			{
 				BinaryFormatter bf = new BinaryFormatter();
-				file = File.Open(Application.persistentDataPath + "/" + playerName + ".dat", FileMode.Open);
+				file = File.Open(Application.persistentDataPath + "/player.dat", FileMode.Open);
 				PlayerData data = (PlayerData)bf.Deserialize(file); //without cast, makes generic obj
 				file.Close();
 			
@@ -232,21 +242,25 @@ public class GameManager : MonoBehaviour
 					file.Close();
 			}
 
-			currProfileName = playerName;
+			//currProfileName = playerName;
 		}
 	}
 
 	// Deletes player data
-	public void Delete(string playerName)
+	public void Delete()
 	{
-		if(File.Exists(Application.persistentDataPath + "/" + playerName + ".dat"))
+		if(File.Exists(Application.persistentDataPath + "/player.dat"))
 		{
-			File.Delete(Application.persistentDataPath + "/" + playerName + ".dat");
+			File.Delete(Application.persistentDataPath + "/player.dat");
 		}
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
-	// Return currently selected difficulty level
-	public int GetLvlDifficulty()
+    // Before I knew about properties - 
+    #region Getters and Setters 
+    // Return currently selected difficulty level
+    public int GetLvlDifficulty()
 	{
 		return lvlDifficulty;
 	}
@@ -538,6 +552,8 @@ public class GameManager : MonoBehaviour
 	{
 		return punchToot;
 	}
+    #endregion
+
 }
 
 //data container that allows you to write the data to a file
@@ -552,7 +568,7 @@ class PlayerData
 	public bool pongRackToot;
 	public bool flipToot;
 	public bool punchToot;
-	public Double total;
+	public double total;
 	public float beerTossXP;
 	public float pongSliderValue;
 	public float xpSliderValue;

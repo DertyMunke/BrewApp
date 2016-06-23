@@ -183,7 +183,8 @@ public class BarController : MonoBehaviour
 			tapHandleClones = (GameObject)(Instantiate(tap2Handle, tapSpawn.transform.position, Quaternion.identity));
 
 			patrons [1].SetActive (true);
-			patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
+            ranNum = Random.Range(1, 6);
+            patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
 			                                              patronSpawn2.transform.position.y, patronSpawn2.transform.position.z);
 		}
 		else if(GameManager.manager.barTossLevel == 4)
@@ -193,7 +194,8 @@ public class BarController : MonoBehaviour
 			tapHandleClones = (GameObject)(Instantiate(tap3Handle, tapSpawn.transform.position, Quaternion.identity));
 
 			patrons [1].SetActive (true);
-			patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
+            ranNum = Random.Range(1, 6);
+            patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
 			                                              patronSpawn2.transform.position.y, patronSpawn2.transform.position.z);
 		}
 		else
@@ -204,9 +206,11 @@ public class BarController : MonoBehaviour
 
 			patrons [1].SetActive (true);
 			patrons [2].SetActive (true);
-			patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
+            ranNum = Random.Range(1, 6);
+            patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
 			                                              patronSpawn2.transform.position.y, patronSpawn2.transform.position.z);
-			patronSpawn3.transform.position = new Vector3(patronSpawn3.transform.position.x - ranNum, 
+            ranNum = Random.Range(3, 6);
+            patronSpawn3.transform.position = new Vector3(patronSpawn3.transform.position.x - ranNum, 
 			                                              patronSpawn3.transform.position.y, patronSpawn3.transform.position.z);
 
 		}

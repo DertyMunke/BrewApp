@@ -178,7 +178,7 @@ public class TootText : MonoBehaviour
 	public void TootBtn(bool play)
 	{
 		GameManager.manager.barTossToot = play;
-		GameManager.manager.Save (GameManager.manager.currProfileName);
+		GameManager.manager.Save ();
 		loadingImg.SetActive (true);
 		GameManager.manager.NextScene ("BeerToss");
 	}

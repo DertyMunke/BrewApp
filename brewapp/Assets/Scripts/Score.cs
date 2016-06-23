@@ -155,7 +155,7 @@ public class Score : MonoBehaviour
 				                               score, manager.GetHighTips(), numThrown, manager.GetHighThrown()); 
 				endLvlPnl.SetActive (true);
 			}
-			manager.Save(manager.currProfileName);
+			manager.Save();
 			onlyOnce = true;
 		}
 	}
