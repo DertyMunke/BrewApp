@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour
 	private bool gotPongMsg = false;
 	private bool gotFlipMsg = false;
 	private bool gotPunchMsg = false;
-	private bool pongToot = false;
-	private bool pongRackToot = false;
-	private bool flipToot = false;
-	private bool punchToot = false;
-	private bool restartLvl = false;
+	private bool pongToot = true;
+	private bool pongRackToot = true;
+	private bool flipToot = true;
+	private bool punchToot = true;
+	private bool restartLvl = true;
     private float fxVolume = 0.58f;
     private float screenTint = 190.0f;
     private float highTips = 0;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject lightPnl;
     //public AudioListener audioListner;
 	public string currProfileName = "default";
-	public bool barTossToot = false;
+	public bool barTossToot;
 	public double total = 0;
 	public float beerTossXP = 0;
 	public float pongSliderValue = 0;
@@ -252,9 +252,20 @@ public class GameManager : MonoBehaviour
 		if(File.Exists(Application.persistentDataPath + "/player.dat"))
 		{
 			File.Delete(Application.persistentDataPath + "/player.dat");
-		}
+            pongToot = true;
+            pongRackToot = true;
+            flipToot = true;
+            punchToot = true;
+            barTossToot = true;
+            total = 0;
+            numReRolls = 0;
+            barTossLevel = 1;
+            flipCupLevel = 1;
+            beerPongLevel = 1;
+            punchLevel = 1;
+        }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Save();
 	}
 
     // Before I knew about properties - 

@@ -29,6 +29,7 @@ public class TootText : MonoBehaviour
 	public GameObject pwrTutDrag;
 	public GameObject throwGlassTrigger;
 	public Button continueBtn;
+    public Button preContBtn;
 	public Button rulesBtn;
 	public Button menuBtn;
 	public Button xpRepBtn;
@@ -62,8 +63,7 @@ public class TootText : MonoBehaviour
 			{
 				// Camera 1: Starts the game walkthrough
 				subStage = 1;
-				topTootTxt[0].text = "The views buttons in the bottom right, " +
-					"will allow you to look at the customers or the tap handles";
+				topTootTxt[0].text = "He ordered a Gangway IPA. You will need to remember the customers orders for more tips.";
 				topTootTxt[1].text = "Touch to continue...";
 				continueBtn.gameObject.SetActive(true);
 				viewsPnlObj.SetActive(true);
@@ -114,7 +114,7 @@ public class TootText : MonoBehaviour
 				if(!OverthrowCollider.overThrowScript.GetOverthrow())
 				{
 					subStage = 1;
-					topTootTxt[0].text = "You've earned a tip, experience and reputation towards a beer pong challenge!";
+					topTootTxt[0].text = "You've earned a tip! Use tips to bet on other games!";
 					xpBtnObj.SetActive(true);
 					xpSliderObj.SetActive(true);
 					headerTxt[0].enabled = true;
@@ -195,17 +195,17 @@ public class TootText : MonoBehaviour
 			rulesBtn.image.enabled = true;
 			newToot++;
 		}
-		else if(newToot == 3)
-		{
-			midTootTxt[0].text = "This is the menu button. Push it and see what it does.";
-			midTootTxt[1].text = "Push the menu button...";
-			continueBtn.gameObject.SetActive (false);
-			topTootPnl.SetActive(false);
-			midTootPnl.SetActive(true);
-			menuTutTouch.SetActive(true);
-			menuBtn.image.enabled = true;
-			newToot++;
-		}
+		//else if(newToot == 3)
+		//{
+		//	midTootTxt[0].text = "This is the menu button. Push it.";
+		//	midTootTxt[1].text = "Push the menu button...";
+		//	continueBtn.gameObject.SetActive (false);
+		//	topTootPnl.SetActive(false);
+		//	midTootPnl.SetActive(true);
+		//	menuTutTouch.SetActive(true);
+		//	menuBtn.image.enabled = true;
+		//	newToot++;
+		//}
 		else if(newToot == 6)
 		{
 			topTootTxt[0].text = "Press the right views button to go to the taps";
@@ -216,17 +216,21 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 7)
 		{
-			// Camera 3: Introduce swipe power
-			botTootTxt[0].text = "Touch anywhere and slowly swipe downward to generate power.";
-			botTootTxt[1].text = "Touch to continue...";
-			newToot++;
+            // Camera 3: Introduce swipe power
+            pwrTutDrag.SetActive(true);
+            continueBtn.gameObject.SetActive(false);
+            preContBtn.gameObject.SetActive(true);
+            botTootTxt[0].text = "Touch anywhere, hold and slowly swipe down for power.";
+			botTootTxt[1].text = "Touch, hold and swipe...";
+            ThrowGlassControl.tgcScript.TouchActive();
+            newToot++;
 		}
 		else if(newToot == 8)
 		{
-			ThrowGlassControl.tgcScript.TouchActive();
+			//ThrowGlassControl.tgcScript.TouchActive();
 			botTootPnl.SetActive(false);
-			continueBtn.gameObject.SetActive(false);
-			pwrTutDrag.SetActive(true);
+			preContBtn.gameObject.SetActive(false);
+			
 			newToot++;
 		}
 		else if(newToot == 9)
@@ -241,46 +245,57 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 11)
 		{
-			topTootTxt[0].text = "You can use your bank roll to bet on yourself during the beer pong challenge.";
+			topTootTxt[0].text = "You can use your bank roll to bet on yourself in side games.";
 			newToot++;
 		}
-		else if(newToot == 12)
+        //else if(newToot == 12)
+        //{
+        //	midTootTxt[0].text = "Here is the experience and reputation button. Give it a press.";
+        //	midTootTxt[1].text = "Push the \"XP\" button...";
+        //	continueBtn.gameObject.SetActive (false);
+        //	topTootPnl.SetActive(false);
+        //	midTootPnl.SetActive(true);
+        //	xpBtnObj.SetActive(true);
+        //	xpSliderObj.SetActive(true);
+        //	xpTutTouch.SetActive(true);
+        //	newToot++;
+        //}
+        //else if(newToot == 14)
+        //{
+        //	topTootTxt[0].text = "Press the pong button to view your beer pong rep while bartending.";
+        //	topTootTxt[1].text = "Push the rep button...";
+        //	punchRepBtn.interactable = false;
+        //	flipRepBtn.interactable = false;
+        //	xpRepBtn.interactable = false;
+        //	continueBtn.gameObject.SetActive(false);
+        //	botTootPnl.SetActive(false);
+        //	topTootPnl.SetActive(true);
+        //	newToot++;
+        //}
+        else if (newToot == 12)
+        {
+            topTootTxt[0].text = "One last thing. Check out the timer on the top banner...";
+            topTootTxt[1].text = "Touch to continue...";
+            punchRepBtn.interactable = true;
+            flipRepBtn.interactable = true;
+            xpRepBtn.interactable = true;
+            continueBtn.gameObject.SetActive(true);
+            headerTxt[2].enabled = true;
+            headerTxt[3].enabled = true;
+            newToot++;
+        }
+        else if(newToot == 13)
 		{
-			midTootTxt[0].text = "Here is the experience and reputation button. Give it a press.";
-			midTootTxt[1].text = "Push the \"XP\" button...";
-			continueBtn.gameObject.SetActive (false);
-			topTootPnl.SetActive(false);
-			midTootPnl.SetActive(true);
-			xpBtnObj.SetActive(true);
-			xpSliderObj.SetActive(true);
-			xpTutTouch.SetActive(true);
-			newToot++;
-		}
-		else if(newToot == 14)
-		{
-			topTootTxt[0].text = "Press the pong button to view your beer pong rep while bartending.";
-			topTootTxt[1].text = "Push the rep button...";
-			punchRepBtn.interactable = false;
-			flipRepBtn.interactable = false;
-			xpRepBtn.interactable = false;
-			continueBtn.gameObject.SetActive(false);
-			botTootPnl.SetActive(false);
-			topTootPnl.SetActive(true);
-			newToot++;
-		}
-		else if(newToot == 16)
-		{
-			topTootTxt[0].text = "Our customers are always thirsty. " +
-				"See how many beers you can serve before the timer runs out";
+			topTootTxt[0].text = "See how many beers you can serve before your time runs out.";
 			topTootTxt[1].text = "Touch to continue...";
 			continueBtn.gameObject.SetActive(true);
 			headerTxt[2].enabled = true;
 			headerTxt[3].enabled = true;
 			newToot++;
 		}
-		else if(newToot == 17)
+		else if(newToot == 14)
 		{
-			topTootTxt[0].text = "The rules, menu, and rep/xp buttons will all pause the timer. Touch the rabbit to start timer";
+			topTootTxt[0].text = "Touch the rabbit to start timer.";
 			topTootTxt[1].text = "Touch the rabbit...";
 			continueBtn.gameObject.SetActive(false);
 			patronScript.ToggleTouch();
@@ -303,7 +318,7 @@ public class TootText : MonoBehaviour
 	{
 		if(newToot == 1)
 		{
-			topTootTxt[0].text = "There is a rules button for each mini game. Scroll down or continue.";
+			topTootTxt[0].text = "Use these secrets to improve your game.";
 			topTootTxt[1].text = "Push \"Continue\" to continue...";
 			rulesTutTouch.SetActive(false);
 			midTootPnl.SetActive(false);
@@ -313,10 +328,17 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 2)
 		{
-			topTootTxt[0].text = "Cool. Lets discuss one more button, before the customers start coming in.";
-			topTootTxt[1].text = "Touch to continue...";
-			continueBtn.gameObject.SetActive (true);
-			newToot++;
+            //topTootTxt[0].text = "Lets discuss one more button before the customers start coming in.";
+            //topTootTxt[1].text = "Touch to continue...";
+            //continueBtn.gameObject.SetActive (true);
+            midTootTxt[0].text = "This is the menu button. Push it.";
+            midTootTxt[1].text = "Push the menu button...";
+            continueBtn.gameObject.SetActive(false);
+            topTootPnl.SetActive(false);
+            midTootPnl.SetActive(true);
+            menuTutTouch.SetActive(true);
+            menuBtn.image.enabled = true;
+            newToot += 2;
 		}
 	}
 
@@ -325,7 +347,7 @@ public class TootText : MonoBehaviour
 	{
 		if(newToot == 4)
 		{
-			topTootTxt[0].text = "Simply press the menu button again to go back to the bar.";
+			topTootTxt[0].text = "This is the menu. Push the button again.";
 			topTootTxt[1].text = "Push the menu button to continue...";
 			midTootPnl.SetActive(false);
 			topTootPnl.SetActive(true);
@@ -334,7 +356,7 @@ public class TootText : MonoBehaviour
 		}
 		else if(newToot == 5)
 		{
-			topTootTxt[0].text = "Great Job! Looks like we've got a guest. Touch him to get his order.";
+			topTootTxt[0].text = "Great Job! Touch the customer to get his order.";
 			topTootTxt[1].text = "Touch the rabbit...";
 			patrons[0].SetActive(true);
 			menuBtn.interactable = false;

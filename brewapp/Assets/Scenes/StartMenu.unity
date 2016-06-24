@@ -4868,47 +4868,47 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossToot
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: beerTossXP
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: pongSliderValue
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: xpSliderValue
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: flipSliderVal
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: punchSliderVal
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: barTossLevel
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: flipCupLevel
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: beerPongLevel
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: punchLevel
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
       propertyPath: total
-      value: 30000
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8eeebb632c2891140964c03ef9595ae6, type: 2}
@@ -8112,6 +8112,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1025304752}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
