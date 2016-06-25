@@ -137,19 +137,19 @@ public class ThrowGlassControl : Touch3D
 		scoreScript = Score.scoreScript;
 		managerScript = GameManager.manager;
 
-		SetPerIncLvl ();
-		if(managerScript.GetPongLvl() < 14)
-			rabbitRepPerc -= (managerScript.GetPongLvl () * .02f);
-		else 
-			rabbitRepPerc -= .29f;
-		if(managerScript.GetFlipLvl() < 14)
-			foxRepPerc -= (GameManager.manager.GetFlipLvl () * .02f);
-		else 
-			foxRepPerc -= .29f;
-		if(managerScript.GetPunchLvl() < 14)
-			bearRepPerc -= (GameManager.manager.GetPunchLvl () * .02f);
-		else 
-			bearRepPerc -= .29f;
+		//SetPerIncLvl ();
+		//if(managerScript.GetPongLvl() < 14)
+		//	rabbitRepPerc -= (managerScript.GetPongLvl () * .02f);
+		//else 
+		//	rabbitRepPerc -= .29f;
+		//if(managerScript.GetFlipLvl() < 14)
+		//	foxRepPerc -= (GameManager.manager.GetFlipLvl () * .02f);
+		//else 
+		//	foxRepPerc -= .29f;
+		//if(managerScript.GetPunchLvl() < 14)
+		//	bearRepPerc -= (GameManager.manager.GetPunchLvl () * .02f);
+		//else 
+		//	bearRepPerc -= .29f;
 	}
 	
 	private void Update()
@@ -358,6 +358,7 @@ public class ThrowGlassControl : Touch3D
 			}
 
 			armWithPivot.transform.eulerAngles = armRot;
+            viewsBtns.SetActive(false);
 			powerMeter.enabled = true;
 			pwrMeterSkin.enabled = true;
 			powerMeterPanel.enabled = true;
@@ -758,7 +759,12 @@ public class ThrowGlassControl : Touch3D
 
 			if(repBuilder)
 			{
-				repBuilder = false;
+                if (pat.name == "Bear")
+                    throwTipTot += 1;
+                else if (pat.name == "Fox")
+                    throwTipTot += .5f;
+
+                repBuilder = false;
 				repSwitch = true;	
 				scoreScript.miniGame = patScript.gameChoice;
 			}
@@ -799,7 +805,7 @@ public class ThrowGlassControl : Touch3D
 
 		if(throwTipTot < .5f)
 			patScript.SetResponseAnim("bad");
-		else if(throwTipTot == 1)
+		else if(throwTipTot >= 1)
 			patScript.SetResponseAnim("good");
 		else
 			patScript.SetResponseAnim("ok");

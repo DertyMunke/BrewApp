@@ -43,7 +43,7 @@ public class CameraManager : MonoBehaviour
 		{
 			Camera.main.enabled = false;
 			camera2.enabled = true;
-
+            
 			camSwitch2 = false;
 		}
 		else if(camSwitch3)

@@ -191,7 +191,8 @@ public class Wager : MonoBehaviour
 			gameObject.SetActive(false);
 			menuBtns[0].image.enabled = false;
 			menuBtns[1].image.enabled = true;
-		}
+            GameManager.manager.Save();
+        }
 	}
 
 	// Calls end wager to start the levels ending animations

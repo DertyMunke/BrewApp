@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
 	public Button profile_4;
 	public Button profile_5;
 	public Text currText;
+    public Text totalMoney;
 	public bool profile_1_active = false;
 	public bool profile_2_active = false;
 	public bool profile_3_active = false;
@@ -67,6 +68,14 @@ public class MainMenu : MonoBehaviour
 
         //StartingProfiles();
         //SetStartMenuButtons();
+    }
+
+    /// <summary>
+    /// Sets the players total dollar amount in the game select panel
+    /// </summary>
+    public void SetMoneyTxt()
+    {
+        totalMoney.text = string.Format("{0:F2}", GameManager.manager.total);
     }
 
     // Submits a new profile name in the next available spot and saves the new profile      

@@ -16,6 +16,7 @@ public class EndWager : MonoBehaviour
 	public GameObject dblNillPnl;
 	public GameObject loadingImg;
 	public GameObject confirmBtn;
+    public Canvas gameSelect;
 	public Text totalTxt;
 	public Text betTxt;
 	public Text payoutTxt;
@@ -86,8 +87,8 @@ public class EndWager : MonoBehaviour
 	// Calls the next scene
 	public void EndLevel()
 	{
-		loadingImg.SetActive (true);
-		GameManager.manager.NextScene ("BeerToss");
+        GameSelect.selectScript.SetGameBtns();
+        gameSelect.enabled = true;
 	}
 
 	// Sets all of the end wager panel values, saves the game state and starts the animation sequence

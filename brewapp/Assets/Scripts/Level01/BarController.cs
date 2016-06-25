@@ -173,25 +173,10 @@ public class BarController : MonoBehaviour
 
 		}
 		else if(GameManager.manager.barTossLevel == 2)
-		{
-			tapHandleClones = (GameObject)(Instantiate(tap2Handle, tapSpawn.transform.position, Quaternion.identity));
-		}
-		else if(GameManager.manager.barTossLevel == 3)
-		{
+        { 
 			BeerTossCanvas.tossCanvasScript.expand = "expand2";
 			CameraManager.camManScript.camera1 = cam1_2;
 			tapHandleClones = (GameObject)(Instantiate(tap2Handle, tapSpawn.transform.position, Quaternion.identity));
-
-			patrons [1].SetActive (true);
-            ranNum = Random.Range(1, 6);
-            patronSpawn2.transform.position = new Vector3(patronSpawn2.transform.position.x - ranNum, 
-			                                              patronSpawn2.transform.position.y, patronSpawn2.transform.position.z);
-		}
-		else if(GameManager.manager.barTossLevel == 4)
-		{
-			BeerTossCanvas.tossCanvasScript.expand = "expand2";
-			CameraManager.camManScript.camera1 = cam1_2;
-			tapHandleClones = (GameObject)(Instantiate(tap3Handle, tapSpawn.transform.position, Quaternion.identity));
 
 			patrons [1].SetActive (true);
             ranNum = Random.Range(1, 6);

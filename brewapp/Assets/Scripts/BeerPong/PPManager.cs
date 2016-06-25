@@ -510,7 +510,7 @@ public class PPManager : Touch3D
 			wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());
 			totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
 			tootCnvs.SetActive (true);
-		}
+        }
 	}
 
     /// <summary>

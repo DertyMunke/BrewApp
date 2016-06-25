@@ -72,15 +72,15 @@ public class Score : MonoBehaviour
 
 	private void Update () 
 	{
-		if(xpSlider.value >= xpSlider.maxValue)
-		{
-			xpSlider.value = 0;
-			manager.xpSliderValue = 0;
-			manager.barTossLevel ++;
-//			manager.maxBeerTossXP = manager.maxBeerTossXP * 2;
-			levelNumTxt.text = string.Format ("{0}", manager.GetBarTossLevel());
-			ThrowGlassControl.tgcScript.SetPerIncLvl();
-		}
+//		if(xpSlider.value >= xpSlider.maxValue)
+//		{
+//			xpSlider.value = 0;
+//			manager.xpSliderValue = 0;
+//			manager.barTossLevel ++;
+////			manager.maxBeerTossXP = manager.maxBeerTossXP * 2;
+//			levelNumTxt.text = string.Format ("{0}", manager.GetBarTossLevel());
+//			ThrowGlassControl.tgcScript.SetPerIncLvl();
+//		}
 		ScoreGUI ();
 	}
 
@@ -149,13 +149,19 @@ public class Score : MonoBehaviour
 				manager.SetHighThrown(numThrown);
 			}
 
-			if(!manager.barTossToot)
-			{	
-				levelTips.text = string.Format("Your Tips   = ${0:F2}\n\nHigh Tips   = ${1:F2}\n\nYou Served  = {2}\n\nHigh Served = {3}", 
-				                               score, manager.GetHighTips(), numThrown, manager.GetHighThrown()); 
-				endLvlPnl.SetActive (true);
-			}
-			manager.Save();
+			//if(!manager.barTossToot)
+			//{	
+			//	levelTips.text = string.Format("Your Tips   = ${0:F2}\n\nHigh Tips   = ${1:F2}\n\nYou Served  = {2}\n\nHigh Served = {3}", 
+			//	                               score, manager.GetHighTips(), numThrown, manager.GetHighThrown()); 
+			//	endLvlPnl.SetActive (true);
+			//}
+
+            levelTips.text = string.Format("Your Tips   = ${0:F2}\nHigh Tips   = ${1:F2}\nYou Served  = {2}\nHigh Served = {3}",
+                               score, manager.GetHighTips(), numThrown, manager.GetHighThrown());
+
+            endLvlPnl.SetActive(true);
+            manager.barTossLevel++;
+            manager.Save();
 			onlyOnce = true;
 		}
 	}

@@ -63,7 +63,7 @@ public class TootText : MonoBehaviour
 			{
 				// Camera 1: Starts the game walkthrough
 				subStage = 1;
-				topTootTxt[0].text = "He ordered a Gangway IPA. You will need to remember the customers orders for more tips.";
+				topTootTxt[0].text = "He ordered a Gangway IPA. You will need to remember the customers orders to earn more $.";
 				topTootTxt[1].text = "Touch to continue...";
 				continueBtn.gameObject.SetActive(true);
 				viewsPnlObj.SetActive(true);

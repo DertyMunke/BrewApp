@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 	public string currProfileName = "default";
 	public bool barTossToot;
 	public double total = 0;
+    public double baseTotal = 0;
 	public float beerTossXP = 0;
 	public float pongSliderValue = 0;
 	public float xpSliderValue = 0;
@@ -94,9 +95,10 @@ public class GameManager : MonoBehaviour
 	// Loads the next level: Need unity pro to finish this
 	private IEnumerator Loading()
 	{
-       //Save (currProfileName);  // took this out for testing, might need later
+        //Save (currProfileName);  // took this out for testing, might need later
 
-        //yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 1;
         AsyncOperation async = SceneManager.LoadSceneAsync(nextLevel);
         yield return async;
 	}
@@ -165,7 +167,7 @@ public class GameManager : MonoBehaviour
 	{
 		try
 		{
-			BinaryFormatter bf = new BinaryFormatter ();
+            BinaryFormatter bf = new BinaryFormatter ();
 			file = File.Create (Application.persistentDataPath + "/player.dat"); 
 			PlayerData data = new PlayerData();
 
@@ -191,7 +193,8 @@ public class GameManager : MonoBehaviour
 			data.flipSliderVal = flipSliderVal;
 			data.punchSliderVal = punchSliderVal;
 
-			bf.Serialize (file, data);
+            baseTotal = total;
+            bf.Serialize (file, data);
 			file.Close ();
 		}
 		finally
@@ -204,11 +207,11 @@ public class GameManager : MonoBehaviour
 	// Loads the data from PlayerData class
 	public void Load()
 	{
-		if(File.Exists(Application.persistentDataPath + "/player.dat"))
+        if (File.Exists(Application.persistentDataPath + "/player.dat"))
 		{
 			try
 			{
-				BinaryFormatter bf = new BinaryFormatter();
+                BinaryFormatter bf = new BinaryFormatter();
 				file = File.Open(Application.persistentDataPath + "/player.dat", FileMode.Open);
 				PlayerData data = (PlayerData)bf.Deserialize(file); //without cast, makes generic obj
 				file.Close();
@@ -235,7 +238,8 @@ public class GameManager : MonoBehaviour
 				flipSliderVal = data.flipSliderVal;
 				punchSliderVal = data.punchSliderVal;
 
-			}
+                baseTotal = total;
+            }
 			finally
 			{
 				if(file != null)
