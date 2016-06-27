@@ -62,7 +62,7 @@ public class FlipCupManager : MonoBehaviour
 	private void Start()
 	{
 		managerScript = this;
-		LevelSetup ();
+		//LevelSetup ();
 		chugCamPos = camMain.transform.position;
 		chugCamRot = camMain.transform.rotation;
 		chugCupPos = animCup.transform.position;
@@ -83,14 +83,14 @@ public class FlipCupManager : MonoBehaviour
 	}
 
 	// Initializes the level variables and objects
-	private void LevelSetup()
+	public void LevelSetup()
 	{
 		GameManager.manager.SetFlipMsg (false);
 		int flipCupLevel = GameManager.manager.flipCupLevel;
 
-		if(flipCupLevel <= 3)
+		if(GameManager.manager.GetDifficulty() <= 3)
 		{
-			numCups = flipCupLevel + 3; 
+			numCups = GameManager.manager.GetDifficulty() + 2; 
 		}
 		else
 			numCups = 6;
@@ -131,9 +131,8 @@ public class FlipCupManager : MonoBehaviour
 	/// </summary>
 	private IEnumerator FoxAI()
 	{
-        Debug.Log("fox");
         foxAnims.SetBool("FlipCupActive", true);
-		int diff = flipCup.GetComponent<FlipCup> ().Difficulty;
+		int diff = GameManager.manager.GetDifficulty();
 		while (hisCupIndex < numCups) 
 		{
 			if (myCupIndex >= numCups) 
@@ -171,8 +170,9 @@ public class FlipCupManager : MonoBehaviour
 					yield break;
 				}
 
-				hisCup.GetComponent<HisCup> ().ApplyForce (new Vector2 (Random.Range(-10 + 5 - diff, -10 - 5 + diff), 
-				                                                        Random.Range(20 -5 + diff, 20 + 5 - diff)));
+                // 26 - 29 is a good throw -> at diff 5, there is ~50% chance of success
+                float speed = Random.Range(20 - 5 + diff, 32 + 5 - diff);
+				hisCup.GetComponent<HisCup> ().ApplyForce (new Vector3 (-speed * .3f, speed * .7f, 0));
 				if (myCupIndex >= numCups) 
 				{
 					StartCoroutine (GameOver (true));
@@ -346,7 +346,7 @@ public class FlipCupManager : MonoBehaviour
 				yield return new WaitForSeconds(2.25f);
 
 				GameManager.manager.IncReRoll ();
-				if (GameManager.manager.GetFlipLvl () == GameManager.manager.GetDifficulty () - 1)
+				if (GameManager.manager.GetFlipLvl () == GameManager.manager.GetDifficulty ())
 					GameManager.manager.flipCupLevel ++;
 			} 
 			else 
@@ -359,7 +359,7 @@ public class FlipCupManager : MonoBehaviour
 					chugButton.GetComponentInChildren<Button> ().enabled = false;
 			}
 
-			GameManager.manager.flipSliderVal = 0;
+			//GameManager.manager.flipSliderVal = 0;
 			Wager.wagerScript.InitEndWager (winState);
 		}
 	}

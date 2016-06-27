@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -76,11 +77,11 @@ public class Wager : MonoBehaviour
 		myTotalTxt.text = string.Format ("${0:F2}", myTotal);
 		UsableBetBtns();
 
-		if(Application.loadedLevelName == "FlipCup")
+		if(SceneManager.GetActiveScene().name == "FlipCup")
 			miniGamelvl = managerScript.GetFlipLvl();
-		else if(Application.loadedLevelName == "BeerPong")
+		else if(SceneManager.GetActiveScene().name == "BeerPong")
 			miniGamelvl = managerScript.GetPongLvl();
-		else if(Application.loadedLevelName == "Level01_Punch")
+		else if(SceneManager.GetActiveScene().name == "Level01_Punch")
 			miniGamelvl = managerScript.GetPunchLvl();
 
 		if(managerScript.GetLoadBackup())
@@ -109,7 +110,7 @@ public class Wager : MonoBehaviour
 	private void RollDifficulty()
 	{
 		if(miniGamelvl < 5)
-			difficulty = Random.Range (1, 20 + miniGamelvl*20);
+			difficulty = Random.Range (1, miniGamelvl * 20);
 		else
 			difficulty = Random.Range (1, 100);
 		difficulty = Mathf.CeilToInt(difficulty / 20.0f);

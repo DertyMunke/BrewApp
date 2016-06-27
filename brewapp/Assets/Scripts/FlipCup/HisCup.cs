@@ -51,7 +51,7 @@ public class HisCup : MonoBehaviour
 	{
 		if(winTrigger.GetComponent<WinTrigger>().collideName == "TableCollider" )
 		{
-			return true;
+            return true;
 		}
 		
 		return false;

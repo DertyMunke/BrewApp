@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
             Save();
         else
             Load();
+
+        
     }
 
     /// <summary>
@@ -124,8 +126,9 @@ public class GameManager : MonoBehaviour
 
 			data.sfxVolume = fxVolume;
 			data.screenTint = screenTint;
+            data.numReRolls = numReRolls;
 
-			bf.Serialize (file, data);
+            bf.Serialize (file, data);
 			file.Close ();
 		}
 		finally
@@ -151,7 +154,9 @@ public class GameManager : MonoBehaviour
 
 				VolumeLvl(data.sfxVolume);
 				TintScreen(data.screenTint);
-			}
+                numReRolls = data.numReRolls;
+
+            }
 			finally
 			{
 				if(file != null)
@@ -181,7 +186,6 @@ public class GameManager : MonoBehaviour
 			data.total = total;
 			data.highTips = highTips;
 			data.highThrown = highThrown;
-			data.numReRolls = numReRolls;
 			data.beerTossXP = beerTossXP;
 			data.barTossLevel = barTossLevel;
 			data.barTossToot = barTossToot;
@@ -226,7 +230,6 @@ public class GameManager : MonoBehaviour
 				total = data.total;
 				highTips = data.highTips;
 				highThrown = data.highThrown;
-				numReRolls = data.numReRolls;
 				beerTossXP = data.beerTossXP;
 				barTossLevel = data.barTossLevel;
 				barTossToot = data.barTossToot;
@@ -270,6 +273,7 @@ public class GameManager : MonoBehaviour
         }
 
         Save();
+        SaveOptions();
 	}
 
     // Before I knew about properties - 
@@ -344,7 +348,6 @@ public class GameManager : MonoBehaviour
 	// Returns load backup: Determines if we should load the backup difficuly level
 	public bool GetLoadBackup()
 	{
-		numReRolls = reRollsBackup;
 		return loadBackup;
 	}
 
@@ -406,24 +409,26 @@ public class GameManager : MonoBehaviour
 	public void IncReRoll()
 	{
 		numReRolls ++;
+        SaveOptions();
 	}
 
 	// Subtracts a re-roll to the number of re-rolls
 	public void DecReRoll()
 	{
 		numReRolls --;
-	}
+        SaveOptions();
+}
 
 	// Sets the the backup value to the number of re-rolls: used when restarting a level
 	public void SetReRollsBackup()
 	{
-		reRollsBackup = numReRolls;
+        reRollsBackup = numReRolls;
 	}
 
 	// Sets the number of re-rolls to the backup value: used when restarting a level
 	public void GetReRollsBackup()
 	{
-		numReRolls = reRollsBackup;
+        numReRolls = reRollsBackup;
 	}
 
 	// Returns the correct difficulty level
@@ -595,7 +600,6 @@ class PlayerData
 	public int flipCupLevel;
 	public int beerPongLevel;
 	public int punchLevel;
-	public int numReRolls;
 }
 
 //data container that allows you to write the data to a file
@@ -604,4 +608,5 @@ class Options
 {
 	public float screenTint;
 	public float sfxVolume;
+    public int numReRolls;
 }

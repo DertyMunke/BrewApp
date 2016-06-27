@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FlipCup : MonoBehaviour
@@ -28,7 +29,7 @@ public class FlipCup : MonoBehaviour
 
 	private void Start()
 	{
-		if(Application.loadedLevelName == "FlipPractice")  // Show the swipe images
+		if(SceneManager.GetActiveScene().name == "FlipPractice")  // Show the swipe images
 		{
 			swipeActive = true;
 		}
@@ -45,22 +46,22 @@ public class FlipCup : MonoBehaviour
 			resetTurn();
 		}
 
-		if(difficulty == 0)
-		{
-			difficulty = GameManager.manager.GetDifficulty();
+		//if(difficulty == 0)
+		//{
+		//	difficulty = GameManager.manager.GetDifficulty();
 
-			if(difficulty != 0)
-			{
-				SetMyDiff();
-			}
-		}
+		//	if(difficulty != 0)
+		//	{
+		//		SetMyDiff();
+		//	}
+		//}
 
 		// Allows swipe
 		if(swipeActive)
 		{
 //			flipArrow.SetActive(true);
 			FlipToot.flipTootScript.CheckContinue(3);
-			if(Application.loadedLevelName == "FlipPractice")
+			if(SceneManager.GetActiveScene().name == "FlipPractice")
 			{
 				flipArrowDown.SetActive(false);
 			}
@@ -168,7 +169,8 @@ public class FlipCup : MonoBehaviour
 	{
 		if(winTrigger.GetComponent<WinTrigger>().collideName == "TableCollider" )
 		{
-			return true;
+            winTrigger.GetComponent<WinTrigger>().collideName = "";
+            return true;
 		}
 
 		return false;
@@ -218,24 +220,23 @@ public class FlipCup : MonoBehaviour
     // Applies the appropriate amount of force and direction to the cup
 	public void ApplyForce(Vector2 dist)
 	{
-		float ySwipe = dist.y; // Delta dist y dir
+        float ySwipe = dist.y / (swipeTime * 50); // Delta dist y dir
 
         // If the time length of the swipe is > or < the max or min values, set them to the max or min values respectively 
-        if (swipeTime > maxHeight)
-            swipeTime = maxHeight;
-        else if (swipeTime < minHeight)
-            swipeTime = minHeight;
+        //if (swipeTime > maxHeight)
+        //    swipeTime = maxHeight;
+        //else if (swipeTime < minHeight)
+        //    swipeTime = minHeight;
 
         // If the distance length of the swipe is > or < the max or min values, set them to the max or min values respectively 
-        if (ySwipe < minDist)
-			ySwipe = minDist;  
-		else if(ySwipe > maxDist)
-			ySwipe = maxDist;
+  //      if (ySwipe < minDist)
+		//	ySwipe = minDist;  
+		//else if(ySwipe > maxDist)
+		//	ySwipe = maxDist;
 
         // Calculates the total force from time and distance of swipe
-        //Debug.Log(ySwipe + " dist : time " + swipeTime + " ratio " + ySwipe/(swipeTime * 100));
-        float forceDist = (ySwipe * .035f);
-        float forceHeight = ((ySwipe / (swipeTime * 100)) * 2f) - swipeTime * 50f;
+        float forceDist = ySwipe * .30f;//(ySwipe * .035f);
+        float forceHeight = ySwipe * .70f;//((ySwipe / (swipeTime * 100)) * 2f) - swipeTime * 50f;
         //float forceHeight = 15 - (swipeTime * 100 - 15) + Mathf.CeilToInt(ySwipe / swipeTime * .001f) * 2;
 
         Vector3 force = new Vector3(forceDist, forceHeight, 0);
