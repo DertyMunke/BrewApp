@@ -20,7 +20,6 @@ public class ThrowGlassControl : Touch3D
 	private bool throwTimeTrigger = true;
 	private bool repSwitch = false;	  // This turns off the gui for rep earned
 	private bool cameraSwitch = true;
-	private bool repBuilder = false;
 	private bool touchActive = true;
 	private float arrowsTimer = 0;
 	private float throwTimer = 0;
@@ -705,7 +704,8 @@ public class ThrowGlassControl : Touch3D
 	// Calculates the point according to how close the glass is to the green circle
 	private void GetPoints()
 	{
-		Score.scoreScript.reputation = 0;
+        bool repBuilder = false;
+        Score.scoreScript.reputation = 0;
 		List<GameObject> patsWitOrder = BarController.barControlScript.servOrder;
 		Vector3 glassPos;
 		if(getPoints)
@@ -764,7 +764,6 @@ public class ThrowGlassControl : Touch3D
                 else if (pat.name == "Fox")
                     throwTipTot += .5f;
 
-                repBuilder = false;
 				repSwitch = true;	
 				scoreScript.miniGame = patScript.gameChoice;
 			}
@@ -809,7 +808,7 @@ public class ThrowGlassControl : Touch3D
 			patScript.SetResponseAnim("good");
 		else
 			patScript.SetResponseAnim("ok");
-		
+
 		Invoke("tipAndRepEnabled", tipAndRepDelay);
 		ScoreAnims.scoreAnimsScript.scoreAnimTrig = true;
 		ScoreAnims.scoreAnimsScript.tipValue = throwTipTot;
