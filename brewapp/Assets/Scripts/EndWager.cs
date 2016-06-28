@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -153,11 +154,12 @@ public class EndWager : MonoBehaviour
 			myBetAmt += myBetAmt;
 			
 			loadingImg.SetActive (true);
-			GameManager.manager.NextScene (Application.loadedLevelName);
+			GameManager.manager.NextScene (SceneManager.GetActiveScene().name);
 		}
 		else
 		{
 			EndLevel();
 		}
 	}
+
 }

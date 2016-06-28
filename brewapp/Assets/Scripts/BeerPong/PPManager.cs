@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -56,7 +57,7 @@ public class PPManager : Touch3D
 		{
 			myTurn = PingPongBall.ppBallScript.myTurn;
 			WatchBallFly();
-			if(!dblNothin && Application.loadedLevelName != "PongPractice")
+			if(!dblNothin && SceneManager.GetActiveScene().name != "PongPractice")
 			{
 				ReRackCheck ();
 			}
@@ -183,7 +184,7 @@ public class PPManager : Touch3D
 		if(win)
 		{
 			GameManager.manager.IncReRoll();
-			if(GameManager.manager.GetPongLvl() == GameManager.manager.GetDifficulty() - 1)
+			if(GameManager.manager.GetPongLvl() == GameManager.manager.GetDifficulty())
 				GameManager.manager.beerPongLevel ++;
 			winLoseDraw = 0;
 		}

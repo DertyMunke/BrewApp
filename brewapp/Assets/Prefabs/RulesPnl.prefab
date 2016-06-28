@@ -106,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &109540
 GameObject:
   m_ObjectHideFlags: 1
@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &109542
 GameObject:
   m_ObjectHideFlags: 1
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -377,7 +377,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4447915342d9eae4fb3c390a698d8520, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -389,28 +389,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Beer Toss - Detailed Rules:\r\n\xB7\tTouch a customer to get his order
-    and remember what he wants .\r\n\xB7\tIf you have 1 or more orders then you can
-    push the bottom right button to go to the beer taps.\r\n\xB7\tSwipe down on a
-    tap to pour a beer or push the left button on the bottom right to go back.\r\n\xB7\tAfter
-    you pour a beer, you can toss the beer down the bar by swiping down on the far
-    right portion of the screen. Look at the power meter on the left to gauge your
-    distance. Aim for the green circles in front of the customers. The beer will go
-    to the closest customer. If you serve that customer the beer they asked for then
-    you will get a bonus tip. Your total tip will also depend on how close you are
-    to the center of the green circle.\r\n\xB7\tAfter a customer is served, you will
-    go back to the bar to get another order. If you already have 1 or more additional
-    orders then you will go directly to the beer taps to pour another beer. Don't
-    worry if you forget what beers they ordered, you can push the back button in the
-    bottom right to go back and touch the customer and have them repeat their order.\r\n\xB7\tYou
-    build reputation with each customer that you serve. Each customer has their favorite
-    game and if you impress them to the max, they will challenge to a play against
-    them.\r\n\xB7\tYou can push the XP button at the bottom of the screen to pause
-    the game and see what your current rep is with each customer. Select a reputation
-    to view while playing the game, transfer your reputation from one customer to
-    another, or accept a challenge that you've passed up previously. \r\n\xB7\tOn
-    any level, you can push the red rabbit button in the bottom left to pause the
-    game and choose from other game options. "
+  m_Text: "Beer Toss - Game Guide:\n\r\n\xB7\tGive the customer the correct beer and
+    stop it in front of them for a time and tip bonus.\r\n\n\xB7\tThe fox will give
+    a bigger bonus than the hare and the bear will give a bigger bonus than the fox.\r\n\n\xB7\tYou
+    can get multiple orders before going to the taps.\r This will take you directly
+    to the taps after you toss a beer, which will save time, but you must remember
+    what everyone ordered.\n\n\xB7\tFor power on the beer toss, touch and hold your
+    finger on the screen, then slowly swipe down for more power or up for less power.\n\r\n\xB7\t"
 --- !u!114 &11409530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,7 +430,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109538}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -484,7 +469,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -498,7 +483,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4447915342d9eae4fb3c390a698d8520, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -510,20 +495,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Punch Game - Detailed Rules:\r\n\xB7\tTap the button in the top right to
-    move the first power meter in the bottom left.\r\n\xB7\tWhen it's as high as you
-    want it, then swipe along the green swipe arrow. This will move the second power
-    meter and if timed right, it will move it most of the way up. \r\n\xB7\tTap the
-    button  in the bottom right to finish moving the second power meter as high as
-    you want it.\r\n\xB7\tBoth of these two power meters will gradually decrease in
-    power. If you want to restart then push the first power button again and you can
-    begin refilling the first power meter, but you will lose all of the power that
-    you have gained in the second power meter.\r\n\xB7\tSwipe along the green swipe
-    arrow and time your swipe, to fill up the last power meter as much as possible.
-    \r\n\xB7\tThe winner is the best  2 out of 3. In case there is a tie, you will
-    each have another punch until there is a clear winner.\r\n\xB7\tAs always, you
-    can push the red rabbit button in the bottom left to pause the game and choose
-    from other game options. \r\n"
+  m_Text: "Punch Game - Game Guide:\r\n\n\xB7\tThis game is all about timing. You
+    just have to practice to get the timing down.\n\r\n\xB7\tThere is a slight delay
+    from the time you stop the meter to the time it actually stops.\n\nGOOD LUCK!!\n
+    \r"
 --- !u!114 &11409538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,7 +547,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4447915342d9eae4fb3c390a698d8520, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -584,17 +559,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Beer Pong - Detailed Rules:\r\n\xB7\tThe #1 rule: First one to make all
-    their cups wins.\r\n You go first, so you always have an advantage.\r\n\xB7\tUse
-    the D-pad on the left to aim the ball.\r\n\xB7\t The power meter is the button
-    in the top right.\r\n\xB7\tThe green balls show you the traversal of the ball
-    if the power level stops on the power line of the power meter.\r\n\xB7\tThe buttons
-    in the bottom right will allow you to look at the table from a side angle.\r\n\xB7\tThe
-    top view of the table and cups on the left, will help you when aiming the ball.\r\n\xB7\tIf
-    your opponent is throwing and his ball bounces off of any surface, then you can
-    swipe the screen across the ball to slap it away and potentially save a cup.\r\n\xB7\tAs
-    always, you can push the red rabbit button in the bottom left to pause the game
-    and choose from other game options. "
+  m_Text: "Beer Pong - Game Guide:\n\r\n\xB7\tStopping the meter on the line will
+    not always make the ball go in a cup. The line is a guide to be used in conjunction
+    with the ball path tracer.\r\n\n\xB7\t Determine if you need a little less power
+    (below the white line) or a little more power (above the white line) and try to
+    judge where you should release the power button.\n\r\n\xB7\tYou don't have to
+    rerack the first chance you get. There might be easier options after you make
+    another ball or two.\n\r\n\xB7 \tBe ready to swipe the ball away if it hits anything
+    before going in the cup. You can save a ball from going in, while it spins around
+    the edge or if it bounces off anything first.\n\nGOOD LUCK!!"
 --- !u!222 &22209528
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -660,8 +633,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.5, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -0.25}
+  m_SizeDelta: {x: 1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22409530
 RectTransform:
@@ -681,9 +654,9 @@ RectTransform:
   m_Father: {fileID: 22409532}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.85872227}
-  m_AnchoredPosition: {x: 0, y: -356}
-  m_SizeDelta: {x: 0, y: 716}
+  m_AnchorMax: {x: 1, y: 0.8658745}
+  m_AnchoredPosition: {x: 0, y: -359.5}
+  m_SizeDelta: {x: 0, y: 717}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22409532
 RectTransform:
@@ -771,7 +744,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22409530}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0.15630077, y: 0.084694155}
+  m_AnchorMin: {x: 0.15630077, y: 0.054850295}
   m_AnchorMax: {x: 0.8774033, y: 0.8764641}
   m_AnchoredPosition: {x: -1.5, y: 2}
   m_SizeDelta: {x: 3, y: -1}

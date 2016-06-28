@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
 	private bool flipToot = true;
 	private bool punchToot = true;
 	private bool restartLvl = true;
-    private float fxVolume = 0.58f;
-    private float screenTint = 190.0f;
+    private float fxVolume = 1.0f;
+    private float screenTint = 255.0f;
     private float highTips = 0;
 	private float myBet = 0;
 	private int lvlDifficulty = 0;  // 1-5
@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         LoadOptions();
 
         if (!File.Exists(Application.persistentDataPath + "/player.dat"))

@@ -23,10 +23,11 @@ public class PowerMeter2 : MonoBehaviour {
     private bool meterIncr_2 = true;
     private float meterDist_2 = 5;
     private float meterSpeed_1 = 0.04f;
-    private float meterSpeed_2 = 0.03f;
+    private float meterSpeed_2 = 0.04f;
     private int meterIndex_1;
 
     #endregion
+
     #region Public Methods
     public GameObject MeterObj_1 { get { return meterObj_1; } }
     public GameObject MeterObj_2 { get { return meterObj_2; } }
@@ -38,9 +39,9 @@ public class PowerMeter2 : MonoBehaviour {
     /// </summary>
     public void SetPowerDifficulty(int odds)
     {
-        meterSpeed_1 -= (odds * 0.01f) * odds;
-        meterSpeed_2 -= (odds * 0.01f) * odds;
-        meterDist_2 = 4 + odds;
+        meterSpeed_1 -= (odds * 0.01f);
+        meterSpeed_2 -= (odds * 0.01f);
+        meterDist_2 = (rightBound_2.position.x - leftBound_2.position.x) / (90 - (odds * 10)); // 4 + odds;
     }
 
     /// <summary>
@@ -97,6 +98,7 @@ public class PowerMeter2 : MonoBehaviour {
     }
 
     #endregion
+
     #region Private Methods
     private void Start()
     {
@@ -138,14 +140,11 @@ public class PowerMeter2 : MonoBehaviour {
         yield return new WaitForSeconds(.1f);
         meterObj_2.SetActive(true);
 
-        float meterDelta = 5; // The distance that the meter moves 
+        float meterDelta; // The distance that the meter moves 
         while (meterAnim_2)
         {
             // Determins the direction of the meter bar
-            if (meterIncr_2)
-                meterDelta = -meterDist_2;
-            else
-                meterDelta = meterDist_2;
+            meterDelta = meterIncr_2 ? -meterDist_2 : meterDist_2;
 
             // Set new position
             meterSprite_2.transform.position = new Vector2(meterSprite_2.transform.position.x + meterDelta, meterSprite_2.transform.position.y);

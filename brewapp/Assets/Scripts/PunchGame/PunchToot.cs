@@ -28,8 +28,8 @@ public class PunchToot : MonoBehaviour
 	private void Start()
 	{
 		punchTootScript = this;
-		menuBtn.enabled = false;
-		rulesBtn.enabled = false;
+		//menuBtn.enabled = false;
+		//rulesBtn.enabled = false;
 	}
 	
 	// Tutorial walkthrough for flip cup

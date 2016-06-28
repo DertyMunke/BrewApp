@@ -5,6 +5,6 @@ public class SinGameStart : MonoBehaviour
 {
 	void Awake () 
 	{
-		Application.LoadLevel ("Level01_sin");
+		//Application.LoadLevel ("Level01_sin");
 	}
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 #if UNITY_EDITOR
@@ -73,7 +74,7 @@ public class PauseManager : MonoBehaviour
 		loadingImg.SetActive (true);
 		GameManager.manager.SetLoadBackup ();
 		GameManager.manager.Load ();
-		GameManager.manager.NextScene (Application.loadedLevelName);
+		GameManager.manager.NextScene (SceneManager.GetActiveScene().name);
 	}
 
 	// Returns to the BeerToss scene without finishing the mini game
@@ -90,15 +91,15 @@ public class PauseManager : MonoBehaviour
 		Pause ();
 		loadingImg.SetActive(true);
 
-		if(Application.loadedLevelName == "FlipPractice")
+		if(SceneManager.GetActiveScene().name == "FlipPractice")
 		{
 			GameManager.manager.NextScene("FlipCup");
 		}
-		else if(Application.loadedLevelName == "PongPractice")
+		else if(SceneManager.GetActiveScene().name == "PongPractice")
 		{
 			GameManager.manager.NextScene("BeerPong");
 		}
-		else if(Application.loadedLevelName == "PunchPractice")
+		else if(SceneManager.GetActiveScene().name == "PunchPractice")
 		{
 			GameManager.manager.NextScene("Level01_Punch");
 		}
@@ -122,15 +123,15 @@ public class PauseManager : MonoBehaviour
 		loadingImg.SetActive(true);
 		GameManager.manager.SetLoadBackup ();
 
-		if(Application.loadedLevelName == "FlipCup")
+		if(SceneManager.GetActiveScene().name == "FlipCup")
 		{
 			GameManager.manager.NextScene("FlipPractice");
 		}
-		else if(Application.loadedLevelName == "BeerPong")
+		else if(SceneManager.GetActiveScene().name == "BeerPong")
 		{
 			GameManager.manager.NextScene("PongPractice");
 		}
-		else if(Application.loadedLevelName == "Level01_Punch")
+		else if(SceneManager.GetActiveScene().name == "Level01_Punch")
 		{
 			GameManager.manager.NextScene("PunchPractice");
 		}

@@ -241,7 +241,8 @@ public class PunchManager : MonoBehaviour
 		if(myScore > hisScore)
 		{
 			winState = 0;
-			if(GameManager.manager.GetPunchLvl() == GameManager.manager.GetDifficulty() - 1)
+            GameManager.manager.IncReRoll();
+            if (GameManager.manager.GetPunchLvl() == GameManager.manager.GetDifficulty())
 				GameManager.manager.punchLevel ++;
 		}
 		else
@@ -280,7 +281,6 @@ public class PunchManager : MonoBehaviour
 				BearAI.bearScript.SetBearDiff (difficulty);
 
             PowerMeter2.powerMeter2Script.SetPowerDifficulty(difficulty);
-            Debug.Log(difficulty);
 
 			oddsTxt.text = string.Format ("{0}:1", difficulty);
 			wagerTxt.text = string.Format ("{0:F2}", GameManager.manager.GetMyBetAmt ());

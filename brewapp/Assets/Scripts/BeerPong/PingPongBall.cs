@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -117,7 +118,7 @@ public class PingPongBall : MonoBehaviour
 		}
 		
 		// Set up the game for a practice round
-		if(Application.loadedLevelName == "PongPractice")
+		if(SceneManager.GetActiveScene().name == "PongPractice")
 		{
 			PPManager.ppManager.SetRandomCupActive(); 
 		}
