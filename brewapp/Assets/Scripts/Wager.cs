@@ -29,6 +29,8 @@ public class Wager : MonoBehaviour
 	public Text myTotalTxt;
 	public int difficulty;  // 1 = 1:1; 2 = 2:1; 3 = 3:1;
 
+    public float MyBetAmt { get { return myBetAmt; } set { myBetAmt = value; } }
+
 	private void Awake()
 	{
 		wagerScript = this;
@@ -100,7 +102,7 @@ public class Wager : MonoBehaviour
 
 		if(managerScript.GetReRolls() > 0)
 		{
-			if(miniGamelvl > 0)
+			if(miniGamelvl > 1)
 				reRollBtn.interactable = true;
 			numRollsTxt.text = managerScript.GetReRolls().ToString();
 		}
@@ -223,15 +225,22 @@ public class Wager : MonoBehaviour
 	// Use re-roll button to get a new difficulty level
 	public void ReRollDifficulty()
 	{
-		RollDifficulty ();
-		managerScript.SetLvlDifficulty(difficulty);
-		managerScript.DecReRoll ();
-		numRollsTxt.text = managerScript.GetReRolls ().ToString();
-		if(managerScript.GetReRolls() == 0)
-		{
-			reRollBtn.interactable = false;
-		}
-		reRoll = true;
+        int tempDiff = difficulty;
+
+        if(miniGamelvl > 1)
+        {
+            while (tempDiff == difficulty)
+                RollDifficulty();
+
+            managerScript.SetLvlDifficulty(difficulty);
+            managerScript.DecReRoll();
+            numRollsTxt.text = managerScript.GetReRolls().ToString();
+            if (managerScript.GetReRolls() == 0)
+            {
+                reRollBtn.interactable = false;
+            }
+            reRoll = true;
+        }
 	}
 
 

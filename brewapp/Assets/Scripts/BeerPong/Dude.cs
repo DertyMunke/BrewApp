@@ -105,7 +105,7 @@ public class Dude : MonoBehaviour
 		else if(index == "MyCup5")
 		{
 			ppBall.transform.Rotate(-60, 0, 0);
-			throwPower = 65;
+			throwPower = 66;
 		}
 		if(index == "MyCup4")
 		{

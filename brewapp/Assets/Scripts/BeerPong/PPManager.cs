@@ -48,7 +48,8 @@ public class PPManager : Touch3D
 
 	private void Start () 
 	{
-		Init ();
+        StartCoroutine(Init());
+		//Init ();
 	}
 	
 	private void FixedUpdate () 
@@ -65,7 +66,7 @@ public class PPManager : Touch3D
 	}
 
 	// Initializes the level 
-	private void Init()
+	private IEnumerator Init()
 	{
 		// Testing
 //		myScore = 4;
@@ -87,11 +88,17 @@ public class PPManager : Touch3D
 		// Setup the game for the "double or nothing" challenge
 		if(dblNothin)
 		{
+            Time.timeScale = 1;
 			SetupDblNothing();
 
-			// Starts the game
-			PauseManager.pauseScript.Pause();
-			StartGameBtn ();
+            yield return new WaitForSeconds(.5f);
+            Wager.wagerScript.MyBetAmt = GameManager.manager.GetMyBetAmt();
+
+            //PauseManager.pauseScript.Pause();
+            Wager.wagerScript.PlaceBetBtn();
+
+            // Starts the game
+            StartGameBtn ();
 
 			// Set this so the game knows there's only one more cup for each player to make
 			maxCups = 1;
@@ -430,7 +437,8 @@ public class PPManager : Touch3D
 						myCups[0].transform.position = new Vector3(myStartPos[0].x, myStartPos[0].y, -6.63f);
 						myCups[1].transform.position = new Vector3(0, myStartPos[1].y, -7.65f);
 						myCups[4].transform.position = myStartPos[4];
-					}
+
+                    }
 					else
 					{
 						myCups[0].SetActive(true);
@@ -440,7 +448,11 @@ public class PPManager : Touch3D
 						myCups[0].transform.position = new Vector3(myStartPos[0].x, myStartPos[0].y, myStartPos[0].z - .8f);
 						myCups[1].transform.position = new Vector3(myStartPos[1].x, myStartPos[1].y, myStartPos[1].z - .8f);
 						myCups[2].transform.position = new Vector3(myStartPos[2].x, myStartPos[2].y, myStartPos[2].z - .8f);
-					}
+
+                        myCups[0].name = "MyCup2";
+                        myCups[1].name = "MyCup4";
+                        myCups[2].name = "MyCup5";
+                    }
 					
 				}
 				else 

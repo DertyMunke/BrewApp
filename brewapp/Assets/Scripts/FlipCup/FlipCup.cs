@@ -84,6 +84,7 @@ public class FlipCup : MonoBehaviour
 				{
 					GameObject newobj = Instantiate(cup, transform.position, transform.rotation) as GameObject;
 					newobj.transform.parent = theWorld.transform;
+                    newobj.GetComponent<MeshCollider>().enabled = false;
 
 					// Success! move to the next cup position
 					FlipCupManager.managerScript.NextCupReset();

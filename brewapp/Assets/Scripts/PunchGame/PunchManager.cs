@@ -53,31 +53,41 @@ public class PunchManager : MonoBehaviour
 
 	private void Start()
 	{
-		Init ();
+        StartCoroutine(Init());
+		//Init ();
 	}
 
 	// Initializes the current level
-	private void Init()
+	private IEnumerator Init()
 	{
 		GameManager.manager.SetPunchMsg (false);
 		dblNothin = GameManager.manager.GetDblNothing ();
 
 		if(dblNothin)
 		{
-			menuBtns[0].SetActive(false);
+            Time.timeScale = 1;
+            wagerPnl.SetActive(false);
+
+            menuBtns[0].SetActive(false);
 			menuBtns[1].SetActive(true);
 
 			numPunches = 1;
-			wagerPnl.SetActive(false);
+			
 
 			for(int i = 1; i < 3; i++)
 			{
 				myGlove[i].enabled = false;
 				hisGlove[i].enabled = false;
 			}
+            
+            yield return new WaitForSeconds(.5f);
+            Wager.wagerScript.MyBetAmt = GameManager.manager.GetMyBetAmt();
 
-			PauseManager.pauseScript.Pause();
+            //PauseManager.pauseScript.Pause();
+            Wager.wagerScript.PlaceBetBtn();
 			StartGameBtn();
+
+            
 		}
 
 	}

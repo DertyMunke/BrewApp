@@ -15,6 +15,7 @@ public class FlipCupManager : MonoBehaviour
 	private bool putDownCup = false;
 	private bool putDownDone = false;
 	private bool startHisGame = false;
+    private bool dblNothin = false;
 	private float foxAnimSpacing = 1; // The amount of time between flip cup anims 
 	private int winState = 2; // 0 = win, 1 = lose, 2 = draw
 	private int myCupIndex = 0;
@@ -62,12 +63,13 @@ public class FlipCupManager : MonoBehaviour
 	private void Start()
 	{
 		managerScript = this;
-		//LevelSetup ();
 		chugCamPos = camMain.transform.position;
 		chugCamRot = camMain.transform.rotation;
 		chugCupPos = animCup.transform.position;
 
 		foxAnims = fox.GetComponent<Animator> ();
+
+        StartCoroutine(Init());
 	}
 
 	private void FixedUpdate()
@@ -82,28 +84,50 @@ public class FlipCupManager : MonoBehaviour
 		}
 	}
 
+    public IEnumerator Init()
+    {
+        // Setup the game for the "double or nothing" challenge
+        if (GameManager.manager.GetDblNothing())
+        {
+            dblNothin = true;
+            Time.timeScale = 1;
+            wagerPnl.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+
+            Wager.wagerScript.PlaceBetBtn();
+            TopBannerValue();
+            LevelSetup();
+        }
+    }
+
 	// Initializes the level variables and objects
 	public void LevelSetup()
 	{
 		GameManager.manager.SetFlipMsg (false);
 		int flipCupLevel = GameManager.manager.flipCupLevel;
 
-		if(GameManager.manager.GetDifficulty() <= 3)
-		{
-			numCups = GameManager.manager.GetDifficulty() + 2; 
-		}
-		else
-			numCups = 6;
-
 		// Use the same difficulty and bet amounts in case of double or nothing 
-		if(GameManager.manager.GetDblNothing())
+		if(dblNothin)
 		{
 			numCups = 1;
-			wagerPnl.SetActive(false);
+			
 			oddsTxt.text = string.Format ("{0}:1", GameManager.manager.GetDifficulty ());
 			wagerTxt.text = string.Format("{0:F2}", GameManager.manager.GetMyBetAmt ());
 			totalTxt.text = string.Format ("{0:F2}", GameManager.manager.GetTotal ());
-		}
+
+            Wager.wagerScript.MyBetAmt = GameManager.manager.GetMyBetAmt();
+
+            //PauseManager.pauseScript.Pause();
+        }
+        else
+        {
+            if (GameManager.manager.GetDifficulty() <= 3)
+            {
+                numCups = GameManager.manager.GetDifficulty() + 2;
+            }
+            else
+                numCups = 6;
+        }
 
 		// Determines the number of cups for each player, dependant on the difficulty level
 		for(int i = 0; i < numCups; i++)
